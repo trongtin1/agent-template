@@ -36,6 +36,7 @@ When user's prompt is NOT in English:
 
 **ALL Git commits MUST follow `@[skills/git-master]` conventions:**
 
+- **User Approval Gate (STRICT)**: You MUST NEVER run `git commit`, `git push`, or any state-changing Git command automatically. You MUST present the proposed changes (files, diff, drafted commit message) and WAIT for the user's explicit approval before executing.
 - **Conventional Commits**: Format must strictly be `type(scope): concise description`.
 - **Atomic Commits**: One commit = one complete, working logical change.
 - **Safety First**: Never commit secrets, credentials, or `.env` files. Never force-push to `main`.

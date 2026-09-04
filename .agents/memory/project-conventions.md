@@ -7,6 +7,7 @@ updated: 2026-07-12
 # Project Conventions
 
 ## Git Workflow
+- **MANDATORY APPROVAL GATE**: Never run `git commit`, `git push`, or any state-modifying Git command without first showing the proposed changes/commit message and waiting for user approval.
 - Always create a new dedicated branch for major code changes.
 - Branch name format should follow: `feature/[task-slug]` or `fix/[bug-slug]`.
 

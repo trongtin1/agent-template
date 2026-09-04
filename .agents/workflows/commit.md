@@ -42,10 +42,20 @@ Analyze the changes and draft a commit message conforming to `@[skills/git-maste
   - `refactor(db): extract user repository layer`
   - `docs(readme): update quick-start guide`
 
-### Step 4: Execute Commit
-Stage the intended files and commit:
+### Step 4: User Approval Gate (MANDATORY)
+Present the prepared commit plan to the user:
+- List of files to be staged/committed
+- Summary of diff / changes
+- Proposed commit message: `type(scope): concise description`
+
+🛑 **HALT AND WAIT**: Do NOT execute `git commit`, `git push`, or any state-changing Git command until the user explicitly responds with approval.
+
+### Step 5: Execute Commit (Only After Explicit Approval)
+Once the user confirms approval:
 ```bash
 git add <target-files>
 git commit -m "type(scope): concise description"
 ```
 Report the committed SHA and summary to the user.
+
+> ⚠️ **Note on `git push`**: Never run `git push` automatically. Always ask for separate user confirmation before pushing to remote.

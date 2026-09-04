@@ -15,10 +15,11 @@ effort: medium
 
 ## 🎯 Core Principles
 
-1. **Atomic Commits**: One commit = one complete, working logical change. Never mix refactoring with feature code or dependency bumps.
-2. **Conventional Commits with Scope**: Every commit message must follow `type(scope): concise description`.
-3. **Secret Hygiene**: Never stage or commit credentials, `.env` files, SSH keys, or local tokens.
-4. **Main Branch Protection**: Never force-push (`push --force`) to `main` or `master`. Always prefer rebase or clean feature branches.
+1. **🔴 Mandatory User Approval Gate**: NEVER execute `git commit`, `git push`, `git checkout -b`, `git reset`, `git rebase`, or any state-changing Git command without presenting the proposed action and waiting for the user's explicit confirmation.
+2. **Atomic Commits**: One commit = one complete, working logical change. Never mix refactoring with feature code or dependency bumps.
+3. **Conventional Commits with Scope**: Every commit message must follow `type(scope): concise description`.
+4. **Secret Hygiene**: Never stage or commit credentials, `.env` files, SSH keys, or local tokens.
+5. **Main Branch Protection**: Never force-push (`push --force`) to `main` or `master`. Always prefer rebase or clean feature branches.
 
 ---
 
