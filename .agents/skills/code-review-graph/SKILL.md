@@ -1,4 +1,4 @@
-﻿---
+---
 name: code-review-graph
 description: High-performance semantic code intelligence using colbymchenry/codegraph (Rust-powered). Provides surgical context for AI via MCP.
 when_to_use: "ALWAYS use this for codebase analysis. The user requires AUTOMATIC graph usage on every command."

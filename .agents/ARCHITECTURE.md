@@ -136,6 +136,8 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 | `web-design-guidelines` | Web UI audit - 100+ rules for accessibility, UX, performance (Vercel) |
 | `tailwind-patterns`     | Tailwind CSS v4 utilities                                             |
 | `frontend-design`       | UI/UX patterns, design systems                                        |
+| `gsap-skills`           | Official GSAP animation platform skills & timelines                   |
+| `taste-skill`           | Anti-slop UI design framework, typography, and layout variance        |
 
 ### Backend & API
 
@@ -168,6 +170,7 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 | `tdd-workflow`          | Test-driven development  |
 | `code-review-checklist` | Code review standards    |
 | `lint-and-validate`     | Linting, validation      |
+| `silent-failure-hunter` | Hunt swallowed errors, empty catches, quiet failures |
 
 ### Security
 
@@ -367,7 +370,7 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
 | **Total Agents**    | 20 (1 major upgrade in 2026.5.13) |
-| **Total Skills**    | 47                                |
+| **Total Skills**    | 50                                |
 | **Total Workflows** | 13 (+2 new in 2026.5.13)          |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |
 | **Antigravity Utilities** | 4 runtime utilities              |

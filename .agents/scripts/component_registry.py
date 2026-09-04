@@ -17,7 +17,7 @@ SEMVER_RE = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-
 
 
 def extract_frontmatter(path: Path) -> str:
-    text = path.read_text("utf-8", errors="replace")
+    text = path.read_text("utf-8-sig", errors="replace").replace("\r\n", "\n")
     if not text.startswith("---\n"):
         raise ValueError(f"Missing YAML frontmatter: {path}")
     end = text.find("\n---\n", 4)

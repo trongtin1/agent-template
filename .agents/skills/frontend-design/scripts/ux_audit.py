@@ -689,9 +689,11 @@ class UXAuditor:
         }
 
 def main():
-    if len(sys.argv) < 2: sys.exit(1)
-    
-    path = sys.argv[1]
+    path = "."
+    for arg in sys.argv[1:]:
+        if not arg.startswith("-"):
+            path = arg
+            break
     is_json = "--json" in sys.argv
     
     auditor = UXAuditor()

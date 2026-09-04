@@ -1,6 +1,9 @@
-﻿---
+---
 name: taste-skill
 description: Portable Agent Skills that upgrade AI-built interfaces with stronger layout, typography, motion, and spacing.
+when_to_use: "When designing or styling frontend components, landing pages, or web apps requiring premium typography, varied layouts, and anti-slop visual craft."
+allowed-tools: Read, Grep, Glob, Bash, Edit, Write
+version: 1.0.0
 ---
 <p align="center">
   <img src="assets/readme-banner.webp" alt="Taste Skill - Anti-slop Agent Skills for premium frontends" width="100%" />
@@ -137,7 +140,7 @@ If you depend on the exact behavior of v1 and want to pin to it explicitly:
 npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend-v1"
 ```
 
-See [CHANGELOG.md](CHANGELOG.md) for the full v1 to v2 diff and the rationale.
+See [CHANGELOG](https://github.com/Leonxlnx/taste-skill/blob/main/CHANGELOG.md) for the full v1 to v2 diff and the rationale.
 
 ## Skills
 
@@ -170,7 +173,7 @@ These produce design images only (no code). Use with ChatGPT Images, Codex image
 
 ### Which one should I use?
 
-- Start with **taste-skill** for the safest general default. (Now v2 experimental - see what changed in the [CHANGELOG](CHANGELOG.md).)
+- Start with **taste-skill** for the safest general default. (Now v2 experimental - see what changed in the [CHANGELOG](https://github.com/Leonxlnx/taste-skill/blob/main/CHANGELOG.md).)
 - If you depend on the exact behavior of the original taste-skill, install **taste-skill-v1** instead. 
 - Use **gpt-taste** when you want the stricter GPT/Codex-oriented rules and motion/layout enforcement. 
 - Use **image-to-code-skill** for image → analyze → code website workflows. 
@@ -241,7 +244,7 @@ If Taste Skill helps you, consider sponsoring:
 
 ## Research
 
-Background writing that shaped these skills lives in [`research/`](research/).
+Background writing that shaped these skills lives in the upstream repository research notes.
 
 ## Common Questions
 
@@ -259,5 +262,5 @@ Yes. They live under `skills/` alongside the code skills so the same CLI discove
 
 ## License
 
-[MIT License](LICENSE) · Copyright (c) 2026 Leonxlnx
+MIT License · Copyright (c) 2026 Leonxlnx
 

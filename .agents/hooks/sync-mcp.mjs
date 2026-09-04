@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
+import { pathToFileURL } from 'node:url';
 
 function parseArgs(argv) {
   const options = {root: process.cwd(), apply: false, print: false, force: false, target: 'suite'};
@@ -75,7 +76,7 @@ export function planSync({root, target = 'suite', force = false}) {
   return {source, destination, workspace, merged: result, conflicts, placeholders: containsPlaceholder(workspace)};
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     const options = parseArgs(process.argv.slice(2));
     const plan = planSync(options);

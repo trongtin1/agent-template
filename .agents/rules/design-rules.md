@@ -34,11 +34,20 @@ Before writing or editing UI (components, pages, styles — web or mobile), a **
 
 **These agents contain:**
 
-- Purple Ban (no purple by default — brand/brief override allowed)
-- Template Ban (no standard layouts)
-- Anti-cliché rules
-- Deep Design Thinking protocol
-
-> 🔴 **For design work:** Open and READ the agent file. Rules are there.
+- **Frontend Design Bar**: Judged by eye, not code. Beauty comes from assembly (motion, rhythm, contrast, depth).
+- **Swap-Test**: If swapping text & color turns it into an interchangeable template, the design is too weak.
+- **Purple Ban**: No purple by default (`#8B5CF6`, `#A855F7`) — brand/brief override allowed.
+- **Template Ban**: No generic 3-column feature grids or text-on-void hero sections.
+- **Focal Artifact**: Every hero must have a tangible visual focal point (3D, canvas, mockup, kinetic art).
 
 ---
+
+## 🔍 Mandatory Post-UI Quality Loop
+
+Immediately after creating or modifying any UI files:
+
+1. **Static UX & A11y Audit**:
+   - Run `python .agents/skills/frontend-design/scripts/ux_audit.py`
+   - Run `python .agents/skills/frontend-design/scripts/accessibility_checker.py`
+2. **Visual Inspection**:
+   - When a preview server is available, inspect rendered screenshots via `browser_subagent` to verify typography hierarchy, responsive breakpoints, and motion smoothness.

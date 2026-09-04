@@ -1,0 +1,24 @@
+{
+  "name": "agent-template",
+  "version": "2026.8.31",
+  "description": "AG Kit template repository for Google Antigravity IDE and Gemini CLI",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:agents": "python .agents/scripts/validate_kit.py",
+    "check:antigravity": "node .agents/hooks/antigravity-doctor.mjs",
+    "test:antigravity": "node --test .agents/hooks/tests/antigravity.test.mjs",
+    "test:toolkit": "python -m unittest discover -s .agents/scripts/tests",
+    "audit:ux": "python .agents/skills/frontend-design/scripts/ux_audit.py",
+    "sync:manifest": "python .agents/scripts/generate_manifest.py && python .agents/scripts/dependency_graph.py"
+  },
+  "keywords": [
+    "antigravity",
+    "gemini",
+    "agents",
+    "skills",
+    "ai-coding"
+  ],
+  "author": "",
+  "license": "MIT"
+}

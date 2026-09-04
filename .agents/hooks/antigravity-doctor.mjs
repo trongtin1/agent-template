@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import { pathToFileURL } from 'node:url';
 
 function parseArgs(argv) {
   const options = {root: process.cwd(), json: false, strict: false};
@@ -22,7 +23,9 @@ function readJson(file) {
 }
 
 function frontmatter(file) {
-  const text = fs.readFileSync(file, 'utf8');
+  let text = fs.readFileSync(file, 'utf8');
+  if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+  text = text.replace(/\r\n/g, '\n');
   if (!text.startsWith('---\n')) return null;
   const end = text.indexOf('\n---\n', 4);
   if (end < 0) return null;
@@ -198,19 +201,25 @@ function checkPlugin(root, report) {
 function checkValidation(root, report) {
   const requiredFiles = [
     '.agents/hooks/tests/antigravity.test.mjs',
-    'MIGRATION.md',
-    'SECURITY.md'
+    '.agents/README.md',
+    'README.md'
   ];
   for (const file of requiredFiles) {
     if (!fs.existsSync(path.join(root, file))) add(report, 'error', 'validation', 'validation.file_missing', file, 'Production validation or operator documentation is missing.');
   }
 
   const versionFiles = [
-    ['.agents/VERSION', value => value.trim()],
-    ['package.json', value => JSON.parse(value).version],
-    ['cli/package.json', value => JSON.parse(value).version],
-    ['web/package.json', value => JSON.parse(value).version]
+    ['.agents/VERSION', value => value.trim()]
   ];
+  if (fs.existsSync(path.join(root, 'package.json'))) {
+    versionFiles.push(['package.json', value => JSON.parse(value).version]);
+  }
+  if (fs.existsSync(path.join(root, 'cli/package.json'))) {
+    versionFiles.push(['cli/package.json', value => JSON.parse(value).version]);
+  }
+  if (fs.existsSync(path.join(root, 'web/package.json'))) {
+    versionFiles.push(['web/package.json', value => JSON.parse(value).version]);
+  }
   const versions = [];
   for (const [file, parse] of versionFiles) {
     const target = path.join(root, file);
@@ -262,7 +271,7 @@ function printHuman(report) {
   console.log(report.passed ? '[PASS] Antigravity contract is ready.' : '[FAIL] Antigravity contract has blocking findings.');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     const options = parseArgs(process.argv.slice(2));
     if (options.help) {

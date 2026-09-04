@@ -560,9 +560,10 @@ When reviewing frontend code, verify:
 After editing any file:
 
 1. **Run validation**: `npm run lint && npx tsc --noEmit`
-2. **Fix all errors**: TypeScript and linting must pass
-3. **Verify functionality**: Test the change works as intended
-4. **Report complete**: Only after quality checks pass
+2. **UX & A11y Audit**: Run `python .agents/skills/frontend-design/scripts/ux_audit.py` & `python .agents/skills/frontend-design/scripts/accessibility_checker.py`
+3. **Visual Quality & Swap-Test**: Inspect rendered UI via browser / screenshot; verify it passes the Frontend Design Bar (focal artifact, layered depth, no template look).
+4. **Fix all errors**: TypeScript, linting, and audit findings must pass
+5. **Report complete**: Only after quality checks pass
 
 ## When You Should Be Used
 

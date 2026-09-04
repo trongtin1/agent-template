@@ -72,6 +72,7 @@
       "requires": {
         "skills": {
           "clean-code": "^2.0.0",
+          "silent-failure-hunter": "^1.0.0",
           "systematic-debugging": "^1.0.0"
         }
       },
@@ -156,9 +157,11 @@
           "design-spec": "^1.0.0",
           "frontend-architecture": "^1.0.0",
           "frontend-design": "^1.0.0",
+          "gsap-skills": "^1.0.0",
           "lint-and-validate": "^1.0.0",
           "nextjs-react-expert": "^1.0.0",
           "tailwind-patterns": "^1.0.0",
+          "taste-skill": "^1.0.0",
           "web-design-guidelines": "^1.0.0"
         }
       },
@@ -344,6 +347,7 @@
         "skills": {
           "clean-code": "^2.0.0",
           "lint-and-validate": "^1.0.0",
+          "silent-failure-hunter": "^1.0.0",
           "testing-patterns": "^1.0.0",
           "web-design-guidelines": "^1.0.0",
           "webapp-testing": "^1.0.0"
@@ -633,11 +637,12 @@
         "Read",
         "Grep",
         "Glob",
-        "Bash"
+        "Bash",
+        "Agent"
       ],
       "path": "skills/code-review-graph/SKILL.md",
       "scripts": [],
-      "version": "1.0.0"
+      "version": "2.0.0"
     },
     "context-compression": {
       "allowedTools": [
@@ -761,6 +766,19 @@
       "scripts": [
         "skills/geo-fundamentals/scripts/geo_checker.py"
       ],
+      "version": "1.0.0"
+    },
+    "gsap-skills": {
+      "allowedTools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Edit",
+        "Write"
+      ],
+      "path": "skills/gsap-skills/SKILL.md",
+      "scripts": [],
       "version": "1.0.0"
     },
     "i18n-localization": {
@@ -970,6 +988,19 @@
       "scripts": [],
       "version": "1.0.0"
     },
+    "silent-failure-hunter": {
+      "allowedTools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Edit",
+        "Write"
+      ],
+      "path": "skills/silent-failure-hunter/SKILL.md",
+      "scripts": [],
+      "version": "1.0.0"
+    },
     "simplify-code": {
       "allowedTools": [
         "Read",
@@ -1012,6 +1043,19 @@
         "Grep"
       ],
       "path": "skills/tailwind-patterns/SKILL.md",
+      "scripts": [],
+      "version": "1.0.0"
+    },
+    "taste-skill": {
+      "allowedTools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Edit",
+        "Write"
+      ],
+      "path": "skills/taste-skill/SKILL.md",
       "scripts": [],
       "version": "1.0.0"
     },

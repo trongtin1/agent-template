@@ -1,6 +1,9 @@
-﻿---
+---
 name: gsap-skills
 description: Official AI skills for GSAP (GreenSock Animation Platform) for high performance animations.
+when_to_use: "When implementing complex web animations, timelines, ScrollTrigger, motion paths, or high-performance UI transitions."
+allowed-tools: Read, Grep, Glob, Bash, Edit, Write
+version: 1.0.0
 ---
 ```text
    ██████╗ ███████╗ █████╗ ██████╗
@@ -156,7 +159,7 @@ gsap-skills/
 
 ## GitHub Copilot
 
-Copilot doesn’t load Cursor/Claude skill files. To get GSAP guidance in a repo, copy or adapt the [`.github/copilot-instructions.md`](.github/copilot-instructions.md) (and optional [`.github/instructions/`](.github/instructions/) path-specific files) into that repo. See [GitHub Copilot customization](https://docs.github.com/en/copilot/concepts/response-customization).
+Copilot doesn’t load skill files automatically. To get GSAP guidance in Copilot, adapt `.github/copilot-instructions.md` (and optional path-specific rules) into the target repo. See [GitHub Copilot customization](https://docs.github.com/en/copilot/concepts/response-customization).
 
 ## Risk level
 

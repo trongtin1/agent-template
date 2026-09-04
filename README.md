@@ -1,4 +1,4 @@
-﻿# Agent Template (AG Kit)
+# Agent Template (AG Kit)
 
 Starter repository pre-configured with **AG Kit** — an autonomous multi-agent and skills framework for **Google Antigravity IDE** and **Gemini CLI**.
 
@@ -6,7 +6,7 @@ Starter repository pre-configured with **AG Kit** — an autonomous multi-agent 
 
 ## 📁 Repository Structure
 
-`	ext
+```text
 agent-template/
 ├── .agents/
 │   ├── agent/             # Specialized Agent Personas (20 agents)
@@ -33,7 +33,7 @@ agent-template/
 │   └── manifest.json      # AG Kit component manifest
 ├── .gitignore
 └── README.md
-`
+```
 
 ---
 
@@ -41,17 +41,17 @@ agent-template/
 
 ### Option 1: Use as a New Project Base
 1. Clone or copy this repository:
-   `ash
+   ```bash
    git clone <your-repo-url> my-new-project
    cd my-new-project
-   `
-2. Initialize your project code inside this folder. The .agents directory will automatically be recognized by Antigravity IDE.
+   ```
+2. Initialize your project code inside this folder. The `.agents` directory will automatically be recognized by Antigravity IDE.
 
 ### Option 2: Add AG Kit to an Existing Project
-Copy the .agents/ folder directly to the root of your existing project:
-`powershell
-Copy-Item -Path  path\to\agent-template\.agents -Destination path\to\your-project\.agents -Recurse
-`
+Copy the `.agents/` folder directly to the root of your existing project:
+```powershell
+Copy-Item -Path .\path\to\agent-template\.agents -Destination .\path\to\your-project\.agents -Recurse
+```
 
 ---
 
