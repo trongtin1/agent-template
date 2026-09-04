@@ -1,7 +1,7 @@
 {
   "$schema": "schemas/manifest-lock.schema.json",
   "components": {
-    "ARCHITECTURE.md": "3214b4ee2cba1fec781a1397ba1af5a78b64f8a5a774bb97b3d2f07d54b2037f",
+    "ARCHITECTURE.md": "7df983ab5fa3985b904842584b822c64e05fb64f83e6e74f71d1c5f406025603",
     "CHANGELOG.md": "c29cb325d278be44ad662d91c86c180cf01c05d008f77cf4b3f0bd42de8c46f8",
     "README.md": "d6a29fbc3367f5ab5739f84bad71710879119d1b697b6a18943dcdad5e2ec654",
     "VERSION": "94bc11e2a5617c66e6d2f849e14be6579c44c90d0f985d80ce4dc96dff46fa94",
@@ -24,7 +24,9 @@
     "agent/qa-automation-engineer.md": "5cb72565abf674f1d2cd1dc21fa49479f1463a3a4ad1a79f9db8662aa72c165d",
     "agent/security-auditor.md": "a526994748a427bf906459664ecdd0131aeb29b8f3dae8a09969af2f75c8a752",
     "agent/seo-specialist.md": "13bba95dd76154f16f9ecbf52d20f8e9cb946085e209dc1339f1f68dcea4c2f0",
+    "agent/system-architect.md": "7185db8d40f222b4219da98673a9e13bf6bb5016b1a31fe529c246aec9ed5d83",
     "agent/test-engineer.md": "3e12917431abd98809198d0d167b75ae7f4e5c4c27862a010227dda8d71724d7",
+    "agent/ui-ux-designer.md": "eacb345fad5e732ebe42edccb81dd68994dc0427ee231e7280eae52e8420a543",
     "antigravity.json": "e69e16886e216762892adb9cc6aa0790205121e47ec8ae8091a0247a4566ca0a",
     "hooks.json": "e411748245fd87be9f0f88dea7f987352827900acb615d8ff8271db018605727",
     "hooks/README.md": "9ca1d291ae7fb0f79e60bb3982f3ff4dba488844f4fa833088b710e6b2616e96",
@@ -64,6 +66,7 @@
     "scripts/validate_kit.py": "91ef81cfd51d0a00810d01994c0f459f1263384a9d961d2c211028ddeaf16449",
     "scripts/validation_runner.py": "382463ab326c1978e76b45b45943ff99c60b04392e23aa46570e46359bff8664",
     "scripts/verify_all.py": "8a8d5f45cb2d76dbd34464ce81954c8e8f8b350f1ca39d98ea305595f827c2e6",
+    "skills/advanced-elicitation/SKILL.md": "4fd94ab86ff437aae559b15ae947cf518332dc852711fcfca750c59f34f1b66a",
     "skills/api-patterns/SKILL.md": "b9f16c4cb87d14f0ad9407556481e25b63312eb86602520f6533776d8ad19550",
     "skills/api-patterns/api-style.md": "4295b97c36ebf411a86ed644d733fcfb8fa198569243ea11babb2cf168833fb5",
     "skills/api-patterns/auth.md": "d35ba351bf05454ad097522b80fb19368b47f66ff4ab0e76a0d69e303c2b72f0",
@@ -216,6 +219,7 @@
     "workflows/deploy.md": "f3141b4125f8c49c6cb34986a75473589a2b4d53ca9ac092b9677a0c0186c158",
     "workflows/enhance.md": "fd913ca826afb2e2cbd54a4e316cf3ea5d779d56e02ae3b0a8cc99feecdbc736",
     "workflows/orchestrate.md": "00d3469acb4d465b8d7b54fb42524bb36cd45ee2cd2c8b997b2b57b35cdc8f6f",
+    "workflows/party.md": "cb3dad53a5e214a8d6db76bc48ae3ef85233df603d76aa73f876a2b4e9260a82",
     "workflows/plan.md": "4766b0ce3958eeb4050ad4099a61aa661747a39c2140eace148d3d5b4c480ddc",
     "workflows/preview.md": "94f948c78916a473838a04b15860b9490b25c2a8b39f0d211f63884ec33a8bd1",
     "workflows/remember.md": "58ae91f31bca164f2a1c3c2d102e676e431c5898a42212a92d2d54f2a545a5fe",
@@ -224,6 +228,6 @@
     "workflows/verify.md": "2dc26bcbe24c7e71571953da75629521ea3d7a0a444a7101e3601b39864971fc"
   },
   "kitVersion": "2026.8.31",
-  "manifestSha256": "3040da4fe2dfb518af87c1f7abe958ebbc0bb73c9cfda9fb72b397134d903708",
+  "manifestSha256": "a5f603f0c049385ffa1dc0723d21d7a88a71d5348d345ab461ff6c71656a39d7",
   "schemaVersion": "1.0.0"
 }

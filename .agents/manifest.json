@@ -403,6 +403,27 @@
       ],
       "version": "1.0.0"
     },
+    "system-architect": {
+      "model": "inherit",
+      "path": "agent/system-architect.md",
+      "requires": {
+        "skills": {
+          "advanced-elicitation": "^1.0.0",
+          "api-patterns": "^1.0.0",
+          "architecture": "^1.0.0",
+          "clean-code": "^2.0.0",
+          "database-design": "^1.0.0",
+          "plan-writing": "^1.0.0"
+        }
+      },
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash"
+      ],
+      "version": "1.0.0"
+    },
     "test-engineer": {
       "model": "inherit",
       "path": "agent/test-engineer.md",
@@ -423,6 +444,27 @@
         "Bash",
         "Edit",
         "Write"
+      ],
+      "version": "1.0.0"
+    },
+    "ui-ux-designer": {
+      "model": "inherit",
+      "path": "agent/ui-ux-designer.md",
+      "requires": {
+        "skills": {
+          "advanced-elicitation": "^1.0.0",
+          "clean-code": "^2.0.0",
+          "design-spec": "^1.0.0",
+          "frontend-design": "^1.0.0",
+          "taste-skill": "^1.0.0",
+          "web-design-guidelines": "^1.0.0"
+        }
+      },
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash"
       ],
       "version": "1.0.0"
     }
@@ -528,6 +570,17 @@
   },
   "schemaVersion": "1.0.0",
   "skills": {
+    "advanced-elicitation": {
+      "allowedTools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash"
+      ],
+      "path": "skills/advanced-elicitation/SKILL.md",
+      "scripts": [],
+      "version": "1.0.0"
+    },
     "api-patterns": {
       "allowedTools": [
         "Read",
@@ -1273,6 +1326,28 @@
         "skills": [
           "parallel-agents",
           "coordinator-mode"
+        ]
+      },
+      "version": "1.0.0"
+    },
+    "party": {
+      "artifactOutputs": [
+        "consensus-spec"
+      ],
+      "path": "workflows/party.md",
+      "requires": {
+        "agents": [
+          "product-manager",
+          "ui-ux-designer",
+          "system-architect",
+          "frontend-specialist",
+          "backend-specialist"
+        ],
+        "skills": [
+          "advanced-elicitation",
+          "architecture",
+          "design-spec",
+          "clean-code"
         ]
       },
       "version": "1.0.0"

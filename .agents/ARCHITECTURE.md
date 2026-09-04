@@ -51,9 +51,9 @@ Any managed change without registry regeneration fails validation and CI. Google
 ├── manifest.json             # Generated component registry
 ├── manifest.lock.json        # Generated integrity lock
 ├── DEPENDENCY_GRAPH.md       # Generated workflow → agent → skill graph
-├── agent/                    # 20 specialist role definitions
-├── skills/                   # 47 progressive skills
-├── workflows/                # 13 slash-command procedures
+├── agent/                    # 22 specialist role definitions
+├── skills/                   # 51 progressive skills
+├── workflows/                # 14 slash-command procedures
 ├── rules/                    # 6 workspace constraints
 ├── memory/                   # Persistent project context
 ├── hooks/                    # Antigravity Doctor, policy, MCP, plugin, schemas, tests
@@ -93,13 +93,15 @@ The Antigravity runtime files are included in the managed integrity lock beginni
 
 ---
 
-## 🤖 Agents (20)
+## 🤖 Agents (22)
 
 Specialist AI personas for different domains.
 
 | Agent                    | Focus                      | Skills Used                                              |
 | ------------------------ | -------------------------- | -------------------------------------------------------- |
 | `orchestrator`           | Multi-agent coordination   | parallel-agents, coordinator-mode, memory-system, context-compression, verify-changes |
+| `system-architect`       | High-level architecture, ADR | architecture, api-patterns, database-design, advanced-elicitation |
+| `ui-ux-designer`          | UX flow, layout, tokens    | design-spec, frontend-design, web-design-guidelines, taste-skill |
 | `project-planner`        | Discovery, task planning   | brainstorming, plan-writing, architecture                |
 | `frontend-specialist`    | Web UI/UX                  | frontend-design, nextjs-react-expert, tailwind-patterns |
 | `backend-specialist`     | API, business logic        | api-patterns, nodejs-best-practices, database-design     |
@@ -122,7 +124,7 @@ Specialist AI personas for different domains.
 
 ---
 
-## 🧩 Skills (47)
+## 🧩 Skills (51)
 
 Modular knowledge domains that agents can load on-demand based on task context. Each skill has a `when_to_use` frontmatter field for conditional/intelligent loading.
 
@@ -185,6 +187,7 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 | --------------- | -------------------------- |
 | `app-builder`   | Full-stack app scaffolding |
 | `architecture`  | System design patterns     |
+| `advanced-elicitation` | Uncover blindspots & assumptions |
 | `plan-writing`  | Task planning, breakdown   |
 | `brainstorming` | Socratic questioning       |
 
@@ -243,12 +246,13 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 
 ---
 
-## 🔄 Workflows (13)
+## 🔄 Workflows (14)
 
 Slash command procedures. Invoke with `/command`.
 
 | Command          | Description                                    |
 | ---------------- | ---------------------------------------------- |
+| `/party`         | **NEW** Multi-perspective squad alignment (PM, UX, Architect, Dev) |
 | `/brainstorm`    | Socratic discovery                             |
 | `/coordinate`    | **NEW** Advanced multi-agent coordination      |
 | `/create`        | Create new features                            |
@@ -369,9 +373,9 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
-| **Total Agents**    | 20 (1 major upgrade in 2026.5.13) |
-| **Total Skills**    | 50                                |
-| **Total Workflows** | 13 (+2 new in 2026.5.13)          |
+| **Total Agents**    | 22 (1 major upgrade in 2026.5.13) |
+| **Total Skills**    | 51                                |
+| **Total Workflows** | 14 (+2 new in 2026.5.13)          |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |
 | **Antigravity Utilities** | 4 runtime utilities              |
 | **Total Skill Scripts** | 18                              |
