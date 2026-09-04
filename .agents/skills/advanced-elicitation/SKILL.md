@@ -6,11 +6,9 @@ allowed-tools: Read, Grep, Glob, Bash
 version: 1.0.0
 ---
 
-# Advanced Requirements Elicitation
+# Advanced Elicitation — Discovering Unstated Assumptions
 
-> "The most dangerous assumptions are the ones nobody realizes they are making."
-
-Inspired by BMAD-METHOD and cognitive interviewing techniques, this skill helps agents extract true intent from brief or ambiguous user prompts before planning or coding.
+Based on cognitive interviewing and advanced requirements engineering techniques, this skill helps agents extract true intent from brief or ambiguous user prompts before planning or coding.
 
 ---
 

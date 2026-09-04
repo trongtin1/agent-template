@@ -52,6 +52,21 @@ const data = (response as any).data;
 
 ## 🔍 Audit Procedure
 
+### A. AST Structural Scan (RECOMMENDED — Zero False Positives)
+Use `ast-grep` to identify syntax patterns directly across TypeScript and Python files:
+```bash
+# 1. Detect empty catch blocks in JS/TS
+npx ast-grep run --pattern 'catch ($ERR) { }' --lang typescript
+
+# 2. Detect bare except or empty pass in Python
+npx ast-grep run --pattern 'except: pass' --lang python
+npx ast-grep run --pattern 'except $E: pass' --lang python
+
+# 3. Detect unhandled Promise rejections (.then without .catch)
+npx ast-grep run --pattern '$P.then($CB)' --lang typescript
+```
+
+### B. Fallback Regex Grep
 1. **Grep for Empty Catches**:
    - `catch\s*\([^)]*\)\s*\{\s*\}`
    - `catch\s*\{\s*\}`

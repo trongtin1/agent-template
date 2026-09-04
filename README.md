@@ -9,29 +9,43 @@ Starter repository pre-configured with **AG Kit** — an autonomous multi-agent 
 ```text
 agent-template/
 ├── .agents/
-│   ├── agent/             # Specialized Agent Personas (20 agents)
+│   ├── agent/             # Specialized Agent Personas (22 agents)
 │   │   ├── orchestrator.md
+│   │   ├── system-architect.md     # System Architecture & ADR
+│   │   ├── ui-ux-designer.md       # Anti-slop UI/UX & Design Tokens
 │   │   ├── frontend-specialist.md
 │   │   ├── backend-specialist.md
 │   │   ├── devops-engineer.md
 │   │   ├── project-planner.md
 │   │   └── ...
-│   ├── skills/            # On-demand domain skills
+│   ├── skills/            # On-demand domain skills (52 skills)
+│   │   ├── ast-grep/               # Tree-sitter AST structural search & outline
+│   │   ├── advanced-elicitation/   # Deep requirement discovery & edge cases
+│   │   ├── silent-failure-hunter/  # Swallowed error elimination
 │   │   ├── clean-code/
 │   │   ├── app-builder/
 │   │   ├── frontend-design/
 │   │   ├── api-patterns/
 │   │   └── ...
-│   ├── workflows/         # Guided workflows & slash commands
+│   ├── checklists/        # Phase Gate quality criteria (5 gates)
+│   │   ├── 01-requirements-gate.md
+│   │   ├── 02-architecture-gate.md
+│   │   ├── 03-ui-ux-gate.md
+│   │   ├── 04-development-gate.md
+│   │   └── 05-qa-verification-gate.md
+│   ├── workflows/         # Guided workflows & slash commands (14 workflows)
+│   │   ├── party.md (/party)       # 4-role consensus squad alignment
 │   │   ├── create.md (/create)
 │   │   ├── plan.md (/plan)
 │   │   ├── orchestrate.md (/orchestrate)
 │   │   ├── debug.md (/debug)
 │   │   └── ...
+│   ├── output-styles/     # Communication styles (Vietnamese & English concise)
 │   ├── rules/             # Workspace rules & core protocols
 │   ├── memory/            # Persistent cross-session memory index
 │   └── manifest.json      # AG Kit component manifest
 ├── .gitignore
+├── package.json           # Toolkit verification & ast-grep runner
 └── README.md
 ```
 
@@ -56,7 +70,10 @@ Copy-Item -Path .\path\to\agent-template\.agents -Destination .\path\to\your-pro
 ---
 
 ## 🤖 Highlights
-- **20 Specialized Agents**: Frontend, Backend, DevOps, Security, Database, QA, Architecture, and more.
-- **Dynamic Skill Loading**: Modular skills loaded on-demand to save context tokens.
-- **Guided Workflows**: Fast execution with slash commands such as /plan, /create, /orchestrate, /debug, /enhance.
+- **22 Specialized Agents**: Orchestrator, System Architect, UI/UX Designer, Frontend, Backend, DevOps, Security, Database, QA, and more.
+- **Multi-Perspective Squad Alignment**: `/party` command convenes PM, UX, Architect, and Dev to reach consensus before code is written.
+- **5 Phase Gate Checklists**: Quality criteria between Requirements, Architecture, Design, Dev, and QA.
+- **AST Code Intelligence**: Integrated `ast-grep` (Tree-sitter AST) and `ast_outline.py` for structural refactoring and 90% token savings.
+- **Dynamic Skill Loading**: 52 modular skills loaded strictly on-demand.
+- **Anti-Slop UI Standards**: Design spec tokens, contrast ratios, and Swap-Test validation.
 - **Cross-Session Memory**: Retain architectural decisions and coding preferences across sessions.

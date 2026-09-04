@@ -31,6 +31,8 @@ Open the repository as a trusted Antigravity workspace. The runtime should disco
 - `skills/*/SKILL.md` as progressively loaded domain context;
 - `workflows/*.md` as slash commands;
 - `agent/*.md` as specialist role definitions;
+- `checklists/*.md` as phase gate quality criteria;
+- `output-styles/*.md` as persona communication styles;
 - `memory/` as durable project context.
 
 Use `/coordinate` for separable parallel research/review work and `/orchestrate` for plan approval followed by specialist implementation. Antigravity `/agents` and `/tasks` remain the runtime source of truth.

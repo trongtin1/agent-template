@@ -8,10 +8,12 @@
 
 AG Kit is a modular Antigravity workspace system consisting of:
 
-- **20 Specialist Agents** — role-based AI personas and orchestration roles;
-- **47 Skills** — domain knowledge modules with progressive conditional loading;
-- **13 Workflows** — slash-command procedures;
+- **22 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect and UI/UX Designer);
+- **52 Skills** — domain knowledge modules with progressive conditional loading (including `ast-grep` Tree-sitter AST, `advanced-elicitation`, `silent-failure-hunter`);
+- **14 Workflows** — slash-command procedures (including `/party` 4-perspective squad consensus);
+- **5 Phase Gate Checklists** — deterministic quality gates between requirements, architecture, design, code, and QA;
 - **6 Rules** — workspace routing, coding, design, safety, and quick-reference constraints;
+- **2 Output Styles** — curated Vietnamese and English concise communication styles;
 - **Antigravity runtime layer** — contract, native hook, MCP helper, plugin builder, Doctor, schemas, and tests.
 
 ---
@@ -52,10 +54,11 @@ Any managed change without registry regeneration fails validation and CI. Google
 ├── manifest.lock.json        # Generated integrity lock
 ├── DEPENDENCY_GRAPH.md       # Generated workflow → agent → skill graph
 ├── agent/                    # 22 specialist role definitions
-├── skills/                   # 51 progressive skills
+├── skills/                   # 52 progressive skills
 ├── workflows/                # 14 slash-command procedures
 ├── rules/                    # 6 workspace constraints
 ├── memory/                   # Persistent project context
+├── checklists/               # 5 phase gate quality criteria
 ├── hooks/                    # Antigravity Doctor, policy, MCP, plugin, schemas, tests
 ├── schemas/                  # Managed component and memory schemas
 └── scripts/                  # Registry, validator, and project verification tools
@@ -124,7 +127,7 @@ Specialist AI personas for different domains.
 
 ---
 
-## 🧩 Skills (51)
+## 🧩 Skills (52)
 
 Modular knowledge domains that agents can load on-demand based on task context. Each skill has a `when_to_use` frontmatter field for conditional/intelligent loading.
 
@@ -173,6 +176,7 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 | `code-review-checklist` | Code review standards    |
 | `lint-and-validate`     | Linting, validation      |
 | `silent-failure-hunter` | Hunt swallowed errors, empty catches, quiet failures |
+| `ast-grep`              | Structural AST search, Tree-sitter patterns & refactor |
 
 ### Security
 
@@ -308,7 +312,7 @@ allowed-tools: Read, Grep, Glob
 
 ## 🛠️ Runtime Scripts
 
-AG Kit includes **7 user-facing top-level utilities**, **2 internal registry/runner modules**, **4 Antigravity runtime utilities**, and **18 skill-level scripts**.
+AG Kit includes **7 user-facing top-level utilities**, **2 internal registry/runner modules**, **4 Antigravity runtime utilities**, and **19 skill-level scripts**.
 
 ### Toolkit utilities
 
@@ -374,11 +378,11 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
 | **Total Agents**    | 22 (1 major upgrade in 2026.5.13) |
-| **Total Skills**    | 51                                |
+| **Total Skills**    | 52                                |
 | **Total Workflows** | 14 (+2 new in 2026.5.13)          |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |
 | **Antigravity Utilities** | 4 runtime utilities              |
-| **Total Skill Scripts** | 18                              |
+| **Total Skill Scripts** | 19                              |
 | **Coverage**        | Web, API, mobile, security, quality, runtime, orchestration |
 | **Token Efficiency**| Reduced via conditional skill loading |
 

@@ -1,5 +1,22 @@
 # AG Kit Toolkit Changelog
 
+## 2026.9.5 (Optimized Kit Release)
+
+### Added
+- **Agile Core Squad Integration**: Added `system-architect` (ADR, boundaries) and `ui-ux-designer` (design tokens, anti-slop). Total agents: 22.
+- **Phase Gate Checklists**: Added `.agents/checklists/` with 5 deterministic gates (01-requirements, 02-architecture, 03-ui-ux, 04-development, 05-qa-verification).
+- **Party Mode Alignment**: Added `/party` workflow for 4-perspective squad consensus before coding.
+- **Tree-sitter AST & ast-grep Intelligence**: Added `ast-grep` skill with meta-variable search/rewrite and `ast_outline.py` for 90% token savings on large files.
+- **Output Styles System**: Added `.agents/output-styles/` with Vietnamese Concise and English Concise styles.
+- **Anti-Slop UI & Silent Failure Hunting**: Added `advanced-elicitation`, `silent-failure-hunter`, `taste-skill`, and `gsap-skills`. Total skills: 52.
+
+### Changed
+- Updated `batch-operations` to prioritize `ast-grep` structural rewriting over regex `sed`.
+- Upgraded root `package.json` with `@ast-grep/cli` in `devDependencies`, `ast:outline`, `ast:scan`, and verification scripts.
+- Synchronized component manifest, lock, and dependency graph.
+
+---
+
 ## 2026.8.31
 
 ### Added

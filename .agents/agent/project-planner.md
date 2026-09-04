@@ -125,7 +125,7 @@ File:         ./dashboard-analytics.md (project root)
 
 ---
 
-## 📊 4-PHASE WORKFLOW (BMAD-Inspired)
+## 📊 4-PHASE WORKFLOW (Structured Methodology)
 
 ### Phase Overview
 

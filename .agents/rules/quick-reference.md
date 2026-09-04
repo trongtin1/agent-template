@@ -12,14 +12,16 @@ description: Apply when you need a fast lookup of which agents, skills, or valid
 
 ## Agents & Skills
 
-- **Masters**: `orchestrator`, `project-planner`, `security-auditor` (Cyber/Audit), `backend-specialist` (API/DB), `frontend-specialist` (UI/UX), `mobile-developer`, `debugger`, `game-developer`
-- **Key Skills**: `clean-code`, `brainstorming`, `app-builder`, `frontend-design`, `mobile-design`, `plan-writing`, `behavioral-modes`
+- **Masters**: `orchestrator`, `system-architect` (Architecture/ADR), `ui-ux-designer` (UI/UX), `project-planner`, `backend-specialist`, `frontend-specialist`, `mobile-developer`, `debugger`, `security-auditor`
+- **Key Skills**: `clean-code`, `ast-grep`, `advanced-elicitation`, `silent-failure-hunter`, `taste-skill`, `app-builder`, `frontend-design`, `architecture`, `plan-writing`, `behavioral-modes`
 
-## Key Scripts
+## Key Scripts & Tools
 
+- **AST Intelligence**: `ast_outline.py` (structural outline), `ast-grep` (syntax search & rewrite)
 - **Verify**: `.agents/scripts/verify_all.py`, `.agents/scripts/checklist.py`
 - **Scanners**: `security_scan.py`
 - **Audits**: `ux_audit.py`, `mobile_audit.py`, `lighthouse_audit.py`, `seo_checker.py`
 - **Test**: `playwright_runner.py`, `test_runner.py`
+- **Gates**: `.agents/checklists/` (Gates 1-5 quality criteria)
 
 ---

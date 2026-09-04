@@ -71,6 +71,7 @@
       "path": "agent/debugger.md",
       "requires": {
         "skills": {
+          "ast-grep": "^1.0.0",
           "clean-code": "^2.0.0",
           "silent-failure-hunter": "^1.0.0",
           "systematic-debugging": "^1.0.0"
@@ -411,6 +412,7 @@
           "advanced-elicitation": "^1.0.0",
           "api-patterns": "^1.0.0",
           "architecture": "^1.0.0",
+          "ast-grep": "^1.0.0",
           "clean-code": "^2.0.0",
           "database-design": "^1.0.0",
           "plan-writing": "^1.0.0"
@@ -617,6 +619,21 @@
       ],
       "path": "skills/architecture/SKILL.md",
       "scripts": [],
+      "version": "1.0.0"
+    },
+    "ast-grep": {
+      "allowedTools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ],
+      "path": "skills/ast-grep/SKILL.md",
+      "scripts": [
+        "skills/ast-grep/scripts/ast_outline.py"
+      ],
       "version": "1.0.0"
     },
     "bash-linux": {

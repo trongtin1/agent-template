@@ -10,7 +10,12 @@
     "test:antigravity": "node --test .agents/hooks/tests/antigravity.test.mjs",
     "test:toolkit": "python -m unittest discover -s .agents/scripts/tests",
     "audit:ux": "python .agents/skills/frontend-design/scripts/ux_audit.py",
+    "ast:outline": "python .agents/skills/ast-grep/scripts/ast_outline.py",
+    "ast:scan": "ast-grep scan",
     "sync:manifest": "python .agents/scripts/generate_manifest.py && python .agents/scripts/dependency_graph.py"
+  },
+  "devDependencies": {
+    "@ast-grep/cli": "^0.45.3"
   },
   "keywords": [
     "antigravity",

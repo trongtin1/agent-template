@@ -54,7 +54,18 @@ grep -rn "oldPattern" src/ --include="*.ts"
 
 ### Step 3: Execute the Batch
 
-For text replacements:
+#### Option A: Structural AST Replacement (RECOMMENDED for Code/APIs)
+> Use `ast-grep` to ensure 100% syntax validity and zero false-matches in strings or comments:
+```bash
+# Preview AST matches across all files
+npx ast-grep run --pattern 'oldFn($$$ARGS)' --rewrite 'newFn($$$ARGS)' --lang typescript
+
+# Apply changes in-place across the workspace
+npx ast-grep run --pattern 'oldFn($$$ARGS)' --rewrite 'newFn($$$ARGS)' --lang typescript -U
+```
+
+#### Option B: Text-based Replacements (Config files, comments, plain text)
+For non-code files or raw text:
 ```bash
 # On Linux/macOS
 find src -name "*.ts" -exec sed -i 's/oldPattern/newPattern/g' {} +
