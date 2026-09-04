@@ -838,6 +838,19 @@
       ],
       "version": "1.0.0"
     },
+    "git-master": {
+      "allowedTools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ],
+      "path": "skills/git-master/SKILL.md",
+      "scripts": [],
+      "version": "1.0.0"
+    },
     "gsap-skills": {
       "allowedTools": [
         "Read",
@@ -1233,6 +1246,22 @@
         ],
         "skills": [
           "brainstorming"
+        ]
+      },
+      "version": "1.0.0"
+    },
+    "commit": {
+      "artifactOutputs": [
+        "commit-log"
+      ],
+      "path": "workflows/commit.md",
+      "requires": {
+        "agents": [
+          "orchestrator"
+        ],
+        "skills": [
+          "git-master",
+          "clean-code"
         ]
       },
       "version": "1.0.0"

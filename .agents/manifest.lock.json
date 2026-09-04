@@ -1,7 +1,7 @@
 {
   "$schema": "schemas/manifest-lock.schema.json",
   "components": {
-    "ARCHITECTURE.md": "ed2dd4d9dccb2283f4919b1759c6e098476db468f58262a45fc94c48788bc8e3",
+    "ARCHITECTURE.md": "da442ce8ceef174bee1e5b32a4a18c63a817f65980828bad8d60946ce5898e01",
     "CHANGELOG.md": "f8140035bb324b7c8182d76a8831deab5a4e22be9f10df5fb03e6c520d279970",
     "README.md": "16ec1be5e5b5882401003712271556106f9c73fc7e42d09d5325303c9abd9b77",
     "VERSION": "94bc11e2a5617c66e6d2f849e14be6579c44c90d0f985d80ce4dc96dff46fa94",
@@ -48,9 +48,9 @@
     "rules/code-rules.md": "3e602c516f195ddeb6fb986aa8cead49a0ebae8a48720f738d4642146dd510a5",
     "rules/core-protocol.md": "647becf363128a82e65ed9628f9ab82b0142692825b7f94f0e264ad6d1cacba2",
     "rules/design-rules.md": "3721c64262fd0a49940eaf090368d9ee266e7382d0d8779f3358706d17dbeab6",
-    "rules/quick-reference.md": "4770371b93a0c921d9069faaa248ca845897531012fb2477e5ace1edc1b10440",
+    "rules/quick-reference.md": "be242960852ba41034bf0abcc67e1c50d089479dc94605b31dd830a0ff5d967f",
     "rules/request-routing.md": "2e5e04fc7b500e77c41d3875e4cf3769c83243d78dc419e441b2944aceecbb4d",
-    "rules/universal-rules.md": "8f03f437aa32909f473573c75754b671cb47344de82a18c4f8926db6a41c2388",
+    "rules/universal-rules.md": "11f815bb9993f9e17033ed2a442007fea37d7e6275b8a96f0ff09a98fbcb354e",
     "schemas/component-frontmatter.schema.json": "8fed5bf3e4b374589b48a95086d864d186424202ef011d39a698e475089fef7e",
     "schemas/manifest-lock.schema.json": "0f55921773dca0e66aa814ecb78e1414a28a907d401bc3b948755323a4213dc0",
     "schemas/manifest.schema.json": "26044d4a36b587bdc150ec99af13a413638b5c41e83967a26fde22ddeb735270",
@@ -149,6 +149,7 @@
     "skills/game-development/web-games/SKILL.md": "1431bf2f5a70b9e0b4a794edd0861bc6534074433d6f6025455e8b27384b65c3",
     "skills/geo-fundamentals/SKILL.md": "d4ca6f9c889408bf5e35ae3f39377dbf60502bc754053623b6ea7f42190e4125",
     "skills/geo-fundamentals/scripts/geo_checker.py": "8731bf8ac07209f68fe2f5d2d61df7bb7dfb6cf6a7bb98d061424c0bfed8f78b",
+    "skills/git-master/SKILL.md": "db657d5357f6d8f2c9bf7caf3834a2240e9adba0ba9a2170f8bb0d2667d99fa6",
     "skills/gsap-skills/SKILL.md": "2b184a0c359399f6acf6e7e8948deaa0d6ffff5fbaa33d29aed6510d9d4ce723",
     "skills/i18n-localization/SKILL.md": "356847a4d612633c2531b0c49367cc82ac6d88546b97a3fe4aea05dc515a017f",
     "skills/i18n-localization/scripts/i18n_checker.py": "f01da31b02cfdc45d899efb351867f36be6812f4466406b7cf5a3f3f14c4e1b2",
@@ -215,6 +216,7 @@
     "skills/webapp-testing/SKILL.md": "2a0dd4918f666a5dddfabe2e227a1f0870f076b5158ea5d0fd90ce9456d666d3",
     "skills/webapp-testing/scripts/playwright_runner.py": "8c476485e415a63fa3b278e09b205d26aa08a8edbed12dc3293d1cdcafd0d063",
     "workflows/brainstorm.md": "ea1afbfdf20318962fe18e067ff779b560325aa85b2378a9024f31d789dda399",
+    "workflows/commit.md": "e11e5e29ec096c861760c55a19f44c9db8bbdd72ce6c416e7a33c757bafdb724",
     "workflows/coordinate.md": "f786cd07db35d49849f4d4155df378b9a4bd1539f3501a90547056683535b268",
     "workflows/create.md": "11d5cb3a60b71db9d6a8184bcc3f5c6e27f3b005a8b9c38c2ea6d60c6623a553",
     "workflows/debug.md": "1a6fbfe0ea48a3590d08c8db842b7cf9b7906f953b10e24cd525b7fd6b53070d",
@@ -230,6 +232,6 @@
     "workflows/verify.md": "2dc26bcbe24c7e71571953da75629521ea3d7a0a444a7101e3601b39864971fc"
   },
   "kitVersion": "2026.8.31",
-  "manifestSha256": "2f14afed5fabe27759b515a645e8bdfc8c39fb1382c8626da28cb1ba288d657a",
+  "manifestSha256": "a64d51cb73982072f71d9755ca0a5df746c0f09a51708dbc5e7538ad18e657e5",
   "schemaVersion": "1.0.0"
 }

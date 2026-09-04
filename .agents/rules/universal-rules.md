@@ -31,3 +31,11 @@ When user's prompt is NOT in English:
 - **Infra/Safety**: 5-Phase Deployment. Verify secrets security.
 
 ---
+
+## 📦 Git & Commit Standards (Global Mandatory)
+
+**ALL Git commits MUST follow `@[skills/git-master]` conventions:**
+
+- **Conventional Commits**: Format must strictly be `type(scope): concise description`.
+- **Atomic Commits**: One commit = one complete, working logical change.
+- **Safety First**: Never commit secrets, credentials, or `.env` files. Never force-push to `main`.
