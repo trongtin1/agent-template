@@ -18,7 +18,8 @@ agent-template/
 │   │   ├── devops-engineer.md
 │   │   ├── project-planner.md
 │   │   └── ...
-│   ├── skills/            # On-demand domain skills (53 skills)
+│   ├── skills/            # On-demand domain skills (54 skills)
+│   │   ├── find-skills/            # Discover & install skills from skills.sh ecosystem
 │   │   ├── git-master/             # Conventional Commits & safe Git practices
 │   │   ├── ast-grep/               # Tree-sitter AST structural search & outline
 │   │   ├── advanced-elicitation/   # Deep requirement discovery & edge cases
@@ -77,6 +78,6 @@ Copy-Item -Path .\path\to\agent-template\.agents -Destination .\path\to\your-pro
 - **5 Phase Gate Checklists**: Quality criteria between Requirements, Architecture, Design, Dev, and QA.
 - **AST Code Intelligence**: Integrated `ast-grep` (Tree-sitter AST) and `ast_outline.py` for structural refactoring and 90% token savings.
 - **Git Intelligence & Safety**: Automated `/commit` workflow enforcing Conventional Commits with scope and secret prevention.
-- **Dynamic Skill Loading**: 53 modular skills loaded strictly on-demand.
+- **Dynamic Skill Loading**: 54 modular skills loaded strictly on-demand.
 - **Anti-Slop UI Standards**: Design spec tokens, contrast ratios, and Swap-Test validation.
 - **Cross-Session Memory**: Retain architectural decisions and coding preferences across sessions.

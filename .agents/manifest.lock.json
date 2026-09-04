@@ -1,7 +1,7 @@
 {
   "$schema": "schemas/manifest-lock.schema.json",
   "components": {
-    "ARCHITECTURE.md": "da442ce8ceef174bee1e5b32a4a18c63a817f65980828bad8d60946ce5898e01",
+    "ARCHITECTURE.md": "94a9dd5d0d7562c1bf7a8119b8f684fdc56b89c886e2f9539b94cc943a3817b4",
     "CHANGELOG.md": "f8140035bb324b7c8182d76a8831deab5a4e22be9f10df5fb03e6c520d279970",
     "README.md": "16ec1be5e5b5882401003712271556106f9c73fc7e42d09d5325303c9abd9b77",
     "VERSION": "94bc11e2a5617c66e6d2f849e14be6579c44c90d0f985d80ce4dc96dff46fa94",
@@ -129,6 +129,7 @@
     "skills/design-spec/SKILL.md": "ca2d60c173c15622baab0fdde86a9437a462234809e0d40a08a1d86fc8927ee9",
     "skills/design-spec/collection.md": "3a3f86e594a4cc229a11b387634282af6de0c85cbaea85202da1e41d43ad1979",
     "skills/documentation-templates/SKILL.md": "7bd982463b301a37286a8ee7fd8761904898e8b91b9974d70fabe28b34464587",
+    "skills/find-skills/SKILL.md": "fec57db839825488c2843829a2cfa8274a07752f08ceb5cc63a0547fd824d8a9",
     "skills/frontend-architecture/SKILL.md": "59e1b096240f3f6b9a0f4347ea042fb72e8c06870ee06cb2f6e83d7edcd014f1",
     "skills/frontend-design/SKILL.md": "1109d14dd1ea94880b22dbe693f546b3e6f271f42aaf0ed2df88ab1c08c67f1b",
     "skills/frontend-design/redesign.md": "ffb1fe2ed44ccc73b537055cd13550d742d2206e447a30fecfecb7e5b211aeb8",
@@ -232,6 +233,6 @@
     "workflows/verify.md": "2dc26bcbe24c7e71571953da75629521ea3d7a0a444a7101e3601b39864971fc"
   },
   "kitVersion": "2026.8.31",
-  "manifestSha256": "a64d51cb73982072f71d9755ca0a5df746c0f09a51708dbc5e7538ad18e657e5",
+  "manifestSha256": "1cf52f125dea6b6020359af803b62e2377507a437dff061badb1d76d576311da",
   "schemaVersion": "1.0.0"
 }
