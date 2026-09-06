@@ -110,6 +110,35 @@ This skill provides a framework for breaking down work into clear, actionable ta
 
 ---
 
+### Principle 6: Context Budget (Max 4 Files / Task)
+
+> 🔴 **Prevent Context Rot**: An agent carrying excessive file diffs degrades in reasoning quality.
+
+- **Hard Boundary**: Each individual task MUST touch at most **2 to 4 closely coupled files**.
+- **No Omnipresent Edits**: Never create a task like "Refactor all components" or "Update all API routes". Break by domain.
+- If a task requires touching >4 files, it MUST be broken down into subtasks or partitioned into Waves.
+
+---
+
+### Principle 7: Wave-Based Execution for Complex Work (>4 Files)
+
+When a feature or refactoring touches more than 4 files, partition the plan into sequential **Dependency Waves**:
+
+```text
+🌊 Wave 1: Contracts & Data (Schemas, Types, Database Migrations)
+       ↓ (Verify schemas & types compile cleanly)
+🌊 Wave 2: Business Logic & APIs (Services, Route Handlers, Controllers)
+       ↓ (Verify API endpoints with curl or integration test)
+🌊 Wave 3: UI & Presentation (Components, Views, Styling, User Interactions)
+       ↓ (Verify browser rendering & user flows)
+🌊 Wave 4: End-to-End Verification & Hardening (E2E Tests, Audits, Docs)
+```
+
+**Wave Execution Rules:**
+1. **Parallel within a Wave**: Tasks within the same wave touching non-overlapping files can run in parallel.
+2. **Sequential across Waves**: Never start Wave N+1 until Wave N's verification criteria are met.
+3. **Clean Context Transition**: Verify and commit/stage at the boundary of each wave to keep context window fresh.
+
 ## Plan Structure (Flexible, Not Fixed!)
 
 ```

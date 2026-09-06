@@ -46,11 +46,12 @@ description: Apply when writing, building, refactoring, or fixing code — proje
 ---
 
 ## 🏁 Plan Mode (4-Phase)
-
-1. ANALYSIS → Research, questions
-2. PLANNING → `{task-slug}.md`, task breakdown
-3. SOLUTIONING → Architecture, design (NO CODE!)
-4. IMPLEMENTATION → Code + tests
+ 
+1. **ANALYSIS** → Research, Socratic questions, lock technical decisions (`Decisions` vs `Discretion`).
+2. **PLANNING** → `{task-slug}.md`, task breakdown, **Context Budget Check** (max 2-4 files/task, wave partitioning if >4 files), **User Acceptance Scenarios (UAT criteria)**.
+3. **SOLUTIONING** → Architecture, schema design, contracts. If ORM/DB schemas change, inject mandatory **Schema Push Gate** (`[BLOCKING] schema push / migration`). (NO CODE before Phase 4!)
+4. **IMPLEMENTATION & DRIFT GUARD** → Execute in dependency waves (Wave 1: Contracts → Wave 2: Logic → Wave 3: UI → Wave 4: Verify). **Anti-Drift Checkpoint**: verify alignment at each wave boundary before progressing.
+5. **USER ACCEPTANCE (UAT)** → Run actual user flows (or automated browser verification via `browser_subagent` for UI) to prove end-to-end functionality beyond green unit tests.
 
 ---
 

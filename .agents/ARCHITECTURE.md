@@ -8,7 +8,7 @@
 
 AG Kit is a modular Antigravity workspace system consisting of:
 
-- **22 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect and UI/UX Designer);
+- **23 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect and UI/UX Designer);
 - **54 Skills** — domain knowledge modules with progressive conditional loading (including `find-skills`, `git-master`, `ast-grep`, `advanced-elicitation`);
 - **15 Workflows** — slash-command procedures (including `/commit` and `/party`);
 - **5 Phase Gate Checklists** — deterministic quality gates between requirements, architecture, design, code, and QA;
@@ -53,7 +53,7 @@ Any managed change without registry regeneration fails validation and CI. Google
 ├── manifest.json             # Generated component registry
 ├── manifest.lock.json        # Generated integrity lock
 ├── DEPENDENCY_GRAPH.md       # Generated workflow → agent → skill graph
-├── agent/                    # 22 specialist role definitions
+├── agent/                    # 23 specialist role definitions
 ├── skills/                   # 54 progressive skills
 ├── workflows/                # 15 slash-command procedures
 ├── rules/                    # 6 workspace constraints
@@ -96,13 +96,14 @@ The Antigravity runtime files are included in the managed integrity lock beginni
 
 ---
 
-## 🤖 Agents (22)
+## 🤖 Agents (23)
 
 Specialist AI personas for different domains.
 
 | Agent                    | Focus                      | Skills Used                                              |
 | ------------------------ | -------------------------- | -------------------------------------------------------- |
 | `orchestrator`           | Multi-agent coordination   | parallel-agents, coordinator-mode, memory-system, context-compression, verify-changes |
+| `plan-checker`           | Plan verification & audit  | plan-writing, clean-code, code-review-checklist, architecture |
 | `system-architect`       | High-level architecture, ADR | architecture, api-patterns, database-design, advanced-elicitation |
 | `ui-ux-designer`          | UX flow, layout, tokens    | design-spec, frontend-design, web-design-guidelines, taste-skill |
 | `project-planner`        | Discovery, task planning   | brainstorming, plan-writing, architecture                |
@@ -380,7 +381,7 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
-| **Total Agents**    | 22 (1 major upgrade in 2026.5.13) |
+| **Total Agents**    | 23 (+1 plan-checker)              |
 | **Total Skills**    | 54                                |
 | **Total Workflows** | 15 (+3 new in 2026.5.13)          |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |

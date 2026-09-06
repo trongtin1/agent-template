@@ -286,6 +286,26 @@
       ],
       "version": "1.0.0"
     },
+    "plan-checker": {
+      "model": "inherit",
+      "path": "agent/plan-checker.md",
+      "requires": {
+        "skills": {
+          "architecture": "^1.0.0",
+          "clean-code": "^2.0.0",
+          "code-review-checklist": "^1.0.0",
+          "plan-writing": "^1.0.0",
+          "silent-failure-hunter": "^1.0.0"
+        }
+      },
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash"
+      ],
+      "version": "1.0.0"
+    },
     "product-manager": {
       "model": "inherit",
       "path": "agent/product-manager.md",
@@ -424,7 +444,7 @@
         "Glob",
         "Bash"
       ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     "test-engineer": {
       "model": "inherit",
@@ -447,7 +467,7 @@
         "Edit",
         "Write"
       ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     "ui-ux-designer": {
       "model": "inherit",

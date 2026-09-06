@@ -21,12 +21,15 @@ When user's prompt is NOT in English:
 
 ---
 
-## 🧹 Clean Code (Global Mandatory)
+## 🧹 Clean Code & Safety (Global Mandatory)
 
 **ALL code MUST follow `@[skills/clean-code]` rules. No exceptions.**
 
 - **Code**: Concise, direct, no over-engineering. Self-documenting.
-- **Testing**: Mandatory. Pyramid (Unit > Int > E2E) + AAA Pattern.
+- **Zero Broken Windows (STRICT)**: Never leave stubs, temporary mock functions, `// TODO: implement later`, or unused dead code upon task completion. Every modified file must be cleaner than or equal to its initial state.
+- **Anti-Drift Check**: In multi-step or wave-based tasks, pause and check alignment after each wave or every 3-4 files. Never perform out-of-scope refactoring without explicit consent.
+- **Secret & Sensitive Data Guard**: Never expose, log, or print contents of `.env`, private keys, API credentials, or certificates into chat output or git commits.
+- **Testing**: Mandatory. Pyramid (Unit > Int > E2E) + AAA Pattern. No fake/tautological assertions.
 - **Performance**: Measure first. Adhere to current Core Web Vitals standards.
 - **Infra/Safety**: 5-Phase Deployment. Verify secrets security.
 

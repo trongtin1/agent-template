@@ -165,16 +165,26 @@ version: 1.0.0
 
 ---
 
-## 10. Anti-Patterns
+## 10. Anti-Patterns & Strict Testing Invariants
 
-| ❌ Don't | ✅ Do |
-|----------|-------|
-| Test implementation | Test behavior |
-| Duplicate test code | Use factories |
-| Complex test setup | Simplify or split |
-| Ignore flaky tests | Fix root cause |
-| Skip cleanup | Reset state |
+| ❌ Don't | ✅ Do | Why |
+|----------|-------|-----|
+| **Tautological Assertions** (`expect(res).toBeDefined()`, `expect(true).toBe(true)`) | Assert specific domain values and error codes | AI creates fake asserts that pass without validating logic |
+| **Magic Sleep** (`sleep(1000)`, `setTimeout`) | Polling with timeout or event/predicate waiters | Flaky in CI/CD and hides race conditions |
+| **Swallowing Preconditions** (`try { ... } catch {}`) | Let precondition errors fail loudly | Conceals configuration/schema mismatches |
+| Test implementation details | Test visible user/contract behavior | Fragile tests that break upon refactor |
+| Duplicate test code | Use factories and shared builders | Maintenance burden |
+| Skip cleanup | Reset DB state and mocks in `afterEach` | Cross-test contamination |
 
 ---
 
-> **Remember:** Tests are documentation. If someone can't understand what the code does from the tests, rewrite them.
+## 11. Live UAT & Verification Beyond Unit Tests
+
+Unit tests prove isolated logic; they do NOT prove the user experience works end-to-end.
+- **For UI / Frontend**: Use `browser_subagent` to render the DOM on localhost, interact with elements, and verify layout/events.
+- **For Database & API**: Never assume TypeScript types mean the live DB works. Run actual migration commands and execute live queries.
+- **User Acceptance Check**: Every completed task must provide a verifiable step-by-step User Flow checklist for sign-off.
+
+---
+
+> **Remember:** Tests are documentation and executable contracts. If someone can't understand what the code does from the tests, rewrite them.
