@@ -12,25 +12,34 @@ version: 1.0.0
 
 ### Procedures by Ecosystem
 
-#### Node.js / TypeScript
-1. **Lint/Fix:** `npm run lint` or `npx eslint "path" --fix`
+#### Node.js / TypeScript / Next.js / Tailwind
+1. **Lint & Auto-Fix:** `npm run lint` or `npx eslint . --fix`
 2. **Types:** `npx tsc --noEmit`
-3. **Security:** `npm audit --audit-level=high`
+3. **Tailwind Hygiene:** Adhere to canonical classes (`shrink-0`, `bg-linear-to-*`, `grow`) and resolve IDE extension suggestions.
+4. **Security:** `npm audit --audit-level=high`
 
 #### Python
 1. **Linter (Ruff):** `ruff check "path" --fix` (Fast & Modern)
 2. **Security (Bandit):** `bandit -r "path" -ll`
 3. **Types (MyPy):** `mypy "path"`
 
-## The Quality Loop
+## The Quality Loop (Dynamic Self-Healing)
 1. **Write/Edit Code**
-2. **Run Audit:** `npm run lint && npx tsc --noEmit`
-3. **Analyze Report:** Check the "FINAL AUDIT REPORT" section.
-4. **Fix & Repeat:** Submitting code with "FINAL AUDIT" failures is NOT allowed.
+2. **Check IDE Diagnostics & Run Audit:**
+   - Listen to IDE feedback from language servers (ESLint, Tailwind IntelliSense, TypeScript LSP).
+   - Run: `npm run lint && npx tsc --noEmit`
+3. **Auto-Fix First:** Run `npx eslint . --fix` to automatically clean up unused imports, formatting, and auto-fixable rules.
+4. **Fix Remaining Warnings & Errors:**
+   - Next.js: Replace `<img>` with `next/image`, replace internal `<a>` with `next/link`.
+   - React JSX: Escape quotes (`&apos;`, `&ldquo;`, `&rdquo;` or `{"'"}`).
+   - Tailwind: Replace obsolete class aliases with canonical classes, remove conflicting utility classes.
+   - Clean Scope: Remove unused variables/imports (`no-unused-vars`).
+5. **Verify:** Ensure final Diagnostics count is 0. Submitting code with active warnings or errors is NOT allowed.
 
 ## Error Handling
 - If `lint` fails: Fix the style or syntax issues immediately.
 - If `tsc` fails: Correct type mismatches before proceeding.
+- If Tailwind extension warns on canonical classes: Update to modern v4 classes immediately.
 - If no tool is configured: Check the project root for `.eslintrc`, `tsconfig.json`, `pyproject.toml` and suggest creating one.
 
 ---
@@ -44,4 +53,5 @@ version: 1.0.0
 |--------|---------|---------|
 | `scripts/lint_runner.py` | Unified lint check | `python scripts/lint_runner.py <project_path>` |
 | `scripts/type_coverage.py` | Type coverage analysis | `python scripts/type_coverage.py <project_path>` |
+
 
