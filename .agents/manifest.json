@@ -28,6 +28,27 @@
       ],
       "version": "1.0.0"
     },
+    "business-analyst": {
+      "model": "inherit",
+      "path": "agent/business-analyst.md",
+      "requires": {
+        "skills": {
+          "advanced-elicitation": "^1.0.0",
+          "ba-diagrams": "^1.0.0",
+          "clean-code": "^2.0.0",
+          "userguide": "^1.0.0"
+        }
+      },
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash",
+        "Edit",
+        "Write"
+      ],
+      "version": "1.0.0"
+    },
     "code-archaeologist": {
       "model": "inherit",
       "path": "agent/code-archaeologist.md",
@@ -433,6 +454,7 @@
           "api-patterns": "^1.0.0",
           "architecture": "^1.0.0",
           "ast-grep": "^1.0.0",
+          "ba-diagrams": "^1.0.0",
           "clean-code": "^2.0.0",
           "database-design": "^1.0.0",
           "plan-writing": "^1.0.0"
@@ -653,6 +675,21 @@
       "path": "skills/ast-grep/SKILL.md",
       "scripts": [
         "skills/ast-grep/scripts/ast_outline.py"
+      ],
+      "version": "1.0.0"
+    },
+    "ba-diagrams": {
+      "allowedTools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Glob",
+        "Grep"
+      ],
+      "path": "skills/ba-diagrams/SKILL.md",
+      "scripts": [
+        "skills/ba-diagrams/scripts/plantuml_encode.py"
       ],
       "version": "1.0.0"
     },
@@ -1201,6 +1238,19 @@
       "scripts": [
         "skills/testing-patterns/scripts/test_runner.py"
       ],
+      "version": "1.0.0"
+    },
+    "userguide": {
+      "allowedTools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Glob",
+        "Grep"
+      ],
+      "path": "skills/userguide/SKILL.md",
+      "scripts": [],
       "version": "1.0.0"
     },
     "verify-changes": {

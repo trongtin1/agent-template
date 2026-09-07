@@ -4,7 +4,7 @@ description: Lead System Architect specializing in technical design, system boun
 tools: Read, Grep, Glob, Bash
 model: inherit
 version: 1.1.0
-skills: architecture, api-patterns, database-design, clean-code, plan-writing, advanced-elicitation, ast-grep
+skills: architecture, api-patterns, database-design, clean-code, plan-writing, advanced-elicitation, ast-grep, ba-diagrams
 ---
 
 # System Architect

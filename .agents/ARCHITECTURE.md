@@ -8,8 +8,8 @@
 
 AG Kit is a modular Antigravity workspace system consisting of:
 
-- **23 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect and UI/UX Designer);
-- **54 Skills** — domain knowledge modules with progressive conditional loading (including `find-skills`, `git-master`, `ast-grep`, `advanced-elicitation`);
+- **24 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect, Business Analyst, and UI/UX Designer);
+- **56 Skills** — domain knowledge modules with progressive conditional loading (including `ba-diagrams`, `userguide`, `find-skills`, `git-master`, `ast-grep`, `advanced-elicitation`);
 - **15 Workflows** — slash-command procedures (including `/commit` and `/party`);
 - **5 Phase Gate Checklists** — deterministic quality gates between requirements, architecture, design, code, and QA;
 - **6 Rules** — workspace routing, coding, design, safety, and quick-reference constraints;
@@ -381,12 +381,12 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
-| **Total Agents**    | 23 (+1 plan-checker)              |
-| **Total Skills**    | 54                                |
+| **Total Agents**    | 24 (+1 plan-checker)              |
+| **Total Skills**    | 56                                |
 | **Total Workflows** | 15 (+3 new in 2026.5.13)          |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |
 | **Antigravity Utilities** | 4 runtime utilities              |
-| **Total Skill Scripts** | 19                              |
+| **Total Skill Scripts** | 20                              |
 | **Coverage**        | Web, API, mobile, security, quality, runtime, orchestration |
 | **Token Efficiency**| Reduced via conditional skill loading |
 
@@ -404,3 +404,4 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 | Testing  | `test-engineer`       | testing-patterns, webapp-testing      |
 | Debug    | `debugger`            | systematic-debugging                  |
 | Plan     | `project-planner`     | brainstorming, plan-writing           |
+| BA / Doc | `business-analyst`    | ba-diagrams, userguide                |

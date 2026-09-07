@@ -12,8 +12,8 @@ description: Apply when you need a fast lookup of which agents, skills, or valid
 
 ## Agents & Skills
 
-- **Masters**: `orchestrator`, `plan-checker` (Plan Audit), `system-architect` (Architecture/ADR), `ui-ux-designer` (UI/UX), `project-planner`, `backend-specialist`, `frontend-specialist`, `mobile-developer`, `debugger`, `security-auditor`
-- **Key Skills**: `clean-code`, `git-master`, `ast-grep`, `advanced-elicitation`, `silent-failure-hunter`, `taste-skill`, `app-builder`, `frontend-design`, `architecture`, `plan-writing`, `behavioral-modes`
+- **Masters**: `orchestrator`, `plan-checker` (Plan Audit), `system-architect` (Architecture/ADR), `business-analyst` (Requirements/Diagrams/BA), `ui-ux-designer` (UI/UX), `project-planner`, `backend-specialist`, `frontend-specialist`, `mobile-developer`, `debugger`, `security-auditor`
+- **Key Skills**: `clean-code`, `git-master`, `ast-grep`, `advanced-elicitation`, `silent-failure-hunter`, `taste-skill`, `app-builder`, `frontend-design`, `architecture`, `plan-writing`, `behavioral-modes`, `ba-diagrams`, `userguide`
 
 ## Key Scripts & Tools
 

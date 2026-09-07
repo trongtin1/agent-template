@@ -50,6 +50,8 @@ graph TD
 | **Security Review** | "security", "vulnerability", "exploit"     | `security-auditor` + `penetration-tester`   | ✅ YES       |
 | **Performance**     | "slow", "optimize", "performance", "speed" | `performance-optimizer`                     | ✅ YES       |
 | **Product Def**     | "requirements", "user story", "backlog", "MVP" | `product-owner`                             | ✅ YES       |
+| **Diagram / BA**    | "diagram", "sequence", "bpmn", "swimlane", "flow", "ERD" | `business-analyst`                          | ✅ YES       |
+| **User Guide**      | "user guide", "manual", "runbook", "operations guide" | `business-analyst`                          | ✅ YES       |
 | **New Feature**     | "build", "create", "implement", "new app"  | `orchestrator` → multi-agent                | ⚠️ ASK FIRST |
 | **Complex Task**    | Multiple domains detected                  | `orchestrator` → multi-agent                | ⚠️ ASK FIRST |
 
