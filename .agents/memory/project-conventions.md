@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-05-25
-updated: 2026-07-12
+updated: 2026-09-07
 ---
 
 # Project Conventions
@@ -16,9 +16,4 @@ updated: 2026-07-12
 - Do not claim compatibility with Claude Code, Cursor, Copilot, Windsurf, or other assistants unless the user explicitly expands scope.
 - Copy on the website, docs, FAQ, README, and marketing should describe AG Kit as a toolkit for Gemini CLI / Antigravity-style agent setups.
 - **Toolkit Independence & Ownership**: This is AG Kit. NEVER reference external repos (e.g. GSD or others) in docs, commit messages, comments, or rules. All patterns belong natively to AG Kit.
-
-## IDE Diagnostics & Code Quality Gate
-- In Antigravity IDE, always listen to Language Server feedback (ESLint, Tailwind CSS IntelliSense, TypeScript LSP).
-- A task is NEVER complete while diagnostic count > 0 (zero warning/error policy).
-- Enforce clean hygiene across all edits: Next.js (`next/image`, `next/link`), JSX entity escaping, Tailwind canonical classes (v4), and zero unused imports/variables.
 
