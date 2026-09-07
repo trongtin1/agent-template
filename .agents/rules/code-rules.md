@@ -51,7 +51,12 @@ description: Apply when writing, building, refactoring, or fixing code — proje
 2. **PLANNING** → `{task-slug}.md`, task breakdown, **Context Budget Check** (max 2-4 files/task, wave partitioning if >4 files), **User Acceptance Scenarios (UAT criteria)**.
 3. **SOLUTIONING** → Architecture, schema design, contracts. If ORM/DB schemas change, inject mandatory **Schema Push Gate** (`[BLOCKING] schema push / migration`). (NO CODE before Phase 4!)
 4. **IMPLEMENTATION & DRIFT GUARD** → Execute in dependency waves (Wave 1: Contracts → Wave 2: Logic → Wave 3: UI → Wave 4: Verify). **Anti-Drift Checkpoint**: verify alignment at each wave boundary before progressing.
-5. **USER ACCEPTANCE (UAT)** → Run actual user flows (or automated browser verification via `browser_subagent` for UI) to prove end-to-end functionality beyond green unit tests.
+5. **USER ACCEPTANCE (UAT)** → Run actual user flows to prove end-to-end functionality beyond green unit tests.
+   - **🥇 FIRST: `playwright_runner.py`** (local headless Chromium — 0 API calls, no quota risk):
+     ```bash
+     python .agents/skills/webapp-testing/scripts/playwright_runner.py <URL> --screenshot
+     ```
+   - **🥈 LAST RESORT ONLY: `browser_subagent`** — Use ONLY when no local dev server is running AND visual confirmation is explicitly required. Each action = 1 API call → risk of 429 RESOURCE_EXHAUSTED. Limit to **1 screenshot max** per verify session.
 
 ---
 
