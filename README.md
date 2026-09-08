@@ -54,20 +54,86 @@ agent-template/
 
 ---
 
-## 🚀 How to Use This Template
+## 🚀 Quick Start
 
-### Option 1: Use as a New Project Base
-1. Clone or copy this repository:
-   ```bash
-   git clone <your-repo-url> my-new-project
-   cd my-new-project
-   ```
-2. Initialize your project code inside this folder. The `.agents` directory will automatically be recognized by Antigravity IDE.
+### Add to an Existing Project
 
-### Option 2: Add AG Kit to an Existing Project
-Copy the `.agents/` folder directly to the root of your existing project:
-```powershell
-Copy-Item -Path .\path\to\agent-template\.agents -Destination .\path\to\your-project\.agents -Recurse
+This template is built on [AG Kit](https://github.com/vudovn/ag-kit). To install the `.agents/` layer into any existing project without touching your code:
+
+```bash
+npx @vudovn/ag-kit init
+```
+
+This only installs the `.agents/` directory — your project files are untouched.
+
+### Clone as a New Project Base
+
+Start a brand new project from this template:
+
+```bash
+git clone https://github.com/<your-username>/agent-template my-new-project
+cd my-new-project
+```
+
+Open `my-new-project/` in Antigravity IDE — the `.agents/` directory is discovered automatically.
+
+### Use GitHub Template Feature
+
+Click **"Use this template"** on GitHub to create a new repo pre-loaded with all AG Kit files — no cloning needed.
+
+---
+
+## 🔄 Updating the Kit
+
+Keep your `.agents/` layer up to date without touching your project code:
+
+```bash
+# Preview what will change (dry run)
+ag-kit update --dry-run
+
+# Apply the update
+ag-kit update
+```
+
+AG Kit is **merge-aware**: it creates a backup before changing managed files and never silently overwrites files you have modified locally.
+
+---
+
+## ✅ Verify the Workspace
+
+After setup, confirm everything is working:
+
+```bash
+npm run check:agents       # Validate .agents structure
+npm run check:antigravity  # Antigravity integration check (read-only)
+npm run test:antigravity   # Run regression tests
+```
+
+Then open the project in Antigravity IDE and confirm:
+
+1. Slash commands like `/plan`, `/commit`, `/orchestrate` are discovered.
+2. Skills are loaded from `.agents/skills/`.
+3. Run `npm test` and confirm it is allowed by the safety hook.
+
+### Verify the safety hook
+
+```bash
+printf '%s' '{"tool_args":{"CommandLine":"rm -rf /"}}' \
+  | node .agents/hooks/validate-tool-call.mjs
+```
+
+The command must exit non-zero and print `BLOCKED by AG Kit`.
+
+---
+
+## ⚠️ Important: Do Not Gitignore `.agents/`
+
+Do **not** add `.agents/` to your project's `.gitignore`. Antigravity needs to index rules, skills, and workflows from this directory.
+
+If you want to keep `.agents/` local without disabling discovery, add it to `.git/info/exclude` instead:
+
+```bash
+echo ".agents/" >> .git/info/exclude
 ```
 
 ---
