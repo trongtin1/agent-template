@@ -1,6 +1,6 @@
-# Agent Template (AG Kit)
+# Agent Template
 
-Starter repository pre-configured with **AG Kit** — an autonomous multi-agent and skills framework for **Google Antigravity IDE** and **Gemini CLI**.
+Starter repository pre-configured with an autonomous multi-agent and skills framework for **Google Antigravity IDE** and **Gemini CLI**.
 
 ---
 
@@ -46,7 +46,7 @@ agent-template/
 │   ├── output-styles/     # Communication styles (Vietnamese & English concise)
 │   ├── rules/             # Workspace rules & core protocols
 │   ├── memory/            # Persistent cross-session memory index
-│   └── manifest.json      # AG Kit component manifest
+│   └── manifest.json      # Component manifest
 ├── .gitignore
 ├── package.json           # Toolkit verification & ast-grep runner
 └── README.md
@@ -56,46 +56,44 @@ agent-template/
 
 ## 🚀 Quick Start
 
-### Add to an Existing Project
+### Option 1: Use GitHub Template (Recommended)
 
-This template is built on [AG Kit](https://github.com/vudovn/ag-kit). To install the `.agents/` layer into any existing project without touching your code:
+Click **"Use this template"** on GitHub to create a new repo pre-loaded with all agent files — no cloning needed.
+
+### Option 2: Install into an Existing Project
+
+Add the `.agents/` layer into any existing project without touching your code:
 
 ```bash
-npx @vudovn/ag-kit init
+npx @trongtin1/agent-template init
 ```
 
-This only installs the `.agents/` directory — your project files are untouched.
+This only installs the `.agents/` directory — your project files are untouched. No global install required.
 
-### Clone as a New Project Base
-
-Start a brand new project from this template:
+### Option 3: Clone as a New Project Base
 
 ```bash
-git clone https://github.com/<your-username>/agent-template my-new-project
+git clone https://github.com/trongtin1/agent-template my-new-project
 cd my-new-project
 ```
 
 Open `my-new-project/` in Antigravity IDE — the `.agents/` directory is discovered automatically.
 
-### Use GitHub Template Feature
-
-Click **"Use this template"** on GitHub to create a new repo pre-loaded with all AG Kit files — no cloning needed.
-
 ---
 
-## 🔄 Updating the Kit
+## 🔄 Updating
 
 Keep your `.agents/` layer up to date without touching your project code:
 
 ```bash
-# Preview what will change (dry run)
-ag-kit update --dry-run
+# Preview what will change
+npx @trongtin1/agent-template update --dry-run
 
 # Apply the update
-ag-kit update
+npx @trongtin1/agent-template update
 ```
 
-AG Kit is **merge-aware**: it creates a backup before changing managed files and never silently overwrites files you have modified locally.
+The update is **merge-aware**: it creates a backup before changing managed files and never silently overwrites files you have modified locally.
 
 ---
 
@@ -122,7 +120,7 @@ printf '%s' '{"tool_args":{"CommandLine":"rm -rf /"}}' \
   | node .agents/hooks/validate-tool-call.mjs
 ```
 
-The command must exit non-zero and print `BLOCKED by AG Kit`.
+The command must exit non-zero and print `BLOCKED`.
 
 ---
 

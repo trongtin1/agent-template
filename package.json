@@ -1,9 +1,15 @@
 {
-  "name": "agent-template",
+  "name": "@trongtin1/agent-template",
   "version": "2026.8.31",
-  "description": "AG Kit template repository for Google Antigravity IDE and Gemini CLI",
-  "private": true,
+  "description": "Autonomous multi-agent and skills template for Google Antigravity IDE and Gemini CLI",
   "type": "module",
+  "bin": {
+    "agent-template": "./bin/cli.mjs"
+  },
+  "files": [
+    ".agents/",
+    "bin/"
+  ],
   "scripts": {
     "check:agents": "python .agents/scripts/validate_kit.py",
     "check:antigravity": "node .agents/hooks/antigravity-doctor.mjs",
