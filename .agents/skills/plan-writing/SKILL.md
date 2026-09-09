@@ -203,11 +203,11 @@ Every plan follows a strict 2-stage lifecycle to maintain workspace hygiene:
 
 2. **Stage 2: Task Completion Gate (Archiving)**
    - When all tasks reach `Done When = 100%` and all requirements in the Requirements Registry are `✅ Verified`:
-     1. Agent **BẮT BUỘC** tự động di chuyển file plan vào thư mục lưu trữ:
+     1. Agent **MUST** automatically move the plan file into the archive directory:
         - PowerShell: `if (!(Test-Path docs/plans/archive)) { New-Item -ItemType Directory -Path docs/plans/archive -Force }; Move-Item {task-slug}.md docs/plans/archive/{task-slug}.md`
         - Bash/sh: `mkdir -p docs/plans/archive && mv {task-slug}.md docs/plans/archive/{task-slug}.md`
-     2. Tuyệt đối **KHÔNG ĐƯỢC** để sót file plan `{task-slug}.md` tại project root khi kết thúc task.
-     3. Báo cáo lại cho người dùng vị trí lưu trữ mới của file plan (ví dụ: `docs/plans/archive/{task-slug}.md`).
+     2. Lingering `{task-slug}.md` files at the project root are **STRICTLY FORBIDDEN** upon task completion.
+     3. Report the new archive path of the plan file to the user (e.g. `docs/plans/archive/{task-slug}.md`).
 
 ---
 

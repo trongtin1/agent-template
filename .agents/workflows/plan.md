@@ -63,7 +63,7 @@ RULES:
 ## 📋 Plan Archiving Lifecycle (MANDATORY)
 
 1. **In-Progress Stage**: `{task-slug}.md` is saved in the project root during execution for active tracking and visibility.
-2. **Task Completion Gate**: Immediately upon reaching `Done When = 100%`, agent **BẮT BUỘC** auto-moves the plan:
+2. **Task Completion Gate**: Immediately upon reaching `Done When = 100%`, the agent **MUST** automatically move the plan:
    - Move command: `mv {task-slug}.md docs/plans/archive/{task-slug}.md`
    - Zero lingering `{task-slug}.md` files in root when task is finished.
 

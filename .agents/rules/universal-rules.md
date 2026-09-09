@@ -111,10 +111,10 @@ When automated recovery fails or an E3/E4 blocker occurs, **NEVER** halt silentl
 
 ## 📋 Plan Lifecycle & Workspace Hygiene (Global Mandatory)
 
-- **In-Progress Stage**: File kế hoạch `{task-slug}.md` được lưu tại project root trong lúc đang thực thi để người dùng dễ theo dõi.
-- **Task Completion Gate (MANDATORY)**: Ngay khi toàn bộ các công việc trong plan đạt trạng thái `Done When = 100%`:
-  1. Agent **BẮT BUỘC** tự động di chuyển file plan vào thư mục lưu trữ:
-     `docs/plans/archive/{task-slug}.md` (tự động tạo thư mục nếu chưa có).
-  2. Tuyệt đối **KHÔNG ĐƯỢC** để sót file plan `{task-slug}.md` tại project root khi kết thúc task.
-  3. Báo cáo lại cho người dùng vị trí lưu trữ mới của file plan.
+- **In-Progress Stage**: Plan file `{task-slug}.md` MUST be stored at the project root during active execution for immediate visibility and live progress tracking.
+- **Task Completion Gate (MANDATORY)**: The moment all tasks in the plan reach `Done When = 100%` and all requirements are verified:
+  1. Agent **MUST** automatically move the plan file into the archive directory:
+     `docs/plans/archive/{task-slug}.md` (create the directory automatically if it does not exist).
+  2. Lingering `{task-slug}.md` plan files in the project root are **STRICTLY FORBIDDEN** upon task completion.
+  3. Report the new archive location of the plan file to the user in the final summary.
 
