@@ -107,3 +107,14 @@ When automated recovery fails or an E3/E4 blocker occurs, **NEVER** halt silentl
 - **Atomic Commits**: One commit = one complete, working logical change.
 - **Safety First**: Never commit secrets, credentials, or `.env` files. Never force-push to `main`.
 
+---
+
+## 📋 Plan Lifecycle & Workspace Hygiene (Global Mandatory)
+
+- **In-Progress Stage**: File kế hoạch `{task-slug}.md` được lưu tại project root trong lúc đang thực thi để người dùng dễ theo dõi.
+- **Task Completion Gate (MANDATORY)**: Ngay khi toàn bộ các công việc trong plan đạt trạng thái `Done When = 100%`:
+  1. Agent **BẮT BUỘC** tự động di chuyển file plan vào thư mục lưu trữ:
+     `docs/plans/archive/{task-slug}.md` (tự động tạo thư mục nếu chưa có).
+  2. Tuyệt đối **KHÔNG ĐƯỢC** để sót file plan `{task-slug}.md` tại project root khi kết thúc task.
+  3. Báo cáo lại cho người dùng vị trí lưu trữ mới của file plan.
+

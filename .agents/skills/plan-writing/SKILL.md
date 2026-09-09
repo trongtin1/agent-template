@@ -53,10 +53,11 @@ This skill provides a framework for breaking down work into clear, actionable ta
 - Critical path highlighted
 - **Phase X: Verification is always LAST**
 
-### 4. Dynamic Naming in Project Root
-- Plan files are saved as `{task-slug}.md` in the PROJECT ROOT
-- Name derived from task (e.g., "add auth" → `auth-feature.md`)
-- **NEVER** inside `.agents/`, `docs/`, or temp folders
+### 4. Dynamic Naming & Lifecycle in Project Root
+- **Creation / In-Progress Stage**: Plan files are created and saved as `{task-slug}.md` in the PROJECT ROOT during execution for maximum visibility and rapid updates.
+- Name derived from task (e.g., "add auth" → `auth-feature.md`).
+- **NEVER** create initial active plans inside `.agents/`, `docs/`, or temp folders.
+- **Completion & Archiving Gate**: Immediately upon reaching `Done When = 100%`, automatically move the plan file to `docs/plans/archive/{task-slug}.md`.
 
 ## Planning Principles (NOT Templates!)
 
@@ -186,6 +187,30 @@ One sentence: What are we building/fixing?
 
 ---
 
+## Plan Lifecycle & Archiving Gate (MANDATORY)
+
+Every plan follows a strict 2-stage lifecycle to maintain workspace hygiene:
+
+```text
+[1. CREATE & EXECUTE]                     [2. COMPLETE & ARCHIVE]
+{task-slug}.md in PROJECT ROOT   ──(Done When=100%)──>   docs/plans/archive/{task-slug}.md
+(Active visibility during work)                         (Archived, clean root)
+```
+
+1. **Stage 1: In-Progress Stage (Project Root)**
+   - Create plan file `{task-slug}.md` directly at the project root.
+   - Keep it at the root during implementation for fast navigation, progress marking (`[x]`), and live status tracking.
+
+2. **Stage 2: Task Completion Gate (Archiving)**
+   - When all tasks reach `Done When = 100%` and all requirements in the Requirements Registry are `✅ Verified`:
+     1. Agent **BẮT BUỘC** tự động di chuyển file plan vào thư mục lưu trữ:
+        - PowerShell: `if (!(Test-Path docs/plans/archive)) { New-Item -ItemType Directory -Path docs/plans/archive -Force }; Move-Item {task-slug}.md docs/plans/archive/{task-slug}.md`
+        - Bash/sh: `mkdir -p docs/plans/archive && mv {task-slug}.md docs/plans/archive/{task-slug}.md`
+     2. Tuyệt đối **KHÔNG ĐƯỢC** để sót file plan `{task-slug}.md` tại project root khi kết thúc task.
+     3. Báo cáo lại cho người dùng vị trí lưu trữ mới của file plan (ví dụ: `docs/plans/archive/{task-slug}.md`).
+
+---
+
 ## Best Practices (Quick Reference)
 
 1. **Start with goal** - What are we building/fixing?
@@ -193,6 +218,7 @@ One sentence: What are we building/fixing?
 3. **Each task verifiable** - Clear "done" criteria
 4. **Project-specific** - No copy-paste templates
 5. **Update as you go** - Mark `[x]` when complete
+6. **Archive when done** - Auto-move to `docs/plans/archive/{task-slug}.md` upon 100% completion
 
 ---
 

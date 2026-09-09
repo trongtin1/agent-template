@@ -52,10 +52,20 @@ RULES:
 
 | Deliverable | Location |
 |-------------|----------|
-| Project Plan | `{task-slug}.md` in project root |
+| Project Plan (In-Progress) | `{task-slug}.md` in project root |
+| Project Plan (Completed) | `docs/plans/archive/{task-slug}.md` |
 | Task Breakdown | Inside plan file |
 | Agent Assignments | Inside plan file |
 | Verification Checklist | Phase X in plan file |
+
+---
+
+## 📋 Plan Archiving Lifecycle (MANDATORY)
+
+1. **In-Progress Stage**: `{task-slug}.md` is saved in the project root during execution for active tracking and visibility.
+2. **Task Completion Gate**: Immediately upon reaching `Done When = 100%`, agent **BẮT BUỘC** auto-moves the plan:
+   - Move command: `mv {task-slug}.md docs/plans/archive/{task-slug}.md`
+   - Zero lingering `{task-slug}.md` files in root when task is finished.
 
 ---
 

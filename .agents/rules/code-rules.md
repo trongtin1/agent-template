@@ -77,6 +77,7 @@ description: Apply when writing, building, refactoring, or fixing code — proje
      python .agents/skills/webapp-testing/scripts/playwright_runner.py <URL> --screenshot
      ```
    - **🥈 LAST RESORT ONLY: `browser_subagent`** — Use ONLY when no local dev server is running AND visual confirmation is explicitly required. Each action = 1 API call → risk of 429 RESOURCE_EXHAUSTED. Limit to **1 screenshot max** per verify session.
+6. **PLAN ARCHIVING & HYGIENE GATE** → When all work is complete (100% `✅ Verified`), automatically move `{task-slug}.md` to `docs/plans/archive/{task-slug}.md`. Zero completed plan files left in project root.
 
 ---
 
