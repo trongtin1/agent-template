@@ -45,13 +45,33 @@ description: Apply when writing, building, refactoring, or fixing code — proje
 
 ---
 
+## 📋 Requirements Intake & Registry (MANDATORY)
+
+**Before ANY planning or execution, parse 100% of user requirements into a structured registry.**
+
+### Requirements Registry Spec
+```markdown
+### 📋 Requirements Registry
+| ID | Requirement Description | Priority | Status | Verification Trace |
+|----|-------------------------|----------|--------|--------------------|
+| R1 | {exact requirement}    | {H/M/L}  | ⏳     | {test/UAT case}     |
+| R2 | {exact requirement}    | {H/M/L}  | ⏳     | {test/UAT case}     |
+```
+
+**Intake Rules:**
+- **100% Fidelity:** Extract EVERY explicit and implicit requirement. No assumptions, no omissions, no silent drops.
+- **Traceability:** Every task in `{task-slug}.md` and every code wave must link to an `R{id}`.
+- **Completion Gate:** A task is complete ONLY when all rows in the registry reach `✅ Verified`.
+
+---
+
 ## 🏁 Plan Mode (4-Phase)
  
-1. **ANALYSIS** → Research, Socratic questions, lock technical decisions (`Decisions` vs `Discretion`).
-2. **PLANNING** → `{task-slug}.md`, task breakdown, **Context Budget Check** (max 2-4 files/task, wave partitioning if >4 files), **User Acceptance Scenarios (UAT criteria)**.
+1. **ANALYSIS & INTAKE** → Research, Socratic questions, build **Requirements Registry (R1, R2...)**, lock technical decisions (`Decisions` vs `Discretion`).
+2. **PLANNING** → `{task-slug}.md`, task breakdown linked to `R{id}`, **Context Budget Check** (max 2-4 files/task, wave partitioning if >4 files), **User Acceptance Scenarios (UAT criteria)**.
 3. **SOLUTIONING** → Architecture, schema design, contracts. If ORM/DB schemas change, inject mandatory **Schema Push Gate** (`[BLOCKING] schema push / migration`). (NO CODE before Phase 4!)
-4. **IMPLEMENTATION & DRIFT GUARD** → Execute in dependency waves (Wave 1: Contracts → Wave 2: Logic → Wave 3: UI → Wave 4: Verify). **Anti-Drift Checkpoint**: verify alignment at each wave boundary before progressing.
-5. **USER ACCEPTANCE (UAT)** → Run actual user flows to prove end-to-end functionality beyond green unit tests.
+4. **IMPLEMENTATION & DRIFT GUARD** → Execute in dependency waves (Wave 1: Contracts → Wave 2: Logic → Wave 3: UI → Wave 4: Verify). **Anti-Drift Checkpoint**: verify alignment with Requirements Registry at each wave boundary before progressing.
+5. **USER ACCEPTANCE (UAT)** → Run actual user flows to prove end-to-end functionality beyond green unit tests. Update registry to `✅ Verified`.
    - **🥇 FIRST: `playwright_runner.py`** (local headless Chromium — 0 API calls, no quota risk):
      ```bash
      python .agents/skills/webapp-testing/scripts/playwright_runner.py <URL> --screenshot

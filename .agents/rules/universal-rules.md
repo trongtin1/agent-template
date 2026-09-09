@@ -62,6 +62,42 @@ When user's prompt is NOT in English:
 
 ---
 
+## 🛡️ Error Classification & Escalation Matrix (E1 - E4)
+
+**Every error during execution MUST lead to either (1) automated recovery, or (2) structured user escalation. SILENT HALTS ARE FORBIDDEN.**
+
+### Error Taxonomy & Auto-Recovery Protocol
+
+| Code | Error Class | Root Cause Examples | Automated Recovery Action |
+|------|-------------|---------------------|----------------------------|
+| **E1** | **Transient** | Network hiccup, rate-limit, tool timeout | Exponential backoff retry (max 3x: 1s, 2s, 4s). |
+| **E1b** | **Output Overflow** | Token window exceeded, giant file modification | Switch immediately to chunked modification strategy. |
+| **E2** | **Recoverable Logic** | Compiler error, missing import, test failure | Isolate root cause, formulate alternative implementation, self-heal. |
+| **E3** | **Blocking Environment** | Missing dependency, broken credentials, OS lock | Snapshot safe state, identify root blocker, escalate if intervention needed. |
+| **E4** | **Cascading Corruption** | Migration fail, schema break, dirty workspace | HALT immediately, rollback dirty changes to last safe commit/snapshot, report impact. |
+
+### Structured Escalation Protocol (When Blocked)
+
+When automated recovery fails or an E3/E4 blocker occurs, **NEVER** halt silently or print unstructured excuses. Present exactly 4 structured options:
+
+```markdown
+## ⚠️ BLOCKED — Decision Required
+
+- **Error Class**: {E1/E2/E3/E4} — {Technical Description}
+- **Impact Surface**: {List of affected files / components}
+- **Root Cause**: {Concise cause analysis}
+
+**Options:**
+- **A) [Alternative Approach]**: {Description} (Trade-off: {trade-off})
+- **B) [Skip with Gap]**: {Description} (Limitation: {documented limitation})
+- **C) [Provide Input]**: {Specific credential, permission, or missing decision needed}
+- **D) [Scope Modification]**: {Recommended adjustment to requirements}
+
+⏳ Awaiting selection...
+```
+
+---
+
 ## 📦 Git & Commit Standards (Global Mandatory)
 
 **ALL Git commits MUST follow `@[skills/git-master]` conventions:**

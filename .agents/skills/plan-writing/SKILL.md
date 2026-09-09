@@ -8,7 +8,29 @@ version: 1.0.0
 
 # Plan Writing
 
-> Source: obra/superpowers
+> AG Kit Planning Engine — Structured task planning with 100% requirement fidelity, clear breakdowns, and verification criteria.
+
+## Requirements Intake & Registry (MANDATORY)
+
+Before constructing tasks, extract every requirement from the user prompt into a structured registry:
+
+```markdown
+### 📋 Requirements Registry
+| ID | Requirement Description | Priority | Status | Verification Trace |
+|----|-------------------------|----------|--------|--------------------|
+| R1 | {exact requirement}    | {H/M/L}  | ⏳     | {test/UAT flow}     |
+| R2 | {exact requirement}    | {H/M/L}  | ⏳     | {test/UAT flow}     |
+```
+
+**Registry Lifecycle:**
+- `⏳ Pending`: Requirement captured, not yet implemented.
+- `🔄 In Progress`: Currently being coded in active wave.
+- `✅ Verified`: Passed automated test or live UAT scenario.
+
+**Rules:**
+1. **100% Fidelity:** Never omit a user requirement or assume it is out of scope without explicit confirmation.
+2. **Task Linking:** Every task in the plan must reference which `R{id}` it fulfills.
+3. **Completion Invariant:** A task plan is complete ONLY when all rows reach `✅ Verified`.
 
 ## Overview
 This skill provides a framework for breaking down work into clear, actionable tasks with verification criteria.
