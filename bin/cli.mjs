@@ -44,14 +44,22 @@ function getAllFiles(dir, base = dir) {
   return results;
 }
 
-function isGitModified(filePath) {
+function getGitModifiedFiles() {
   try {
-    const result = execSync(`git status --porcelain "${filePath}"`, {
+    const result = execSync('git status --porcelain', {
       stdio: ['pipe', 'pipe', 'pipe'],
-    }).toString().trim();
-    return result.length > 0;
+    }).toString();
+    const modified = new Set();
+    for (const line of result.split('\n')) {
+      if (!line.trim()) continue;
+      const entry = line.slice(3).trim().replace(/^"|"$/g, '');
+      const parts = entry.split(' -> ');
+      const target = parts[parts.length - 1];
+      modified.add(path.normalize(target));
+    }
+    return modified;
   } catch {
-    return false; // not a git repo or git not available
+    return new Set();
   }
 }
 
@@ -114,14 +122,16 @@ function cmdUpdate() {
 
   const srcFiles = getAllFiles(AGENTS_SRC);
   const stats = { updated: 0, skipped: 0, conflicted: 0 };
+  const modifiedFiles = getGitModifiedFiles();
 
   for (const relFile of srcFiles) {
     const srcFile  = path.join(AGENTS_SRC, relFile);
     const destFile = path.join(destAgents, relFile);
+    const relDest  = path.normalize(path.join('.agents', relFile));
 
     const destExists = fs.existsSync(destFile);
 
-    if (destExists && isGitModified(path.join('.agents', relFile))) {
+    if (destExists && modifiedFiles.has(relDest)) {
       // User has modified this file — save incoming copy, don't overwrite
       const incomingFile = destFile + '.incoming';
       if (!isDryRun) {

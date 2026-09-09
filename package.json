@@ -4,7 +4,11 @@
   "description": "Autonomous multi-agent and skills template for Google Antigravity IDE and Gemini CLI",
   "type": "module",
   "bin": {
-    "agent-template": "./bin/cli.mjs"
+    "agent-template": "./bin/cli.mjs",
+    "@trongtin1/agent-template": "./bin/cli.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     ".agents/",
