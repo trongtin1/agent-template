@@ -144,11 +144,18 @@ version: 1.0.0
 
 ### Completion Structure
 
-```
+```text
 1. Success confirmation (celebrate briefly)
 2. Summary of what was done (concrete)
 3. How to verify/test (actionable)
-4. Next steps suggestion (proactive)
+4. Next steps suggestion (proactive slash command recommendation)
+```
+
+**Next Steps Template:**
+```markdown
+---
+👉 **Next Recommended Step**:
+- Run `/[slash-command]` to [clear next action]
 ```
 
 ---
@@ -161,7 +168,7 @@ version: 1.0.0
 | **Visual** | Use emojis (✅🔄⏳❌) for quick scanning |
 | **Specific** | "~2 minutes" not "wait a bit" |
 | **Alternatives** | Offer multiple paths when stuck |
-| **Proactive** | Suggest next step after completion |
+| **Proactive** | Suggest next workflow slash command after completion |
 
 ---
 

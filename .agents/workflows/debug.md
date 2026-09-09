@@ -89,6 +89,17 @@ When `/debug` is triggered:
 
 ---
 
+## After Debugging
+
+Tell user:
+```
+👉 **Next Recommended Step**:
+- Run `/verify` to execute tests and prove the bug fix works without regressions.
+- Run `/commit` once verified to stage and commit the fix safely.
+```
+
+---
+
 ## Examples
 
 ```

@@ -99,6 +99,17 @@ What direction would you like to explore?
 
 ---
 
+## After Brainstorming
+
+Tell user:
+```
+👉 **Next Recommended Step**:
+- Run `/plan [chosen option]` to create the structured task plan.
+- Or run `/party` to align multi-role perspectives before planning.
+```
+
+---
+
 ## Examples
 
 ```

@@ -48,6 +48,18 @@ This command adds features or makes updates to existing application.
 
 ---
 
+## After Enhancements
+
+Tell user:
+```
+👉 **Next Recommended Step**:
+- Run `/verify` to test and validate the modified functionality.
+- Run `/preview` to visually inspect the updated UI.
+- Run `/commit` once verified to stage and commit changes safely.
+```
+
+---
+
 ## Usage Examples
 
 ```

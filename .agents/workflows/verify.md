@@ -67,6 +67,20 @@ RULES:
 
 ---
 
+## After Verification
+
+Tell user:
+```
+👉 **Next Recommended Step**:
+- If all verified (Pass ✅):
+  - Run `/commit` to review diff and commit changes safely.
+  - Or run `/preview` to visually inspect in the browser.
+- If issues found (Fail ❌):
+  - Run `/debug` to investigate and isolate root cause.
+```
+
+---
+
 ## Usage Examples
 
 ```

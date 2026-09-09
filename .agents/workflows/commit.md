@@ -58,4 +58,15 @@ git commit -m "type(scope): concise description"
 ```
 Report the committed SHA and summary to the user.
 
+---
+
+## After Commit
+
+Tell user:
+```
+👉 **Next Recommended Step**:
+- Run `/deploy` if your project is ready for release/staging deployment.
+- Or run `/plan [next-feature]` to start planning your next task.
+```
+
 > ⚠️ **Note on `git push`**: Never run `git push` automatically. Always ask for separate user confirmation before pushing to remote.

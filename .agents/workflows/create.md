@@ -46,6 +46,18 @@ This command starts a new application creation process.
 
 ---
 
+## After Creation
+
+Tell user:
+```
+👉 **Next Recommended Step**:
+- Run `/verify` to execute tests and prove code functionality.
+- Run `/preview` to view and interact with the application.
+- Run `/commit` once verified to stage and commit changes safely.
+```
+
+---
+
 ## Usage Examples
 
 ```

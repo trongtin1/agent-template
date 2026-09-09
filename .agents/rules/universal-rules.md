@@ -118,3 +118,29 @@ When automated recovery fails or an E3/E4 blocker occurs, **NEVER** halt silentl
   2. Lingering `{task-slug}.md` plan files in the project root are **STRICTLY FORBIDDEN** upon task completion.
   3. Report the new archive location of the plan file to the user in the final summary.
 
+---
+
+## 🧭 Proactive Next-Workflow Guidance (Global Mandatory)
+
+**NEVER leave the user at a dead-end.** Upon completing any response where work was planned, implemented, verified, tested, or debugged, the agent **MUST** proactively suggest 1–2 logical next workflows (slash commands) with actionable context.
+
+### Standard Workflow Transition Matrix
+
+| Completed Stage | Trigger / Context | Recommended Next Workflow |
+| :--- | :--- | :--- |
+| **Brainstorming** | Options explored, decision made | 👉 `/plan [chosen direction]` to create structured tasks |
+| **Planning** | `{task-slug}.md` created & approved | 👉 `/create` (new app) or `/enhance` (feature/refactor) |
+| **Code Implementation** | Code written or modified | 👉 `/verify` (run proofs/tests) or `/preview` (inspect UI) |
+| **Verification / Testing** | All tests & checks passed | 👉 `/commit` (safe conventional commit) or `/preview` |
+| **Debugging** | Root cause isolated & fix applied | 👉 `/verify` (re-test the fix) → `/commit` |
+| **Commit Finished** | Safe commit created | 👉 `/deploy` (if release-ready) or `/plan` (next feature) |
+
+### Guidance Format
+At the conclusion of the response, append:
+```markdown
+---
+👉 **Next Recommended Step**:
+- Run `/[command]` to [actionable reason]
+- Or run `/[alternative]` to [secondary action]
+```
+
