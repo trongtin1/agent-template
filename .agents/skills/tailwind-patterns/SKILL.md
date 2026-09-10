@@ -268,4 +268,51 @@ version: 1.0.0
 
 ---
 
+## 13. Canonical Classes Reference (Prevent `suggestCanonicalClasses`)
+
+Tailwind Language Server flags non-canonical and obsolete class names under `suggestCanonicalClasses`. Always use the canonical form:
+
+| Non-Canonical / Obsolete (v3 Legacy) | Canonical Standard (v4) | Note |
+|--------------------------------------|-------------------------|------|
+| `flex-shrink-0` | `shrink-0` | Flex shrink shorthand |
+| `flex-shrink` | `shrink` | Default flex shrink |
+| `flex-grow` | `grow` | Flex grow shorthand |
+| `flex-grow-0` | `grow-0` | Flex grow zero |
+| `bg-gradient-to-r` | `bg-linear-to-r` | Modern linear gradient syntax |
+| `bg-gradient-to-t` | `bg-linear-to-t` | Linear gradient top |
+| `bg-gradient-to-b` | `bg-linear-to-b` | Linear gradient bottom |
+| `bg-gradient-to-l` | `bg-linear-to-l` | Linear gradient left |
+| `bg-gradient-to-tr` | `bg-linear-to-tr` | Linear gradient top-right |
+| `bg-gradient-to-br` | `bg-linear-to-br` | Linear gradient bottom-right |
+| `overflow-ellipsis` | `truncate` (or `text-ellipsis`) | Text truncate shorthand |
+| `outline-none` | `outline-hidden` | v4 accessible outline utility |
+| `tracking-[0.025em]` | `tracking-wide` | Prefer token over arbitrary value |
+| `[color:red]` | `text-[red]` or `text-red-500` | Prefer utility syntax |
+| `[display:flex]` | `flex` | Direct utility |
+| `border-opacity-*` | `border-*/<opacity>` (e.g. `border-gray-200/50`) | Slash opacity syntax |
+| `bg-opacity-*` | `bg-*/<opacity>` (e.g. `bg-black/80`) | Slash opacity syntax |
+| `text-opacity-*` | `text-*/<opacity>` (e.g. `text-white/90`) | Slash opacity syntax |
+
+---
+
+## 14. Post-Generation Tailwind Language Server Lint & Auto-Fix
+
+After generating or modifying any UI files:
+
+1. **Run the Linter & Auto-Fixer**:
+   ```bash
+   node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs . --fix
+   ```
+2. **What the Linter Does**:
+   - Launches `@tailwindcss/language-server` via LSP stdio protocol.
+   - Parses `suggestCanonicalClasses` and other styling diagnostics.
+   - Applies suggestions via reverse-offset file edits to prevent coordinate drift.
+   - Loops verification passes until **0 warnings remain**.
+3. **Run via Unified Linter**:
+   ```bash
+   python .agents/skills/lint-and-validate/scripts/lint_runner.py . --fix
+   ```
+
+---
+
 > **Remember:** Tailwind v4 is CSS-first. Embrace CSS variables, container queries, and native features. The config file is now optional.

@@ -22,6 +22,7 @@
     "audit:ux": "python .agents/skills/frontend-design/scripts/ux_audit.py",
     "ast:outline": "python .agents/skills/ast-grep/scripts/ast_outline.py",
     "ast:scan": "ast-grep scan",
+    "lint:tailwind": "node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs",
     "sync:manifest": "python .agents/scripts/generate_manifest.py && python .agents/scripts/dependency_graph.py"
   },
   "devDependencies": {

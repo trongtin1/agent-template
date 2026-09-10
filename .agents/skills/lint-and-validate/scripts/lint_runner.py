@@ -26,7 +26,7 @@ except:
     pass
 
 
-def detect_project_type(project_path: Path) -> dict:
+def detect_project_type(project_path: Path, fix: bool = False) -> dict:
     """Detect project type and available linters."""
     result = {
         "type": "unknown",
@@ -43,16 +43,42 @@ def detect_project_type(project_path: Path) -> dict:
             deps = {**pkg.get("dependencies", {}), **pkg.get("devDependencies", {})}
             
             # Check for lint script
-            if "lint" in scripts:
+            if "lint" in scripts and not fix:
                 result["linters"].append({"name": "npm lint", "cmd": ["npm", "run", "lint"]})
-            elif "eslint" in deps:
-                result["linters"].append({"name": "eslint", "cmd": ["npx", "eslint", "."]})
+            elif "eslint" in deps or "lint" in scripts:
+                cmd = ["npx", "eslint", "."]
+                if fix:
+                    cmd.append("--fix")
+                result["linters"].append({"name": "eslint", "cmd": cmd})
             
             # Check for TypeScript
             if "typescript" in deps or (project_path / "tsconfig.json").exists():
                 result["linters"].append({"name": "tsc", "cmd": ["npx", "tsc", "--noEmit"]})
+            
+            # Check for Tailwind CSS (v3 / v4)
+            tailwind_script = Path(__file__).parent / "tailwind_lint.mjs"
+            has_tailwind = (
+                "tailwindcss" in deps
+                or "@tailwindcss/postcss" in deps
+                or "@tailwindcss/vite" in deps
+                or any(project_path.glob("tailwind.config.*"))
+            )
+            if not has_tailwind:
+                for css_file in project_path.rglob("*.css"):
+                    if "node_modules" not in css_file.parts and css_file.is_file():
+                        try:
+                            if "tailwindcss" in css_file.read_text(encoding="utf-8", errors="ignore"):
+                                has_tailwind = True
+                                break
+                        except Exception:
+                            pass
+            if has_tailwind and tailwind_script.exists():
+                tw_cmd = ["node", str(tailwind_script), str(project_path)]
+                if fix:
+                    tw_cmd.append("--fix")
+                result["linters"].append({"name": "tailwind-lsp", "cmd": tw_cmd})
                 
-        except:
+        except Exception:
             pass
     
     # Python project
@@ -60,7 +86,10 @@ def detect_project_type(project_path: Path) -> dict:
         result["type"] = "python"
         
         # Check for ruff
-        result["linters"].append({"name": "ruff", "cmd": ["ruff", "check", "."]})
+        ruff_cmd = ["ruff", "check", "."]
+        if fix:
+            ruff_cmd.append("--fix")
+        result["linters"].append({"name": "ruff", "cmd": ruff_cmd})
         
         # Check for mypy
         if (project_path / "mypy.ini").exists() or (project_path / "pyproject.toml").exists():
@@ -114,16 +143,19 @@ def run_linter(linter: dict, cwd: Path) -> dict:
 
 
 def main():
-    project_path = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
+    args = sys.argv[1:]
+    fix = "--fix" in args
+    filtered_args = [a for a in args if not a.startswith("--")]
+    project_path = Path(filtered_args[0] if filtered_args else ".").resolve()
     
     print(f"\n{'='*60}")
-    print(f"[LINT RUNNER] Unified Linting")
+    print(f"[LINT RUNNER] Unified Linting{' (AUTO-FIX)' if fix else ''}")
     print(f"{'='*60}")
     print(f"Project: {project_path}")
     print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     # Detect project type
-    project_info = detect_project_type(project_path)
+    project_info = detect_project_type(project_path, fix=fix)
     print(f"Type: {project_info['type']}")
     print(f"Linters: {len(project_info['linters'])}")
     print("-"*60)

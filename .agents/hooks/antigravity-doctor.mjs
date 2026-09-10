@@ -212,7 +212,14 @@ function checkValidation(root, report) {
     ['.agents/VERSION', value => value.trim()]
   ];
   if (fs.existsSync(path.join(root, 'package.json'))) {
-    versionFiles.push(['package.json', value => JSON.parse(value).version]);
+    try {
+      const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+      if (pkg.name === '@trongtin1/agent-template') {
+        versionFiles.push(['package.json', () => pkg.version]);
+      }
+    } catch {
+      // Ignore if package.json cannot be parsed here; it will be handled by regular validation if needed
+    }
   }
   if (fs.existsSync(path.join(root, 'cli/package.json'))) {
     versionFiles.push(['cli/package.json', value => JSON.parse(value).version]);

@@ -15,7 +15,7 @@ version: 1.0.0
 #### Node.js / TypeScript / Next.js / Tailwind
 1. **Lint & Auto-Fix:** `npm run lint` or `npx eslint . --fix`
 2. **Types:** `npx tsc --noEmit`
-3. **Tailwind Hygiene:** Adhere to canonical classes (`shrink-0`, `bg-linear-to-*`, `grow`) and resolve IDE extension suggestions.
+3. **Tailwind Hygiene & LSP Auto-Fix:** Run `node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs . --fix` to parse diagnostics and resolve `suggestCanonicalClasses`.
 4. **Security:** `npm audit --audit-level=high`
 
 #### Python
@@ -29,17 +29,22 @@ version: 1.0.0
    - Listen to IDE feedback from language servers (ESLint, Tailwind IntelliSense, TypeScript LSP).
    - Run: `npm run lint && npx tsc --noEmit`
 3. **Auto-Fix First:** Run `npx eslint . --fix` to automatically clean up unused imports, formatting, and auto-fixable rules.
-4. **Fix Remaining Warnings & Errors:**
+4. **Tailwind Canonical Self-Healing Loop:**
+   - Run: `node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs . --fix`
+   - Spawns `@tailwindcss/language-server` via LSP stdio.
+   - Parses diagnostics (`suggestCanonicalClasses`, invalid directives, conflicts).
+   - Replaces non-canonical classes with suggestions in reverse offset order.
+   - Loops passes automatically until active diagnostics = 0.
+5. **Fix Remaining Warnings & Errors:**
    - Next.js: Replace `<img>` with `next/image`, replace internal `<a>` with `next/link`.
    - React JSX: Escape quotes (`&apos;`, `&ldquo;`, `&rdquo;` or `{"'"}`).
-   - Tailwind: Replace obsolete class aliases with canonical classes, remove conflicting utility classes.
    - Clean Scope: Remove unused variables/imports (`no-unused-vars`).
-5. **Verify:** Ensure final Diagnostics count is 0. Submitting code with active warnings or errors is NOT allowed.
+6. **Verify:** Ensure final Diagnostics count is 0. Submitting code with active warnings or errors is NOT allowed.
 
 ## Error Handling
 - If `lint` fails: Fix the style or syntax issues immediately.
 - If `tsc` fails: Correct type mismatches before proceeding.
-- If Tailwind extension warns on canonical classes: Update to modern v4 classes immediately.
+- If Tailwind extension warns on canonical classes: Run `tailwind_lint.mjs --fix` or update to modern v4 classes immediately.
 - If no tool is configured: Check the project root for `.eslintrc`, `tsconfig.json`, `pyproject.toml` and suggest creating one.
 
 ---
@@ -51,7 +56,8 @@ version: 1.0.0
 
 | Script | Purpose | Command |
 |--------|---------|---------|
-| `scripts/lint_runner.py` | Unified lint check | `python scripts/lint_runner.py <project_path>` |
+| `scripts/lint_runner.py` | Unified lint check | `python scripts/lint_runner.py <project_path> [--fix]` |
+| `scripts/tailwind_lint.mjs` | Tailwind LSP linter & canonical auto-fixer | `node scripts/tailwind_lint.mjs <project_path> [--fix]` |
 | `scripts/type_coverage.py` | Type coverage analysis | `python scripts/type_coverage.py <project_path>` |
 
 

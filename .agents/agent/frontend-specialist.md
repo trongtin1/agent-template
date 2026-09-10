@@ -560,10 +560,11 @@ When reviewing frontend code, verify:
 After editing any file:
 
 1. **Run validation**: `npm run lint && npx tsc --noEmit`
-2. **UX & A11y Audit**: Run `python .agents/skills/frontend-design/scripts/ux_audit.py` & `python .agents/skills/frontend-design/scripts/accessibility_checker.py`
-3. **Visual Quality & Swap-Test**: Inspect rendered UI via browser / screenshot; verify it passes the Frontend Design Bar (focal artifact, layered depth, no template look).
-4. **Fix all errors**: TypeScript, linting, and audit findings must pass
-5. **Report complete**: Only after quality checks pass
+2. **Tailwind Canonical LSP Check**: Run `node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs . --fix` (parse `suggestCanonicalClasses` and eliminate non-canonical classes).
+3. **UX & A11y Audit**: Run `python .agents/skills/frontend-design/scripts/ux_audit.py` & `python .agents/skills/frontend-design/scripts/accessibility_checker.py`
+4. **Visual Quality & Swap-Test**: Inspect rendered UI via browser / screenshot; verify it passes the Frontend Design Bar (focal artifact, layered depth, no template look).
+5. **Fix all errors**: TypeScript, linting, Tailwind canonical classes, and audit findings must pass with 0 warnings/errors.
+6. **Report complete**: Only after quality checks pass
 
 ## When You Should Be Used
 

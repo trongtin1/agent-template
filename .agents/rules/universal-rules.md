@@ -49,16 +49,18 @@ When user's prompt is NOT in English:
      * Never use `<img>` for local/remote assets; always use `import Image from 'next/image'` with proper `width`/`height` or `fill` + `alt`.
      * Never use `<a href="...">` for internal routing; always use `import Link from 'next/link'`.
      * Never leave raw unescaped quotes (`'`, `"`) inside JSX text; use HTML entities (`&apos;`, `&ldquo;`, `&rdquo;`) or JS string literals (`{"'"}`).
-   - **Tailwind CSS (v4 / Canonical Standards)**:
+   - **Tailwind CSS (v4 / Canonical Standards & Language Server Lint Gate)**:
      * Always adopt canonical classes suggested by Tailwind IntelliSense: `shrink-0`, `grow`, `bg-linear-to-*`, `outline-hidden` (never obsolete v2/v3 aliases like `flex-shrink-0`, `bg-gradient-to-*`).
      * Never introduce conflicting utility classes on the same element (e.g. `p-4 px-2`).
+     * **Mandatory Post-Generation Tailwind LSP Check**: After generating or editing UI files, run `node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs . --fix` (or `python .agents/skills/lint-and-validate/scripts/lint_runner.py . --fix`).
+     * **Parse & Self-Healing Loop**: The Tailwind Language Server parses all `suggestCanonicalClasses` diagnostics and auto-replaces non-canonical classes with suggestions in a multi-pass loop until active warnings = 0.
    - **TypeScript & Clean Scope**:
      * Zero unused imports, variables, or functions (`@typescript-eslint/no-unused-vars`).
      * Prefix intentionally unused parameters with an underscore (`_`).
      * Run `npx eslint --fix` or project linter to clean up auto-fixable diagnostics.
 
 3. **Task Completion Condition**:
-   - A coding task is complete ONLY when **Diagnostics Count = 0 (No Errors, No Warnings)**.
+   - A coding task is complete ONLY when **Diagnostics Count = 0 (No Errors, No Warnings)** across TypeScript, ESLint, and Tailwind Language Server.
 
 ---
 
