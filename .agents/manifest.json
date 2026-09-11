@@ -36,6 +36,7 @@
           "advanced-elicitation": "^1.0.0",
           "ba-diagrams": "^1.0.0",
           "clean-code": "^2.0.0",
+          "documentation-templates": "^1.1.0",
           "userguide": "^1.0.0"
         }
       },
@@ -47,7 +48,7 @@
         "Edit",
         "Write"
       ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     "code-archaeologist": {
       "model": "inherit",
@@ -135,7 +136,7 @@
       "requires": {
         "skills": {
           "clean-code": "^2.0.0",
-          "documentation-templates": "^1.0.0"
+          "documentation-templates": "^1.1.0"
         }
       },
       "tools": [
@@ -332,8 +333,9 @@
       "path": "agent/product-manager.md",
       "requires": {
         "skills": {
+          "advanced-elicitation": "^1.0.0",
           "brainstorming": "^1.0.0",
-          "clean-code": "^2.0.0",
+          "documentation-templates": "^1.1.0",
           "plan-writing": "^1.0.0"
         }
       },
@@ -343,16 +345,17 @@
         "Glob",
         "Bash"
       ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     "product-owner": {
       "model": "inherit",
       "path": "agent/product-owner.md",
       "requires": {
         "skills": {
-          "brainstorming": "^1.0.0",
           "clean-code": "^2.0.0",
-          "plan-writing": "^1.0.0"
+          "documentation-templates": "^1.1.0",
+          "plan-writing": "^1.0.0",
+          "tdd-workflow": "^1.0.0"
         }
       },
       "tools": [
@@ -361,7 +364,7 @@
         "Glob",
         "Bash"
       ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     "project-planner": {
       "model": "inherit",
@@ -412,7 +415,6 @@
         "skills": {
           "api-patterns": "^1.0.0",
           "clean-code": "^2.0.0",
-          "red-team-tactics": "^1.0.0",
           "vulnerability-scanner": "^1.0.0"
         }
       },
@@ -424,7 +426,7 @@
         "Edit",
         "Write"
       ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     "seo-specialist": {
       "model": "inherit",
@@ -457,6 +459,7 @@
           "ba-diagrams": "^1.0.0",
           "clean-code": "^2.0.0",
           "database-design": "^1.0.0",
+          "documentation-templates": "^1.1.0",
           "plan-writing": "^1.0.0"
         }
       },
@@ -466,7 +469,7 @@
         "Glob",
         "Bash"
       ],
-      "version": "1.1.0"
+      "version": "1.2.0"
     },
     "test-engineer": {
       "model": "inherit",
@@ -840,7 +843,7 @@
       ],
       "path": "skills/documentation-templates/SKILL.md",
       "scripts": [],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     "find-skills": {
       "allowedTools": [

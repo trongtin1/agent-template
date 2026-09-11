@@ -68,7 +68,14 @@ description: Apply when writing, building, refactoring, or fixing code — proje
 ## 🏁 Plan Mode (4-Phase)
  
 1. **ANALYSIS & INTAKE** → Research, Socratic questions, build **Requirements Registry (R1, R2...)**, lock technical decisions (`Decisions` vs `Discretion`).
-2. **PLANNING** → `{task-slug}.md`, task breakdown linked to `R{id}`, **Context Budget Check** (max 2-4 files/task, wave partitioning if >4 files), **User Acceptance Scenarios (UAT criteria)**.
+2. **PLANNING & DOCUMENTATION MODE** → Select appropriate documentation scale:
+   - **Lite Mode (Single Feature / Fix)**: Create `{task-slug}.md` at the project root for fast, focused tracking.
+   - **4-Pillars Architecture (Full System / Multi-domain Project)**: Generate documentation into `docs/` on-demand following `@[skills/documentation-templates]`:
+     * `docs/01-requirements/`: Stakeholders, Business Rules, User Stories (owned by `business-analyst` / `product-owner`)
+     * `docs/02-architecture/`: System Design, ADRs, Integrations (owned by `system-architect`)
+     * `docs/03-ui-specs/`: Screen specs, states, tokens in `DESIGN.md` (owned by `ux-designer` / `frontend-specialist`)
+     * `docs/04-qa/`: Traceability matrix, UAT scenarios (owned by `test-engineer`)
+   - **Context Budget Check**: max 2-4 files/task, wave partitioning if >4 files.
 3. **SOLUTIONING** → Architecture, schema design, contracts. If ORM/DB schemas change, inject mandatory **Schema Push Gate** (`[BLOCKING] schema push / migration`). (NO CODE before Phase 4!)
 4. **IMPLEMENTATION & DRIFT GUARD** → Execute in dependency waves (Wave 1: Contracts → Wave 2: Logic → Wave 3: UI → Wave 4: Verify). **Anti-Drift Checkpoint**: verify alignment with Requirements Registry at each wave boundary before progressing.
 5. **USER ACCEPTANCE (UAT)** → Run actual user flows to prove end-to-end functionality beyond green unit tests. Update registry to `✅ Verified`.

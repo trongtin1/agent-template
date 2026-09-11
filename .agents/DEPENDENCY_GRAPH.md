@@ -171,6 +171,7 @@ flowchart LR
   A_business_analyst --> S_ba_diagrams
   A_business_analyst --> S_userguide
   A_business_analyst --> S_advanced_elicitation
+  A_business_analyst --> S_documentation_templates
   A_business_analyst --> S_clean_code
   A_code_archaeologist --> S_clean_code
   A_code_archaeologist --> S_simplify_code
@@ -232,12 +233,14 @@ flowchart LR
   A_plan_checker --> S_code_review_checklist
   A_plan_checker --> S_architecture
   A_plan_checker --> S_silent_failure_hunter
-  A_product_manager --> S_plan_writing
+  A_product_manager --> S_advanced_elicitation
   A_product_manager --> S_brainstorming
-  A_product_manager --> S_clean_code
+  A_product_manager --> S_plan_writing
+  A_product_manager --> S_documentation_templates
   A_product_owner --> S_plan_writing
-  A_product_owner --> S_brainstorming
+  A_product_owner --> S_documentation_templates
   A_product_owner --> S_clean_code
+  A_product_owner --> S_tdd_workflow
   A_project_planner --> S_clean_code
   A_project_planner --> S_app_builder
   A_project_planner --> S_plan_writing
@@ -250,7 +253,6 @@ flowchart LR
   A_qa_automation_engineer --> S_silent_failure_hunter
   A_security_auditor --> S_clean_code
   A_security_auditor --> S_vulnerability_scanner
-  A_security_auditor --> S_red_team_tactics
   A_security_auditor --> S_api_patterns
   A_seo_specialist --> S_clean_code
   A_seo_specialist --> S_seo_fundamentals
@@ -261,6 +263,7 @@ flowchart LR
   A_system_architect --> S_clean_code
   A_system_architect --> S_plan_writing
   A_system_architect --> S_advanced_elicitation
+  A_system_architect --> S_documentation_templates
   A_system_architect --> S_ast_grep
   A_system_architect --> S_ba_diagrams
   A_test_engineer --> S_clean_code

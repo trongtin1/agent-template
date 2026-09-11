@@ -37,30 +37,21 @@ When user's prompt is NOT in English:
 
 ## 🛡️ Zero-Diagnostics & Self-Healing Loop (Global Mandatory)
 
-**When editing or creating code in Antigravity IDE (with ESLint, Tailwind CSS IntelliSense, TypeScript LSP):**
+**Applicable across all languages, runtimes, and frameworks (Node.js, Python, Rust, Go, C++, Mobile, etc.):**
 
-1. **Active IDE Feedback Listening (Dynamic Gate)**:
-   - Every file modification must pass inspection against IDE diagnostic markers and project linters.
-   - Any `Error` or `Warning` emitted by the IDE or linter is **BLOCKING**. Never mark a task as done while diagnostics remain.
-   - Do not rely on hardcoded error lists: read the dynamic error code and message provided by the IDE/linter and resolve its root cause.
+1. **Active Diagnostic Listening (Dynamic Gate)**:
+   - Every file modification must pass inspection against active IDE diagnostic markers, compilers, Language Server Protocols (LSPs: TypeScript, Pyright/Ruff, Rust Analyzer, gopls, clangd, etc.), and project linters.
+   - Any `Error` or `Warning` emitted by the compiler, language server, or configured linter is **BLOCKING**. Never mark a task as done while diagnostics remain.
+   - Do not rely on hardcoded error patterns: read the dynamic error code and diagnostic payload directly from the tool/environment and resolve its root cause.
 
-2. **Universal Framework & Styling Hygiene**:
-   - **Next.js & React**:
-     * Never use `<img>` for local/remote assets; always use `import Image from 'next/image'` with proper `width`/`height` or `fill` + `alt`.
-     * Never use `<a href="...">` for internal routing; always use `import Link from 'next/link'`.
-     * Never leave raw unescaped quotes (`'`, `"`) inside JSX text; use HTML entities (`&apos;`, `&ldquo;`, `&rdquo;`) or JS string literals (`{"'"}`).
-   - **Tailwind CSS (v4 / Canonical Standards & Language Server Lint Gate)**:
-     * Always adopt canonical classes suggested by Tailwind IntelliSense: `shrink-0`, `grow`, `bg-linear-to-*`, `outline-hidden` (never obsolete v2/v3 aliases like `flex-shrink-0`, `bg-gradient-to-*`).
-     * Never introduce conflicting utility classes on the same element (e.g. `p-4 px-2`).
-     * **Mandatory Post-Generation Tailwind LSP Check**: After generating or editing UI files, run `node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs . --fix` (or `python .agents/skills/lint-and-validate/scripts/lint_runner.py . --fix`).
-     * **Parse & Self-Healing Loop**: The Tailwind Language Server parses all `suggestCanonicalClasses` diagnostics and auto-replaces non-canonical classes with suggestions in a multi-pass loop until active warnings = 0.
-   - **TypeScript & Clean Scope**:
-     * Zero unused imports, variables, or functions (`@typescript-eslint/no-unused-vars`).
-     * Prefix intentionally unused parameters with an underscore (`_`).
-     * Run `npx eslint --fix` or project linter to clean up auto-fixable diagnostics.
+2. **Universal Code Scope Hygiene**:
+   - **Zero Dead / Unused Artifacts**: Zero unused imports, variables, functions, or dead branches. Prefix intentionally unused parameters with an underscore (`_`).
+   - **Type Safety & Defensive Boundaries**: Enforce strict type constraints and runtime validation at all system boundaries (APIs, user input, external I/O).
+   - **Self-Healing Loop**: If a build, compile, or lint error occurs, automatically enter the self-healing cycle: isolate the root cause, formulate an alternative solution, verify, and iterate until diagnostics reach zero.
+   - *Note: Framework-specific styling and architecture hygiene (e.g., React/Next.js optimizations, Tailwind canonical classes, Python async patterns) are strictly governed by their respective domain specialist agents and skills.*
 
 3. **Task Completion Condition**:
-   - A coding task is complete ONLY when **Diagnostics Count = 0 (No Errors, No Warnings)** across TypeScript, ESLint, and Tailwind Language Server.
+   - A coding task is complete ONLY when **Diagnostics Count = 0 (No Errors, No Warnings)** across all active compilers, language servers, and linters for modified files.
 
 ---
 

@@ -81,3 +81,21 @@ Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Re
 3. How does this DIFFER from generic output?
 
 ---
+
+## 🎯 Session Goal & Execution Protocol (`_goals.md`)
+
+When working on complex projects with persistent goals across multiple sessions or workflows:
+
+1. **Session Start (Backlog Check)**: At session start, check if `_goals.md` exists in the project root. If present, read open and backlogged objectives first to establish immediate context.
+2. **Execute to Verified Completion**: Drive active objectives through execution until fully verified (`Done`).
+3. **Non-Blocking Execution (Continuous Momentum)**:
+   - When encountering an unresolved decision, missing credential, or external blocker:
+     * Note it down clearly under `Pending Decisions / Blockers` in `_goals.md` with exact technical context.
+     * **NEVER halt the entire session silently.** Immediately proceed with other independent, unblocked objectives until all actionable work is completed.
+4. **Prune Completed Goals**: Once an objective reaches verified completion (100% Done), remove it from `_goals.md` to keep the active goal sheet lean and focused.
+5. **Session Wrap-Up & Safe Delivery**:
+   - Conclude by summarizing completed deliverables and pending items.
+   - Prepare a Conventional Commit following `@[skills/git-master]`, present changes, and request user approval before pushing to `main`.
+
+---
+
