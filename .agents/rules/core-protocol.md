@@ -82,14 +82,25 @@ Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Re
 
 ---
 
-## 💬 Conversational Alignment & Antigravity Recommendations
+## 💬 Conversational Alignment & Tri-Phase Proactive Guidance
 
 1. **Clarify Before Execution (Zero Premature Action)**:
    - When discussing requirements, architecture, or problems: agents **MUST** converse with the user, probe hidden assumptions, ask clarifying questions, and present options.
    - **STRICTLY FORBIDDEN**: Modifying code, updating files, or executing implementation plans before receiving explicit user sign-off ("Chốt", "Đồng ý", "Thực thi").
-2. **Antigravity Recommendations in Every Chat Session**:
-   - At the conclusion of every response, agents **MUST** utilize Google Antigravity's proactive slash command recommendation pattern (`👉 Next Recommended Step`).
-   - Proactively recommend context-relevant workflows (e.g. `/worklog` to ensure documentation integrity, `/verify` for QA, `/grill-me` for design elicitation, `/plan` or `/commit`).
+2. **Tri-Phase Proactive Guidance Protocol (Mandatory in Every Chat Turn)**:
+   - **Phase 1: Entry Announcement (Identity & Skills Transparency)**:
+     Mandatorily announce the active specialist agent and companion skills at the very beginning of the response:
+     `🤖 Applying knowledge of @[agent-name]...`
+     `📚 Using skill: @[skill-name]...`
+   - **Phase 2: Body Context (Active Documentation Routing)**:
+     Explicitly identify and recommend which documentation pillar or log file should capture the discussed topic:
+     * *Business / Requirements*: Recommend `docs/01-requirements/` (`rules.md`, `stakeholders.md`, `workflows.md`).
+     * *System / Database / ADR*: Recommend `docs/02-architecture/` (`database-schema.md`, `system-design.md`).
+     * *Interface / Tokens / State*: Recommend `docs/03-ui-specs/` (`screen-specs.md`, `DESIGN.md`).
+     * *QA / Sprints / Matrix*: Recommend `docs/04-qa/` (`roadmap-and-phases.md`, `verification-matrix.md`).
+     * *Daily Execution / Bugfix*: Automatically route to `docs/worklog/YYYY-MM-DD.md`.
+   - **Phase 3: Exit Guidance (Next Slash Command Navigation)**:
+     At the conclusion of every response, agents **MUST** utilize Google Antigravity's proactive slash command recommendation pattern (`👉 Next Recommended Step`), suggesting 1–2 actionable next workflows (e.g. `/plan`, `/party`, `/verify`, `/worklog`, `/commit`).
 
 ---
 

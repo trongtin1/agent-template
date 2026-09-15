@@ -129,7 +129,7 @@ When automated recovery fails or an E3/E4 blocker occurs, **NEVER** halt silentl
 | **Task / Wave Completed** | Implementation finished & verified | 👉 `/worklog` (audit & close daily session) or `/commit` |
 | **Commit Finished** | Safe commit created | 👉 `/worklog` (finalize commit record) or `/deploy` / `/plan` |
 
-> 🔴 **Mandatory Worklog Guidance**: Because session chat history can be deleted, lost, or compacted across conversations, upon completing any task, verification, or commit, the agent **MUST** proactively recommend reviewing or finalizing the daily session log via `/worklog` to guarantee permanent project continuity.
+> 🔴 **Tri-Phase Guidance Mandatory**: In adherence to `core-protocol.md`, every response MUST follow the Tri-Phase pattern: (1) Announce Persona & Skills at the beginning, (2) Actively route discussed topic to the relevant documentation pillar (`docs/01`–`04`) or `docs/worklog/YYYY-MM-DD.md`, and (3) Suggest next slash command in `👉 Next Recommended Step`.
 
 ### Guidance Format
 At the conclusion of the response, append:

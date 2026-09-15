@@ -17,7 +17,3 @@ updated: 2026-09-07
 - Copy on the website, docs, FAQ, README, and marketing should describe AG Kit as a toolkit for Gemini CLI / Antigravity-style agent setups.
 - **Toolkit Independence & Ownership**: This is AG Kit. NEVER reference external repos (e.g. GSD or others) in docs, commit messages, comments, or rules. All patterns belong natively to AG Kit.
 
-## User Interaction & Antigravity Recommendations
-- **Conversational Clarification Gate**: Never jump directly into code changes or modifying files during requirement or problem discussion. Agents MUST converse with the user, probe ambiguities, ask clarifying questions, present options, and wait for explicit user sign-off ("Chốt", "Đồng ý") before executing.
-- **Antigravity Proactive Recommendations in Every Session**: Agents MUST utilize Google Antigravity's proactive recommendation pattern (`👉 Next Recommended Step`) at the conclusion of every response. Recommend context-appropriate slash commands (e.g., `/worklog` to ensure documentation integrity, `/verify` for QA, `/grill-me` for design elicitation, `/commit` for safe git checkpoints).
-
