@@ -67,15 +67,18 @@ description: Apply when writing, building, refactoring, or fixing code — proje
 
 ## 📐 Tiered Planning Protocol (Mandatory Before Any Modification)
 
-**ZERO UNPLANNED CODE:** Every task—regardless of size—must present a structured plan before modifying code:
+**ZERO UNPLANNED CODE:** Every task—regardless of size—must present a structured plan before modifying code. For simple tasks (Tier 1), the user **DOES NOT** need to use slash commands; natural language instructions are automatically handled with structured gates:
 
 | Task Tier | Examples | Required Planning Action |
 | :--- | :--- | :--- |
-| **Tier 1: Micro-UI & Inline Tweak** | Edit button color, adjust spacing, rename label | **Execution Scope Box**: State target file, exact design token from `DESIGN.md`, and visual diff before editing. |
+| **Tier 1a: Micro-UI & Inline Tweak** | Edit button color, adjust spacing, rename label | **Execution Scope Box**: State target file, exact design token from `DESIGN.md`, and visual diff before editing. *(Natural prompt, zero command needed)* |
+| **Tier 1b: Bugfix & Hotfix** | Fix null error, resolve syntax crash, fix broken link | **Bug Root-Cause Box**: 1. Symptom & exact error message, 2. Root cause analysis, 3. Proposed surgical fix & regression guard. *(Natural prompt, zero command needed)* |
 | **Tier 2: Feature / Screen / Component** | Create User Management page, Add modal form | **3-Step Mini-Plan**:<br>1. *Data Model & Contracts* (Fields, types, mock/API)<br>2. *UI Anatomy* (Search/Filter, Table, Pagination, Modals)<br>3. *Component States* (Default, Loading, Empty, Error) |
 | **Tier 3: Full System / Multi-Domain** | Scaffold new app, overhaul auth system | **Full Plan (`{task-slug}.md`)** following 4-Phase Plan Mode. |
 
-> 🔴 **Auto-Worklog Obligation:** Upon completing any Tier 1, 2, or 3 task, agent MUST record session start/end time, task status (`COMPLETED`), modified files, and verification proofs in today's daily log: `docs/worklog/YYYY-MM-DD.md`.
+> 🔴 **Auto-Worklog Obligation (Zero Silent Work):**
+> 1. Even for Tier 1 micro tasks and quick bugfixes, the agent **MUST ALWAYS** append an entry to `docs/worklog/YYYY-MM-DD.md`. Never perform silent unlogged edits.
+> 2. For any bugfix or troubleshooting task, the worklog entry **MUST INCLUDE** the `🐛 Error & Root Cause Log` section (Symptom, Root Cause, Fix Applied, Regression Guard) to permanently prevent error recurrence across future sessions.
 
 ---
 

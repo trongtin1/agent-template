@@ -82,6 +82,17 @@ Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Re
 
 ---
 
+## 💬 Conversational Alignment & Antigravity Recommendations
+
+1. **Clarify Before Execution (Zero Premature Action)**:
+   - When discussing requirements, architecture, or problems: agents **MUST** converse with the user, probe hidden assumptions, ask clarifying questions, and present options.
+   - **STRICTLY FORBIDDEN**: Modifying code, updating files, or executing implementation plans before receiving explicit user sign-off ("Chốt", "Đồng ý", "Thực thi").
+2. **Antigravity Recommendations in Every Chat Session**:
+   - At the conclusion of every response, agents **MUST** utilize Google Antigravity's proactive slash command recommendation pattern (`👉 Next Recommended Step`).
+   - Proactively recommend context-relevant workflows (e.g. `/worklog` to ensure documentation integrity, `/verify` for QA, `/grill-me` for design elicitation, `/plan` or `/commit`).
+
+---
+
 ## 🎯 Session Goal & Execution Protocol (`_goals.md`)
 
 When working on complex projects with persistent goals across multiple sessions or workflows:
@@ -116,6 +127,7 @@ When working on complex projects with persistent goals across multiple sessions 
    - Record verification proofs: **Diagnostics Count = 0**, compiler/test output.
    - Update the Daily Session Index table at the top of today's file.
 4. **Zero Silent Work**: No code modification is considered finished until its entry is appended to `docs/worklog/YYYY-MM-DD.md`.
+5. **Proactive Worklog Recommendation**: At the conclusion of every completed task, code change, or commit, the agent **MUST** proactively recommend updating, auditing, or finalizing the daily session log via `/worklog` in the response's `👉 Next Recommended Step`, ensuring persistent project context survives even if chat history is cleared or compacted.
 
 ---
 

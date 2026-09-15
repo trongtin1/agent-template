@@ -315,6 +315,12 @@ Get resource details by unique identifier.
 | `[NEW]` | `src/pages/admin/users.tsx` | User management list view with pagination |
 | `[MODIFIED]` | `src/components/ui/Button.tsx` | Aligned background with `var(--color-primary-600)` |
 
+#### 🐛 Error & Root Cause Log (Mandatory for Bugfix / Incident):
+- **Symptom / Error Message**: Exact error or unexpected behavior observed.
+- **Root Cause**: Underlying trigger (e.g. undefined state before async fetch completes, missing CSS overflow).
+- **Fix Applied**: Specific code change made to resolve the root cause.
+- **Regression Guard**: Proof that error cannot recur (e.g. type assertion, null check, or automated test).
+
 #### 🧠 Technical Notes & Decisions:
 - [Architecture/Design Choice]: Why a specific approach was chosen.
 - [Mock / Stub Flag]: If temporary mocks are in place pending backend API.

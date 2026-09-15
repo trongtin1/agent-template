@@ -76,10 +76,9 @@ def cmd_status(root: Path) -> int:
     return 0
 
 
-def cmd_start(root: Path, title: str, agent: str, tier: str) -> int:
+def cmd_start(root: Path, title: str, agent: str, tier: str, error: str | None = None, root_cause: str | None = None) -> int:
     today_file = get_today_file(root)
     now = get_now_str()
-    time_only = get_time_str()
     date_str = get_date_str()
 
     if not today_file.is_file():
@@ -103,6 +102,20 @@ def cmd_start(root: Path, title: str, agent: str, tier: str) -> int:
     next_num = max([int(n) for n in session_matches], default=0) + 1
     session_id = f"#{next_num:03d}"
 
+    is_bug = "bug" in tier.lower() or "fix" in tier.lower() or "hotfix" in tier.lower() or error is not None
+
+    bug_section = ""
+    if is_bug:
+        err_msg = error if error else "Observed defect / error condition"
+        rc_msg = root_cause if root_cause else "Investigating root cause"
+        bug_section = f"""
+#### 🐛 Error & Root Cause Log (Mandatory for Bugfix / Incident):
+- **Symptom / Error Message**: {err_msg}
+- **Root Cause**: {rc_msg}
+- **Fix Applied**: Pending implementation
+- **Regression Guard**: Diagnostics = 0 and verification tests
+"""
+
     entry = f"""
 ### 🕒 Session {session_id} — {title}
 
@@ -117,7 +130,7 @@ def cmd_start(root: Path, title: str, agent: str, tier: str) -> int:
 - **Done When Checklist**:
   - [ ] Implementation verified
   - [ ] Zero diagnostics (0 Errors, 0 Warnings)
-
+{bug_section}
 #### 📂 Impact Surface (Files Changed):
 | Action | File Path | Summary of Changes |
 | :--- | :--- | :--- |
@@ -135,7 +148,7 @@ def cmd_start(root: Path, title: str, agent: str, tier: str) -> int:
     return 0
 
 
-def cmd_done(root: Path, files_str: str | None, proof: str | None) -> int:
+def cmd_done(root: Path, files_str: str | None, proof: str | None, root_cause: str | None = None, fix: str | None = None) -> int:
     today_file = get_today_file(root)
     if not today_file.is_file():
         print(f"[ERROR] No today worklog file found at {today_file}")
@@ -143,6 +156,7 @@ def cmd_done(root: Path, files_str: str | None, proof: str | None) -> int:
 
     content = today_file.read_text(encoding="utf-8")
     now = get_now_str()
+    time_only = get_time_str()
 
     if "IN_PROGRESS" not in content:
         print(f"[INFO] No active IN_PROGRESS session found in {today_file.name}.")
@@ -150,10 +164,39 @@ def cmd_done(root: Path, files_str: str | None, proof: str | None) -> int:
 
     content = re.sub(r"- \*\*End Time\*\*: `IN_PROGRESS`", f"- **End Time**: `{now}`", content, count=1)
     content = re.sub(r"- \*\*Task Status\*\*: `🔄 IN_PROGRESS`", "- **Task Status**: `✅ COMPLETED`", content, count=1)
+    content = re.sub(r"- \[ \] Implementation verified", "- [x] Implementation verified", content, count=1)
+    content = re.sub(r"- \[ \] Zero diagnostics.*", "- [x] Zero diagnostics (0 Errors, 0 Warnings)", content, count=1)
+
+    if root_cause:
+        content = re.sub(r"- \*\*Root Cause\*\*: .*", f"- **Root Cause**: {root_cause}", content, count=1)
+    if fix:
+        content = re.sub(r"- \*\*Fix Applied\*\*: .*", f"- **Fix Applied**: {fix}", content, count=1)
+
+    if files_str:
+        file_rows = ""
+        for f in [f.strip() for f in files_str.split(",") if f.strip()]:
+            file_rows += f"| `[MODIFIED]` | `{f}` | Updated logic and verification |\n"
+        if file_rows:
+            content = re.sub(
+                r"(\| Action \| File Path \| Summary of Changes \|\n\| :--- \| :--- \| :--- \|\n)",
+                r"\1" + file_rows,
+                content,
+                count=1,
+            )
 
     if proof:
         content = re.sub(r"- \*\*Diagnostics\*\*: Pending verification", f"- **Diagnostics**: `{proof}`", content, count=1)
         content = re.sub(r"- \*\*Test / Build Status\*\*: In progress", "- **Test / Build Status**: `PASS`", content, count=1)
+
+    # Sync into Daily Session Index table
+    active_match = re.search(r"### 🕒 Session (#\d+) — (.*?)\n.*?- \*\*Start Time\*\*: `(.*?)`.*?- \*\*Agent Assigned\*\*: `(.*?)`.*?- \*\*Task Tier\*\*: `(.*?)`", content, re.DOTALL)
+    if active_match:
+        sid, stitle, sstart, sagent, stier = active_match.groups()
+        start_time_only = sstart.split()[-1] if " " in sstart else sstart
+        new_row = f"| **{sid}** | {start_time_only} | {time_only} | {stitle.strip()} | {stier.strip()} | `✅ COMPLETED` | `{sagent.strip()}` |\n"
+        index_header = "| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        if index_header in content and new_row not in content:
+            content = content.replace(index_header, index_header + new_row, 1)
 
     today_file.write_text(content, encoding="utf-8")
     print(f"[SUCCESS] Marked active session COMPLETED in {today_file.name} at {now}")
@@ -167,6 +210,9 @@ def main() -> int:
     parser.add_argument("--root", help="Project root directory path")
     parser.add_argument("--agent", default="@orchestrator", help="Assigned agent name")
     parser.add_argument("--tier", default="Tier 2: Feature / Screen", help="Task tier")
+    parser.add_argument("--error", help="Error symptom or message for bugfix tasks")
+    parser.add_argument("--root-cause", help="Root cause explanation for bugfix tasks")
+    parser.add_argument("--fix", help="Fix applied description")
     parser.add_argument("--files", help="Comma-separated list of modified files")
     parser.add_argument("--proof", default="0 Errors, 0 Warnings", help="Verification proof summary")
 
@@ -176,9 +222,9 @@ def main() -> int:
     if args.command == "status":
         return cmd_status(root)
     elif args.command == "start":
-        return cmd_start(root, args.title, args.agent, args.tier)
+        return cmd_start(root, args.title, args.agent, args.tier, args.error, args.root_cause)
     elif args.command == "done":
-        return cmd_done(root, args.files, args.proof)
+        return cmd_done(root, args.files, args.proof, args.root_cause, args.fix)
     return 0
 
 

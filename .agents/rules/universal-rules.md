@@ -124,9 +124,12 @@ When automated recovery fails or an E3/E4 blocker occurs, **NEVER** halt silentl
 | **Brainstorming** | Options explored, decision made | 👉 `/plan [chosen direction]` to create structured tasks |
 | **Planning** | `{task-slug}.md` created & approved | 👉 `/create` (new app) or `/enhance` (feature/refactor) |
 | **Code Implementation** | Code written or modified | 👉 `/verify` (run proofs/tests) or `/preview` (inspect UI) |
-| **Verification / Testing** | All tests & checks passed | 👉 `/commit` (safe conventional commit) or `/preview` |
-| **Debugging** | Root cause isolated & fix applied | 👉 `/verify` (re-test the fix) → `/commit` |
-| **Commit Finished** | Safe commit created | 👉 `/deploy` (if release-ready) or `/plan` (next feature) |
+| **Verification / Testing** | All tests & checks passed | 👉 `/worklog` (record session audit) or `/commit` (safe conventional commit) |
+| **Debugging** | Root cause isolated & fix applied | 👉 `/verify` (re-test the fix) → `/worklog` |
+| **Task / Wave Completed** | Implementation finished & verified | 👉 `/worklog` (audit & close daily session) or `/commit` |
+| **Commit Finished** | Safe commit created | 👉 `/worklog` (finalize commit record) or `/deploy` / `/plan` |
+
+> 🔴 **Mandatory Worklog Guidance**: Because session chat history can be deleted, lost, or compacted across conversations, upon completing any task, verification, or commit, the agent **MUST** proactively recommend reviewing or finalizing the daily session log via `/worklog` to guarantee permanent project continuity.
 
 ### Guidance Format
 At the conclusion of the response, append:
