@@ -1578,6 +1578,21 @@
         ]
       },
       "version": "1.0.0"
+    },
+    "worklog": {
+      "artifactOutputs": [
+        "worklog-entry"
+      ],
+      "path": "workflows/worklog.md",
+      "requires": {
+        "agents": [
+          "orchestrator"
+        ],
+        "skills": [
+          "documentation-templates"
+        ]
+      },
+      "version": "1.1.0"
     }
   }
 }

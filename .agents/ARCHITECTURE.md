@@ -10,7 +10,7 @@ AG Kit is a modular Antigravity workspace system consisting of:
 
 - **24 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect, Business Analyst, and UI/UX Designer);
 - **56 Skills** — domain knowledge modules with progressive conditional loading (including `ba-diagrams`, `userguide`, `find-skills`, `git-master`, `ast-grep`, `advanced-elicitation`);
-- **15 Workflows** — slash-command procedures (including `/commit` and `/party`);
+- **16 Workflows** — slash-command procedures (including `/commit`, `/party`, and `/worklog`);
 - **5 Phase Gate Checklists** — deterministic quality gates between requirements, architecture, design, code, and QA;
 - **6 Rules** — workspace routing, coding, design, safety, and quick-reference constraints;
 - **2 Output Styles** — curated Vietnamese and English concise communication styles;
@@ -55,7 +55,7 @@ Any managed change without registry regeneration fails validation and CI. Google
 ├── DEPENDENCY_GRAPH.md       # Generated workflow → agent → skill graph
 ├── agent/                    # 23 specialist role definitions
 ├── skills/                   # 54 progressive skills
-├── workflows/                # 15 slash-command procedures
+├── workflows/                # 16 slash-command procedures
 ├── rules/                    # 6 workspace constraints
 ├── memory/                   # Persistent project context
 ├── checklists/               # 5 phase gate quality criteria
@@ -253,7 +253,7 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 
 ---
 
-## 🔄 Workflows (15)
+## 🔄 Workflows (16)
 
 Slash command procedures. Invoke with `/command`.
 
@@ -274,6 +274,7 @@ Slash command procedures. Invoke with `/command`.
 | `/status`        | Check project status                           |
 | `/test`          | Run tests                                      |
 | `/verify`        | **NEW** Prove code works by running it         |
+| `/worklog`       | **NEW** Track session worklog and audit trail in `docs/WORKLOG.md` |
 
 ---
 
@@ -383,7 +384,7 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 | ------------------- | --------------------------------- |
 | **Total Agents**    | 24 (+1 plan-checker)              |
 | **Total Skills**    | 56                                |
-| **Total Workflows** | 15 (+3 new in 2026.5.13)          |
+| **Total Workflows** | 16 (+4 new)                       |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |
 | **Antigravity Utilities** | 4 runtime utilities              |
 | **Total Skill Scripts** | 20                              |

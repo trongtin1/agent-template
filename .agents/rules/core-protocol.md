@@ -99,3 +99,25 @@ When working on complex projects with persistent goals across multiple sessions 
 
 ---
 
+## 📜 Session Worklog & Task Execution Protocol (`docs/worklog/YYYY-MM-DD.md`)
+
+> **MANDATORY AUDIT TRAIL:** Every modification session—regardless of size (Micro-UI tweak, feature screen, or architecture refactor)—MUST maintain a persistent daily audit record in `docs/worklog/YYYY-MM-DD.md` (e.g. `docs/worklog/2026-09-15.md`) following the template in `@[skills/documentation-templates]`. Strictly maintained in the target project, NEVER inside `.agents/`.
+
+1. **Session Initiation (Record Start)**:
+   - Identify today's date (`YYYY-MM-DD`). Open or create `docs/worklog/YYYY-MM-DD.md`.
+   - Capture Session Number, Task Name, Start Timestamp (`YYYY-MM-DD HH:mm:ss`), Assigned Agent, and initial status `🔄 IN_PROGRESS`.
+2. **Scope & Acceptance Verification (Done When)**:
+   - Formulate clear verification checkboxes (`Done When Checklist`) before writing code.
+3. **Session Completion Gate**:
+   - Update status to `✅ COMPLETED` (or `⚠️ BLOCKED` / `❌ FAILED`).
+   - Record End Timestamp (`YYYY-MM-DD HH:mm:ss`).
+   - Log exact impact surface (Files created, modified, or deleted).
+   - Document key technical decisions, trade-offs, or temporary stubs.
+   - Record verification proofs: **Diagnostics Count = 0**, compiler/test output.
+   - Update the Daily Session Index table at the top of today's file.
+4. **Zero Silent Work**: No code modification is considered finished until its entry is appended to `docs/worklog/YYYY-MM-DD.md`.
+
+---
+
+
+

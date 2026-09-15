@@ -274,6 +274,64 @@ Get resource details by unique identifier.
   - Workaround in flight: Auth flows proceed using MockMailer until decided.
 ```
 
+### Daily Session Worklog Template (`docs/worklog/YYYY-MM-DD.md`)
+
+> **Architecture:** Maintained in the target project's **`docs/worklog/` directory**. Each active day has its own dedicated file named **`YYYY-MM-DD.md`** (e.g., `docs/worklog/2026-09-15.md`). Never stored inside `.agents/`.
+
+```markdown
+# 📋 Daily Session Worklog — YYYY-MM-DD
+
+> Tracks all execution sessions performed on YYYY-MM-DD. Maintained automatically by agents.
+
+## ⚡ Daily Session Index
+
+| Session | Start Time | End Time | Task Title | Tier | Status | Agent |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **#002** | 13:40:12 | 13:48:35 | Create User Modal Dialog | Tier 2 (Screen) | `✅ COMPLETED` | `@frontend-specialist` |
+| **#001** | 13:10:05 | 13:18:20 | Primary Button Token Update | Tier 1 (Micro-UI) | `✅ COMPLETED` | `@frontend-specialist` |
+
+---
+
+## 📝 Session Details
+
+### 🕒 Session #<number> — <Task Title>
+
+- **Start Time**: `YYYY-MM-DD HH:mm:ss`
+- **End Time**: `YYYY-MM-DD HH:mm:ss` (or `IN_PROGRESS`)
+- **Task Status**: `🔄 IN_PROGRESS` | `✅ COMPLETED` | `⚠️ BLOCKED` | `❌ FAILED`
+- **Agent Assigned**: `@<agent-name>` (e.g., `@frontend-specialist`, `@backend-specialist`)
+- **Task Tier**: `Micro-UI` | `Feature / Screen` | `Bugfix` | `System Architecture`
+
+#### 🎯 Scope & Acceptance Criteria (Done When):
+- **Objective**: Concise description of what this session accomplishes.
+- **Done When Checklist**:
+  - [x] Requirement 1 verified (e.g., Primary button token aligned with DESIGN.md)
+  - [x] Requirement 2 verified (e.g., User table renders with pagination & role filters)
+  - [ ] Requirement 3 (if pending or in-progress)
+
+#### 📂 Impact Surface (Files Changed):
+| Action | File Path | Summary of Changes |
+| :--- | :--- | :--- |
+| `[NEW]` | `src/pages/admin/users.tsx` | User management list view with pagination |
+| `[MODIFIED]` | `src/components/ui/Button.tsx` | Aligned background with `var(--color-primary-600)` |
+
+#### 🧠 Technical Notes & Decisions:
+- [Architecture/Design Choice]: Why a specific approach was chosen.
+- [Mock / Stub Flag]: If temporary mocks are in place pending backend API.
+- [Blockers / Caveats]: Any dependency or credentials required.
+
+#### 🧪 Verification & Health Check:
+- **Diagnostics**: `0 Errors, 0 Warnings` (LSP / Compiler / Linter)
+- **Test / Build Status**: `PASS` (Unit tests / `npm run build`)
+- **Proposed Git Commit**: `feat(users): add user management table and update button tokens`
+
+---
+```
+
+> **Organization Rule:** When working on a new day, agent creates `docs/worklog/YYYY-MM-DD.md`. Multiple sessions within the same day are appended to that day's file. Past days remain untouched, keeping context isolated and token-efficient.
+
+
+
 ---
 
 ## 🤖 4. AI-Friendly Documentation

@@ -1,7 +1,7 @@
 {
   "$schema": "schemas/manifest-lock.schema.json",
   "components": {
-    "ARCHITECTURE.md": "30f77c9bbe53754f31705ff843deb11eb2f2ff20661e7bdcdcf9aa458deba47d",
+    "ARCHITECTURE.md": "f63f3dd9e217a189ef24f1a9c9dab0fe900701ce254175291bfb2df6f1cdf238",
     "CHANGELOG.md": "f8140035bb324b7c8182d76a8831deab5a4e22be9f10df5fb03e6c520d279970",
     "README.md": "16ec1be5e5b5882401003712271556106f9c73fc7e42d09d5325303c9abd9b77",
     "VERSION": "94bc11e2a5617c66e6d2f849e14be6579c44c90d0f985d80ce4dc96dff46fa94",
@@ -47,8 +47,8 @@
     "memory/project-conventions.md": "daa85e6007652c72869d5080d1c8d6f72f372ed4d9a899b71d37db81740e1b7f",
     "memory/tech-decisions.md": "001f735f5fbc665c2bfedf3f637336cf3a25b4af7dcccd11739c8aff232e872c",
     "memory/user-preferences.md": "251ac5dea279b0bb18a5107ef599ef718837f5f60317c7728c370e83d74d5d37",
-    "rules/code-rules.md": "07f70569890cfb793fc4c3a5dbc38e2f000eebbd36aaa1e454af168a9ade9e6f",
-    "rules/core-protocol.md": "0f7284a9034757c64d0dbb41bb7b0141635a305eece6c5c9d3b96ce41ca52553",
+    "rules/code-rules.md": "8c3424a05a9c6ab3b053ef856779f7ef867ffe97506d21197383c589fce00246",
+    "rules/core-protocol.md": "7645cfd8b2c0b53bf0ab79bf139ee257f040bbc42b7614f521bb0990ef149fed",
     "rules/design-rules.md": "3721c64262fd0a49940eaf090368d9ee266e7382d0d8779f3358706d17dbeab6",
     "rules/quick-reference.md": "d6e17830959f7f3d196dbcd468e3898d300e5fb07ba73a1b7f2e5b9ab8003741",
     "rules/request-routing.md": "5d7386466ff733cb2da7da2f2e06529e8b92c3ccee961687a3a38ba97299124c",
@@ -68,6 +68,7 @@
     "scripts/validate_kit.py": "91ef81cfd51d0a00810d01994c0f459f1263384a9d961d2c211028ddeaf16449",
     "scripts/validation_runner.py": "382463ab326c1978e76b45b45943ff99c60b04392e23aa46570e46359bff8664",
     "scripts/verify_all.py": "8a8d5f45cb2d76dbd34464ce81954c8e8f8b350f1ca39d98ea305595f827c2e6",
+    "scripts/worklog.py": "a7a35b8029db4e4d7394204ac06d6df61e31ab61f9f7a9ef669597f68b978496",
     "skills/advanced-elicitation/SKILL.md": "e8f8cba78d667722a71ef341dfbde63caf7590df455c8b7c7af8c7c6262eb713",
     "skills/api-patterns/SKILL.md": "b9f16c4cb87d14f0ad9407556481e25b63312eb86602520f6533776d8ad19550",
     "skills/api-patterns/api-style.md": "4295b97c36ebf411a86ed644d733fcfb8fa198569243ea11babb2cf168833fb5",
@@ -150,7 +151,7 @@
     "skills/deployment-procedures/SKILL.md": "cddf606b695ef344537072860a524e6d59dbb7e8d430fec620689b31372d4931",
     "skills/design-spec/SKILL.md": "ca2d60c173c15622baab0fdde86a9437a462234809e0d40a08a1d86fc8927ee9",
     "skills/design-spec/collection.md": "3a3f86e594a4cc229a11b387634282af6de0c85cbaea85202da1e41d43ad1979",
-    "skills/documentation-templates/SKILL.md": "f1646279691aeb9ffbc339d1a16a98157250a6e45d78cdbbaf07551496bcc4d4",
+    "skills/documentation-templates/SKILL.md": "6966ab73c571642e44855beab13028878a3cd9322424dc52c27884d008377dde",
     "skills/find-skills/SKILL.md": "fec57db839825488c2843829a2cfa8274a07752f08ceb5cc63a0547fd824d8a9",
     "skills/frontend-architecture/SKILL.md": "59e1b096240f3f6b9a0f4347ea042fb72e8c06870ee06cb2f6e83d7edcd014f1",
     "skills/frontend-design/SKILL.md": "1109d14dd1ea94880b22dbe693f546b3e6f271f42aaf0ed2df88ab1c08c67f1b",
@@ -261,9 +262,10 @@
     "workflows/remember.md": "58ae91f31bca164f2a1c3c2d102e676e431c5898a42212a92d2d54f2a545a5fe",
     "workflows/status.md": "ba73c7150258f6f3eef33fbc28cf7e6dbf9f77d20f3ef140b3c8182232e2a999",
     "workflows/test.md": "bd06ae644376e3cc2661f1a623504247445c86a83dfb0df92ed5f0eccdef60ea",
-    "workflows/verify.md": "846ad8f464d2e0e128be24ceb0687285725fdb98dc57efc81dfa3d95d909b49c"
+    "workflows/verify.md": "846ad8f464d2e0e128be24ceb0687285725fdb98dc57efc81dfa3d95d909b49c",
+    "workflows/worklog.md": "ae200a30d2f9dc8e6c37c35f626fe075134b23d59bcf2a3eac5fa39effba0667"
   },
   "kitVersion": "2026.8.31",
-  "manifestSha256": "e28bbc6707e4d5b95ffb1e33bc0ed0c8a8be00245837e19d155dd86e75543c4a",
+  "manifestSha256": "073780001c5534380bdcab0307e6166a62e7b3edb23c377b4e63272f225b8575",
   "schemaVersion": "1.0.0"
 }
