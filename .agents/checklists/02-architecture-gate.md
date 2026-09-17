@@ -1,7 +1,7 @@
 # Gate 2: Architecture & System Design Checklist
 
 > **Owner**: `system-architect`  
-> **Mandatory Skills**: `architecture`, `api-patterns`, `database-design`, `ast-grep`  
+> **Mandatory Skills**: `architecture`, `api-patterns`, `database-design`, `clean-code`  
 > **Target**: Transition from product specifications to resilient technical blueprint.
 
 ---
@@ -9,7 +9,7 @@
 ## 🏛️ System Boundaries & Dependencies
 - [ ] **Boundary Definition**: Modules, services, and directory responsibilities are strictly separated.
 - [ ] **Dependency Blast Radius**: Identified all files and components affected using `CodeGraph` or import analysis.
-- [ ] **Structural Code Outline**: Ran `python .agents/skills/ast-grep/scripts/ast_outline.py` on target files to inspect signatures before modifying.
+- [ ] **Structural Code Outline**: Ran `python .agents/scripts/code_outline.py` on target files to inspect signatures before modifying.
 
 ---
 

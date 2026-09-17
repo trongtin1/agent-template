@@ -104,20 +104,33 @@ Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Re
 
 ---
 
-## 🎯 Session Goal & Execution Protocol (`_goals.md`)
+## 🎯 Session Continuity & AI Relay Handoff Protocol (`_goals.md` / `task_on_progress.md`)
 
-When working on complex projects with persistent goals across multiple sessions or workflows:
+When working on tasks across long sessions, model context limits, or agent handoffs:
 
-1. **Session Start (Backlog Check)**: At session start, check if `_goals.md` exists in the project root. If present, read open and backlogged objectives first to establish immediate context.
-2. **Execute to Verified Completion**: Drive active objectives through execution until fully verified (`Done`).
-3. **Non-Blocking Execution (Continuous Momentum)**:
-   - When encountering an unresolved decision, missing credential, or external blocker:
-     * Note it down clearly under `Pending Decisions / Blockers` in `_goals.md` with exact technical context.
-     * **NEVER halt the entire session silently.** Immediately proceed with other independent, unblocked objectives until all actionable work is completed.
-4. **Prune Completed Goals**: Once an objective reaches verified completion (100% Done), remove it from `_goals.md` to keep the active goal sheet lean and focused.
-5. **Session Wrap-Up & Safe Delivery**:
-   - Conclude by summarizing completed deliverables and pending items.
-   - Prepare a Conventional Commit following `@[skills/git-master]`, present changes, and request user approval before pushing to `main`.
+1. **Session Start (Continuity Check)**:
+   - Check if `task_on_progress.md` or `_goals.md` exists in the project root.
+   - If present, read the handoff snapshot immediately before asking any questions or inspecting code.
+2. **Active In-Progress State (`task_on_progress.md` / Relay Baton)**:
+   - For any task requiring multiple turns or running near token budgets, maintain a live snapshot:
+     ```markdown
+     # 🔄 Task On Progress (AI Relay Baton)
+     - **Active Scope**: [Specific feature, bug, or module being built]
+     - **Files Inspected**: [List of files read with brief key findings]
+     - **Modifications Applied**: [`path/to/file:Lxx-Lyy` - exact changes made]
+     - **Current Blockers / Uncertainties**: [Active error, missing env, or unverified assumption]
+     - **Next Atomic Steps**: [Checkbox of immediate next actions]
+     - **Directives for Next AI**: [Exact test commands, gotchas, and invariants]
+     ```
+3. **Non-Blocking Momentum**:
+   - When encountering an external blocker, note it under `Current Blockers` with exact technical context. Never halt silently—proceed with independent, unblocked subtasks.
+4. **Knowledge Ingestion & Cleanup Gate (Task Completion)**:
+   - Once an objective reaches 100% verified completion (`✅ Verified`):
+     * **System Knowledge Update**: Distill learned architecture decisions or system constraints into `docs/02-architecture/` (or `.agents/memory/`).
+     * **Workspace Cleanup**: Delete temporary `task_on_progress.md` (or archive `{task-slug}.md` to `docs/plans/archive/`). Zero stale in-progress files left in project root.
+     * **Audit Trail**: Finalize the session entry in `docs/worklog/YYYY-MM-DD.md`.
+5. **Session Delivery Gate**:
+   - Summarize completed deliverables. Prepare a Conventional Commit following `@[skills/git-master]` and wait for explicit user approval before executing.
 
 ---
 

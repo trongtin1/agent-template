@@ -65,6 +65,21 @@ description: Apply when writing, building, refactoring, or fixing code — proje
 
 ---
 
+## 🎯 Surgical Inspection Gate ("Thuốc trúng đích" / Targeted Context)
+
+> **MANDATORY TOKEN DIET:** Strictly forbidden to read whole code files (> 100 lines) blindly into context. Preserve token budget and eliminate hallucination:
+
+1. **Symbol Outline First (`code_outline.py`)**:
+   - Run `python .agents/scripts/code_outline.py <target-file>` to inspect class structure, function signatures, and line boundaries (`[L...-L...]`) with 90% token reduction.
+2. **Pinpoint Call Sites (`grep_search`)**:
+   - Use `grep_search` to trace exact variable usages, exports, and call hierarchies before modifying.
+3. **Surgical Slice Inspection (`view_file`)**:
+   - Use `view_file` strictly with `StartLine` and `EndLine` scoped to the target block (+/- 10 lines buffer).
+4. **Targeted Block Replacement (`replace_file_content`)**:
+   - Modify code exclusively via bounded chunks with `replace_file_content`. Never rewrite entire files.
+
+---
+
 ## 📐 Tiered Planning Protocol (Mandatory Before Any Modification)
 
 **ZERO UNPLANNED CODE:** Every task—regardless of size—must present a structured plan before modifying code. For simple tasks (Tier 1), the user **DOES NOT** need to use slash commands; natural language instructions are automatically handled with structured gates:

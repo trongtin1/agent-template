@@ -9,7 +9,7 @@ Starter repository pre-configured with an autonomous multi-agent and skills fram
 ```text
 agent-template/
 ├── .agents/
-│   ├── agent/             # Specialized Agent Personas (22 agents)
+│   ├── agent/             # Specialized Agent Personas (24 agents)
 │   │   ├── orchestrator.md
 │   │   ├── system-architect.md     # System Architecture & ADR
 │   │   ├── ui-ux-designer.md       # Anti-slop UI/UX & Design Tokens
@@ -18,10 +18,9 @@ agent-template/
 │   │   ├── devops-engineer.md
 │   │   ├── project-planner.md
 │   │   └── ...
-│   ├── skills/            # On-demand domain skills (54 skills)
+│   ├── skills/            # On-demand domain skills (55 skills)
 │   │   ├── find-skills/            # Discover & install skills from skills.sh ecosystem
 │   │   ├── git-master/             # Conventional Commits & safe Git practices
-│   │   ├── ast-grep/               # Tree-sitter AST structural search & outline
 │   │   ├── advanced-elicitation/   # Deep requirement discovery & edge cases
 │   │   ├── silent-failure-hunter/  # Swallowed error elimination
 │   │   ├── clean-code/
@@ -35,20 +34,23 @@ agent-template/
 │   │   ├── 03-ui-ux-gate.md
 │   │   ├── 04-development-gate.md
 │   │   └── 05-qa-verification-gate.md
-│   ├── workflows/         # Guided workflows & slash commands (15 workflows)
+│   ├── workflows/         # Guided workflows & slash commands (16 workflows)
 │   │   ├── commit.md (/commit)     # Automated safe Git commit with scope
 │   │   ├── party.md (/party)       # 4-role consensus squad alignment
+│   │   ├── worklog.md (/worklog)   # Daily session audit log
 │   │   ├── create.md (/create)
 │   │   ├── plan.md (/plan)
 │   │   ├── orchestrate.md (/orchestrate)
 │   │   ├── debug.md (/debug)
 │   │   └── ...
+│   ├── scripts/           # Zero-dependency utilities (code_outline.py, worklog.py)
 │   ├── output-styles/     # Communication styles (Vietnamese & English concise)
 │   ├── rules/             # Workspace rules & core protocols
 │   ├── memory/            # Persistent cross-session memory index
 │   └── manifest.json      # Component manifest
+├── docs/                  # Project documentation & MCP Guide
 ├── .gitignore
-├── package.json           # Toolkit verification & ast-grep runner
+├── package.json           # Toolkit verification & scripts
 └── README.md
 ```
 
@@ -136,12 +138,27 @@ echo ".agents/" >> .git/info/exclude
 
 ---
 
+## 🔌 External Integrations & MCP Guide
+
+AG Kit is engineered to work **100% out of the box with ZERO required external tools or MCPs**. All MCPs and integrations are strictly optional:
+
+- **Built-in Core Tools (Zero pip/npm install)**: `code_outline.py` (structural AST outline), `worklog.py` (daily session tracking).
+- **Optional MCPs**:
+  - `context7`: Upstash documentation MCP for live library docs.
+  - `codegraph`: Semantic code intelligence for large repos.
+  - `playwright`: Headless Chromium E2E testing.
+
+📖 **For detailed setup, configuration steps, and agent fallback behavior, read [docs/MCP_GUIDE.md](docs/MCP_GUIDE.md).**
+
+---
+
 ## 🤖 Highlights
-- **22 Specialized Agents**: Orchestrator, System Architect, UI/UX Designer, Frontend, Backend, DevOps, Security, Database, QA, and more.
+- **24 Specialized Agents**: Orchestrator, System Architect, UI/UX Designer, Frontend, Backend, DevOps, Security, Database, QA, and more.
 - **Multi-Perspective Squad Alignment**: `/party` command convenes PM, UX, Architect, and Dev to reach consensus before code is written.
 - **5 Phase Gate Checklists**: Quality criteria between Requirements, Architecture, Design, Dev, and QA.
-- **AST Code Intelligence**: Integrated `ast-grep` (Tree-sitter AST) and `ast_outline.py` for structural refactoring and 90% token savings.
+- **Structural Code Intelligence**: Integrated zero-dependency `code_outline.py` for token-efficient symbol extraction (saving up to 90% tokens).
+- **AI Relay Baton & Surgical Context**: Built-in cross-session task continuity (`task_on_progress.md`) and surgical inspection gate.
 - **Git Intelligence & Safety**: Automated `/commit` workflow enforcing Conventional Commits with scope and secret prevention.
-- **Dynamic Skill Loading**: 54 modular skills loaded strictly on-demand.
+- **Dynamic Skill Loading**: 55 modular skills loaded strictly on-demand.
 - **Anti-Slop UI Standards**: Design spec tokens, contrast ratios, and Swap-Test validation.
-- **Cross-Session Memory**: Retain architectural decisions and coding preferences across sessions.
+- **Cross-Session Memory & Worklog**: Retain architectural decisions across sessions with daily audit logs (`docs/worklog/`).

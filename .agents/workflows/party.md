@@ -52,7 +52,7 @@ $ARGUMENTS
 - **Phase Gate**: [Gate 4: Development Checklist](file:///c:/Users/DELL/Desktop/agent-template/.agents/checklists/04-development-gate.md)
 - **Goal**: Map into concrete code changes and verification tasks.
 - **Output**:
-  - Affected files and AST safety (`ast-grep`, zero swallowed errors).
+  - Affected files and structural safety (`code_outline.py`, zero swallowed errors).
   - Implementation phases (Order of operations).
   - Verification plan transitioning to [Gate 5: QA Checklist](file:///c:/Users/DELL/Desktop/agent-template/.agents/checklists/05-qa-verification-gate.md).
 

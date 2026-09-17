@@ -9,7 +9,7 @@
 AG Kit is a modular Antigravity workspace system consisting of:
 
 - **24 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect, Business Analyst, and UI/UX Designer);
-- **56 Skills** — domain knowledge modules with progressive conditional loading (including `ba-diagrams`, `userguide`, `find-skills`, `git-master`, `ast-grep`, `advanced-elicitation`);
+- **55 Skills** — domain knowledge modules with progressive conditional loading (including `ba-diagrams`, `userguide`, `find-skills`, `git-master`, `advanced-elicitation`);
 - **16 Workflows** — slash-command procedures (including `/commit`, `/party`, and `/worklog`);
 - **5 Phase Gate Checklists** — deterministic quality gates between requirements, architecture, design, code, and QA;
 - **6 Rules** — workspace routing, coding, design, safety, and quick-reference constraints;
@@ -177,7 +177,6 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 | `code-review-checklist` | Code review standards    |
 | `lint-and-validate`     | Linting, validation      |
 | `silent-failure-hunter` | Hunt swallowed errors, empty catches, quiet failures |
-| `ast-grep`              | Structural AST search, Tree-sitter patterns & refactor |
 
 ### Security
 
@@ -383,11 +382,11 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
 | **Total Agents**    | 24 (+1 plan-checker)              |
-| **Total Skills**    | 56                                |
+| **Total Skills**    | 55                                |
 | **Total Workflows** | 16 (+4 new)                       |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |
 | **Antigravity Utilities** | 4 runtime utilities              |
-| **Total Skill Scripts** | 20                              |
+| **Total Skill Scripts** | 19                              |
 | **Coverage**        | Web, API, mobile, security, quality, runtime, orchestration |
 | **Token Efficiency**| Reduced via conditional skill loading |
 

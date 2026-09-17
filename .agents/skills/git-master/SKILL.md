@@ -45,7 +45,7 @@ type(scope): imperative, present-tense description
 | `test` | Adding or updating tests | `test(api): add integration test for user registration` |
 | `docs` | Documentation changes only | `docs(readme): add environment variable setup guide` |
 | `style` | Formatting, missing semi-colons, white-space | `style(ui): format tailwind class ordering` |
-| `chore` | Build tasks, configs, dependency updates | `chore(deps): bump @ast-grep/cli to 0.45.3` |
+| `chore` | Build tasks, configs, dependency updates | `chore(deps): bump typescript to 5.6.0` |
 
 ### Scope Conventions
 - Use the affected component or domain: `(auth)`, `(ui)`, `(api)`, `(db)`, `(ast)`, `(deps)`, `(gate)`.

@@ -13,11 +13,11 @@ description: Apply when you need a fast lookup of which agents, skills, or valid
 ## Agents & Skills
 
 - **Masters**: `orchestrator`, `plan-checker` (Plan Audit), `system-architect` (Architecture/ADR), `business-analyst` (Requirements/Diagrams/BA), `ui-ux-designer` (UI/UX), `project-planner`, `backend-specialist`, `frontend-specialist`, `mobile-developer`, `debugger`, `security-auditor`
-- **Key Skills**: `clean-code`, `git-master`, `ast-grep`, `advanced-elicitation`, `silent-failure-hunter`, `taste-skill`, `app-builder`, `frontend-design`, `architecture`, `plan-writing`, `behavioral-modes`, `ba-diagrams`, `userguide`
+- **Key Skills**: `clean-code`, `git-master`, `advanced-elicitation`, `silent-failure-hunter`, `taste-skill`, `app-builder`, `frontend-design`, `architecture`, `plan-writing`, `behavioral-modes`, `ba-diagrams`, `userguide`
 
 ## Key Scripts & Tools
 
-- **AST Intelligence**: `ast_outline.py` (structural outline), `ast-grep` (syntax search & rewrite)
+- **Code Intelligence**: `code_outline.py` (structural symbol outline), `grep` (targeted text search)
 - **Verify**: `.agents/scripts/verify_all.py`, `.agents/scripts/checklist.py`
 - **Scanners**: `security_scan.py`
 - **Audits**: `ux_audit.py`, `mobile_audit.py`, `lighthouse_audit.py`, `seo_checker.py`

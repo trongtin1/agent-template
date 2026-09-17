@@ -37,7 +37,7 @@ Analyze the changes and draft a commit message conforming to `@[skills/git-maste
 - **Format**: `type(scope): concise description`
 - **Types**: `feat`, `fix`, `refactor`, `perf`, `test`, `docs`, `chore`, `style`.
 - **Examples**:
-  - `feat(ast): add ast-grep tree-sitter intelligence`
+  - `feat(outline): add structural code outline extractor`
   - `fix(auth): handle expired jwt token gracefully`
   - `refactor(db): extract user repository layer`
   - `docs(readme): update quick-start guide`

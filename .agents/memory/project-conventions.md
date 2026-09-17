@@ -17,3 +17,7 @@ updated: 2026-09-07
 - Copy on the website, docs, FAQ, README, and marketing should describe AG Kit as a toolkit for Gemini CLI / Antigravity-style agent setups.
 - **Toolkit Independence & Ownership**: This is AG Kit. NEVER reference external repos (e.g. GSD or others) in docs, commit messages, comments, or rules. All patterns belong natively to AG Kit.
 
+## Context Continuity & Token Efficiency
+- **AI Relay Baton**: Maintain structured `task_on_progress.md` for in-flight tasks across multi-turn or cross-session work; update system architecture knowledge and delete upon 100% completion.
+- **Surgical Token Diet**: Never read whole files > 100 lines blindly. Extract outlines with `code_outline.py` and inspect bounded slices.
+

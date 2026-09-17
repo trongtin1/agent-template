@@ -54,14 +54,17 @@ grep -rn "oldPattern" src/ --include="*.ts"
 
 ### Step 3: Execute the Batch
 
-#### Option A: Structural AST Replacement (RECOMMENDED for Code/APIs)
-> Use `ast-grep` to ensure 100% syntax validity and zero false-matches in strings or comments:
-```bash
-# Preview AST matches across all files
-npx ast-grep run --pattern 'oldFn($$$ARGS)' --rewrite 'newFn($$$ARGS)' --lang typescript
-
-# Apply changes in-place across the workspace
-npx ast-grep run --pattern 'oldFn($$$ARGS)' --rewrite 'newFn($$$ARGS)' --lang typescript -U
+#### Option A: Python Scripted Batch Replacement (Safe & Cross-Platform)
+```python
+# python batch replace pattern with verification
+import re
+from pathlib import Path
+for p in Path("src").rglob("*.ts"):
+    content = p.read_text(encoding="utf-8")
+    new_content, count = re.subn(r'\boldPattern\b', 'newPattern', content)
+    if count:
+        p.write_text(new_content, encoding="utf-8")
+        print(f"Updated {p} ({count} replacements)")
 ```
 
 #### Option B: Text-based Replacements (Config files, comments, plain text)

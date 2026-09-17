@@ -1,7 +1,6 @@
 # Gate 4: Implementation & Code Safety Checklist
 
-> **Owner**: Fullstack / Specialist Developer  
-> **Mandatory Skills**: `clean-code`, `ast-grep`, `silent-failure-hunter`, `lint-and-validate`  
+> **Mandatory Skills**: `clean-code`, `silent-failure-hunter`, `lint-and-validate`  
 > **Target**: Transition from designs & contracts to production-grade, bug-free implementation.
 
 ---
@@ -13,11 +12,8 @@
 
 ---
 
-## 🛡️ AST & Error Safety
-- [ ] **AST Scan with `ast-grep`**: Verified structural syntax safety:
-  ```bash
-  npx ast-grep run --pattern 'catch ($ERR) { }' --lang typescript
-  ```
+## 🛡️ Error & Structural Safety
+- [ ] **Structural Code Outline**: Ran `python .agents/scripts/code_outline.py` to inspect target file symbols and scope boundaries.
 - [ ] **No Swallowed Errors**: Zero empty catch blocks, unhandled promise rejections, or quiet `return null` failures.
 - [ ] **Error Propagation**: Errors are contextualized with component name and operational details.
 

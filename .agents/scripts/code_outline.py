@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-ast_outline.py — Structural Code Outline Extractor (Token-Efficient Outline).
+code_outline.py — Structural Code Outline Extractor (Token-Efficient Outline).
 
 Extracts classes, interfaces, function signatures, decorators, and line ranges
 from source code files without requiring reading full file bodies. Saves up to 90% tokens.
@@ -114,7 +114,7 @@ def generate_outline(target_file: str) -> str:
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python ast_outline.py <file-path>")
+        print("Usage: python code_outline.py <file-path>")
         sys.exit(1)
 
     result = generate_outline(sys.argv[1])
