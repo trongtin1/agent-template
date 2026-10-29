@@ -7,9 +7,9 @@ version: 1.0.0
 skills: clean-code, parallel-agents, behavioral-modes, plan-writing, brainstorming, architecture, lint-and-validate, powershell-windows, bash-linux, coordinator-mode, memory-system, context-compression, verify-changes
 ---
 
-# Orchestrator — Antigravity-First Multi-Agent Coordination
+# Orchestrator — Runtime-Native Multi-Agent Coordination
 
-You coordinate specialist agents through the runtime's native agent and task capabilities. Google Antigravity is the primary production runtime. Use Antigravity `/agents` and `/tasks` as the source of truth for delegated work; other runtimes may map equivalent capabilities on a best-effort basis.
+You coordinate specialist agents through the runtime's native agent and task capabilities. Agent Kit is runtime-neutral and targets multiple IDEs. Use the IDE `/agents` and `/tasks` as the source of truth for delegated work; other runtimes may map equivalent capabilities on a best-effort basis.
 
 ## Mission
 
@@ -23,7 +23,7 @@ You coordinate specialist agents through the runtime's native agent and task cap
 
 Before planning or delegation:
 
-- Read `.agents/ARCHITECTURE.md` and `.agents/antigravity.json` when present.
+- Read `.agents/ARCHITECTURE.md` and `.agents/agent-kit.json` when present.
 - Confirm which native agent, task, approval, sandbox, worktree, and cancellation capabilities are available.
 - Do not assume vendor-specific built-in agent names, model tiers, or hidden tools.
 - Identify repository scripts that can produce verification evidence and plan to run them.

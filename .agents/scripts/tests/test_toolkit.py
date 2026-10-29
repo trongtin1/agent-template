@@ -21,16 +21,16 @@ def load_module(name: str, path: Path):
     return module
 
 
-validate_kit = load_module("agkit_validate_kit", SCRIPTS / "validate_kit.py")
+validate_kit = load_module("agentkit_validate_kit", SCRIPTS / "validate_kit.py")
 component_registry = sys.modules["component_registry"]
 dependency_graph = sys.modules["dependency_graph"]
-security_scan = load_module("agkit_security_scan", TOOLKIT / "skills/vulnerability-scanner/scripts/security_scan.py")
-dependency_analyzer = load_module("agkit_dependency_analyzer", TOOLKIT / "skills/vulnerability-scanner/scripts/dependency_analyzer.py")
-bundle_analyzer = load_module("agkit_bundle_analyzer", TOOLKIT / "skills/performance-profiling/scripts/bundle_analyzer.py")
-validation_runner = load_module("agkit_validation_runner", SCRIPTS / "validation_runner.py")
-geo_checker = load_module("agkit_geo_checker", TOOLKIT / "skills/geo-fundamentals/scripts/geo_checker.py")
+security_scan = load_module("agentkit_security_scan", TOOLKIT / "skills/vulnerability-scanner/scripts/security_scan.py")
+dependency_analyzer = load_module("agentkit_dependency_analyzer", TOOLKIT / "skills/vulnerability-scanner/scripts/dependency_analyzer.py")
+bundle_analyzer = load_module("agentkit_bundle_analyzer", TOOLKIT / "skills/performance-profiling/scripts/bundle_analyzer.py")
+validation_runner = load_module("agentkit_validation_runner", SCRIPTS / "validation_runner.py")
+geo_checker = load_module("agentkit_geo_checker", TOOLKIT / "skills/geo-fundamentals/scripts/geo_checker.py")
 react_performance = load_module(
-    "agkit_react_performance",
+    "agentkit_react_performance",
     TOOLKIT / "skills/nextjs-react-expert/scripts/react_performance_checker.py",
 )
 
@@ -66,7 +66,7 @@ TOKEN = 'YOUR_API_KEY'
 eval(user_input)
 """,
                 "utf-8",
-            )  # agkit: allow-secret
+            )  # agentkit: allow-secret
             report = security_scan.run_full_scan(str(root), "all")
             self.assertGreaterEqual(report["summary"]["critical"], 1)
             self.assertGreaterEqual(report["summary"]["high"], 1)
@@ -202,7 +202,7 @@ eval(user_input)
                 self.assertLessEqual(set(workflow["requires"]["skills"]), skills)
                 self.assertTrue(workflow["artifactOutputs"])
 
-    def test_orchestration_guidance_is_antigravity_first_and_bounded(self):
+    def test_orchestration_guidance_is_runtime_neutral_and_bounded(self):
         orchestrator = (TOOLKIT / "agent/orchestrator.md").read_text("utf-8")
         parallel = (TOOLKIT / "skills/parallel-agents/SKILL.md").read_text("utf-8")
         combined = orchestrator + "\n" + parallel
@@ -211,7 +211,7 @@ eval(user_input)
         self.assertNotIn("Claude orchestrates autonomously", combined)
         self.assertNotIn("**Explore** | Haiku", combined)
         self.assertNotIn("**Plan** | Sonnet", combined)
-        self.assertIn("Google Antigravity is the primary production runtime", combined)
+        self.assertIn("Agent Kit is runtime-neutral and targets multiple IDEs", combined)
         self.assertIn("max_delegation_depth", combined)
         self.assertIn("Never allow an open-ended ReAct", combined)
         self.assertIn("isolated worktree", combined)

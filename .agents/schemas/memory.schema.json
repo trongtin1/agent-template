@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ag-kit.local/schemas/memory.schema.json",
-  "title": "AG Kit Memory Topic",
+  "$id": "https://agent-kit.local/schemas/memory.schema.json",
+  "title": "Agent Kit Memory Topic",
   "type": "object",
   "required": ["type", "created", "updated"],
   "properties": {

@@ -1,12 +1,12 @@
-# 🚀 AG Kit Migration Guide
+# 🚀 Agent Kit Migration Guide
 
-> Operational migration guidance for AG Kit releases, component synchronization, and Antigravity IDE configuration.
+> Operational migration guidance for Agent Kit releases, component synchronization, and IDE configuration.
 
 ---
 
 ## 📅 Versioning Strategy
 
-Starting with release `2026.5.13`, AG Kit uses **Dual Versioning**:
+Starting with release `2026.5.13`, Agent Kit uses **Dual Versioning**:
 - **Toolkit Releases**: Use Calendar Versioning in `YYYY.M.D` format (current: `2026.8.31`).
 - **Managed Components**: Agents, skills, workflows, checklists, and rules track individual Semantic Versioning (`x.y.z`) in their YAML frontmatter, recorded in `.agents/manifest.json`.
 
@@ -34,7 +34,7 @@ Starting with release `2026.5.13`, AG Kit uses **Dual Versioning**:
 Before upgrading, check that your workspace passes all current structural checks:
 ```bash
 npm run check:agents
-npm run check:antigravity
+npm run check:runtime
 ```
 
 ### 2. Synchronize Manifest and Dependencies
@@ -44,11 +44,11 @@ npm run sync:manifest
 ```
 This updates `.agents/manifest.json`, recalculates cryptographic hashes in `.agents/manifest.lock.json`, and rebuilds `.agents/DEPENDENCY_GRAPH.md`.
 
-### 3. Verify Antigravity Doctor
+### 3. Verify Agent Kit Doctor
 Run the doctor to confirm hook, MCP, and runtime health:
 ```bash
-npm run check:antigravity
-npm run test:antigravity
+npm run check:runtime
+npm run test:runtime
 ```
 
 ---

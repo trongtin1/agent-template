@@ -8,7 +8,7 @@ version: 1.0.0
 
 # Systematic Debugging
 
-> AG Kit Debugging Engine — Evidence-based root-cause analysis, error classification, and systematic recovery.
+> Agent Kit Debugging Engine — Evidence-based root-cause analysis, error classification, and systematic recovery.
 
 ## Overview
 This skill provides a structured approach to debugging that prevents random guessing, classifies errors systematically, and ensures problems are resolved with evidence or escalated clearly.

@@ -61,7 +61,7 @@ function targetPath(target) {
 function backup(file) {
   if (!fs.existsSync(file)) return null;
   const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const backupFile = `${file}.ag-kit-backup-${stamp}`;
+  const backupFile = `${file}.agent-kit-backup-${stamp}`;
   fs.copyFileSync(file, backupFile);
   return backupFile;
 }

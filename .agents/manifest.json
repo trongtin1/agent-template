@@ -515,10 +515,10 @@
     }
   },
   "contracts": {
-    "antigravityRuntime": "1.0.0",
     "componentApi": "1.0.0",
     "memorySchema": "1.0.0",
     "rulesApi": "1.0.0",
+    "runtimeContract": "1.0.0",
     "workflowApi": "1.0.0"
   },
   "kitVersion": "2026.8.31",
@@ -561,8 +561,8 @@
     }
   },
   "runtimes": {
-    "antigravity": {
-      "path": "antigravity.json",
+    "agent-kit": {
+      "path": "agent-kit.json",
       "phases": {
         "discovery": {
           "rules": ".agents/rules",
@@ -598,10 +598,10 @@
         },
         "plugin": {
           "builder": ".agents/hooks/build-plugin.mjs",
-          "defaultOutput": "dist/antigravity-plugin"
+          "defaultOutput": "dist/agent-kit-plugin"
         },
         "validation": {
-          "doctor": ".agents/hooks/antigravity-doctor.mjs",
+          "doctor": ".agents/hooks/doctor.mjs",
           "tests": ".agents/hooks/tests"
         }
       },
@@ -1297,10 +1297,14 @@
       "other Markdown-compatible agent tools"
     ],
     "official": [
+      "Claude Code",
+      "Cursor",
+      "Codex",
+      "VS Code Copilot",
       "Google Antigravity"
     ],
     "portableFormat": true,
-    "primary": "Google Antigravity"
+    "primary": "Agent Kit"
   },
   "workflows": {
     "brainstorm": {

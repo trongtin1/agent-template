@@ -16,7 +16,7 @@ $ARGUMENTS
 ## 🔴 CRITICAL RULES
 
 1. **NO CODE WRITING** - This command creates plan file only
-2. **Use project-planner agent** - NOT AG Kit Agent's native Plan mode
+2. **Use project-planner agent** - NOT Agent Kit Agent's native Plan mode
 3. **Socratic Gate** - Ask clarifying questions before planning
 4. **Dynamic Naming** - Plan file named based on task
 

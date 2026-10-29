@@ -20,3 +20,15 @@ build/
 *.tmp
 __pycache__/
 *.pyc
+
+# Generated IDE adapters (create with: npx @trongtin1/agent-template sync --target <ide>)
+.agents/.agent-kit/generated.json
+/CLAUDE.md
+/AGENTS.md
+/.claude/
+/.cursor/
+/.github/copilot-instructions.md
+/.github/prompts/
+/.github/agents/
+/.vscode/mcp.json
+/.mcp.json

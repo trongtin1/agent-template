@@ -79,7 +79,7 @@ async function main() {
   try {
     raw = await readStdin();
   } catch (error) {
-    console.error(`AG Kit hook warning: ${error.message}`);
+    console.error(`Agent Kit hook warning: ${error.message}`);
     return 0;
   }
 
@@ -87,24 +87,24 @@ async function main() {
   try {
     payload = JSON.parse(raw || '{}');
   } catch {
-    console.error('AG Kit hook warning: Antigravity sent invalid JSON; allowing the call to avoid a runtime-wide lockout.');
+    console.error('Agent Kit hook warning: the IDE sent invalid JSON; allowing the call to avoid a runtime-wide lockout.');
     return 0;
   }
 
   const command = extractCommand(payload);
   if (!command) {
-    console.log('AG Kit hook: no command payload detected; allowed.');
+    console.log('Agent Kit hook: no command payload detected; allowed.');
     return 0;
   }
 
   const result = evaluateCommand(command);
   if (!result.allowed) {
-    console.error(`BLOCKED by AG Kit (${result.rule}): ${result.reason}.`);
-    // Claude Code treats only exit code 2 as a blocking hook error; Antigravity uses 1.
+    console.error(`BLOCKED by Agent Kit (${result.rule}): ${result.reason}.`);
+    // Claude Code treats only exit code 2 as a blocking hook error; Antigravity/Gemini use 1.
     return payload?.tool_input ? 2 : 1;
   }
 
-  console.log('APPROVED by AG Kit: command passed the destructive-operation gate.');
+  console.log('APPROVED by Agent Kit: command passed the destructive-operation gate.');
   return 0;
 }
 

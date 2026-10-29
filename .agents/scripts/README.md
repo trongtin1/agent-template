@@ -1,4 +1,4 @@
-# AG Kit Runtime Scripts
+# Agent Kit Runtime Scripts
 
 ## Entry points
 

@@ -1,7 +1,7 @@
 {
   "name": "@trongtin1/agent-template",
   "version": "2026.8.31",
-  "description": "Autonomous multi-agent and skills template for Google Antigravity IDE, Gemini CLI and Claude Code",
+  "description": "Autonomous multi-agent and skills template for Claude Code, Cursor, Codex, VS Code Copilot, Antigravity and Gemini CLI",
   "type": "module",
   "bin": {
     "agent-template": "./bin/cli.mjs",
@@ -12,23 +12,27 @@
   },
   "files": [
     ".agents/",
+    "!.agents/.agent-kit/generated.json",
     "bin/"
   ],
   "scripts": {
     "check:agents": "python .agents/scripts/validate_kit.py",
-    "check:antigravity": "node .agents/hooks/antigravity-doctor.mjs",
-    "test:antigravity": "node --test .agents/hooks/tests/antigravity.test.mjs",
+    "check:runtime": "node .agents/hooks/doctor.mjs",
+    "test:runtime": "node --test .agents/hooks/tests/hooks.test.mjs .agents/hooks/tests/sync-targets.test.mjs",
     "test:toolkit": "python -m unittest discover -s .agents/scripts/tests",
     "audit:ux": "python .agents/skills/frontend-design/scripts/ux_audit.py",
     "code:outline": "python .agents/scripts/code_outline.py",
     "lint:tailwind": "node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs",
-    "sync:claude": "node .agents/scripts/sync_claude.mjs",
+    "sync:targets": "node .agents/scripts/sync_targets.mjs",
     "sync:manifest": "python .agents/scripts/generate_manifest.py && python .agents/scripts/dependency_graph.py"
   },
   "keywords": [
     "antigravity",
     "gemini",
     "claude-code",
+    "cursor",
+    "codex",
+    "copilot",
     "agents",
     "skills",
     "ai-coding"

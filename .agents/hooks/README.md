@@ -1,30 +1,30 @@
-# AG Kit — Antigravity Native Integration
+# Agent Kit — Native Runtime Integration
 
-AG Kit now treats Google Antigravity as its primary runtime. The integration is intentionally built from Antigravity's workspace-native conventions instead of a cross-runtime abstraction.
+Agent Kit's native runtime layer (`.agents/hooks.json`, MCP, plugin) follows the Antigravity/Gemini conventions; other IDEs get generated adapters (see root README). The integration is intentionally built from Antigravity's workspace-native conventions instead of a cross-runtime abstraction.
 
 ## What is active
 
-| Phase | Native surface | AG Kit implementation |
+| Phase | Native surface | Agent Kit implementation |
 | --- | --- | --- |
 | 1. Discovery | `.agents/rules/`, `.agents/skills/`, `.agents/workflows/` | Doctor validates discovery paths and required frontmatter |
 | 2. MCP | `.agents/mcp_config.json` | Workspace validation plus explicit, backup-aware sync helper |
 | 3. Hooks | `.agents/hooks.json` | `PreToolUse` gate for clearly destructive `run_command` calls |
-| 4. Orchestration | workflows, specialist definitions, Antigravity subagents | Validates `/coordinate`, `/orchestrate`, core roles, and routing skills |
+| 4. Orchestration | workflows, specialist definitions, IDE subagents | Validates `/coordinate`, `/orchestrate`, core roles, and routing skills |
 | 5. Plugin | Antigravity CLI plugin import | Deterministic local plugin bundle builder |
 | 6. Validation | CI and smoke tests | Doctor, hook regression tests, MCP tests, and plugin build tests |
 
 ## Quick verification
 
 ```bash
-node .agents/hooks/antigravity-doctor.mjs
-node --test .agents/hooks/tests/antigravity.test.mjs
+node .agents/hooks/doctor.mjs
+node --test .agents/hooks/tests/hooks.test.mjs
 ```
 
 The doctor checks the installed workspace without changing files. Use `--json` for machine-readable output and `--strict` to treat unresolved configuration placeholders as failures.
 
 ## Native safety hook
 
-Antigravity reads `.agents/hooks.json`. AG Kit registers one native hook:
+The native runtime reads `.agents/hooks.json`. Agent Kit registers one native hook:
 
 ```json
 {
@@ -41,7 +41,7 @@ Antigravity reads `.agents/hooks.json`. AG Kit registers one native hook:
 
 The policy blocks only high-confidence destructive operations such as deleting a filesystem root, formatting a drive, or overwriting a raw disk. It deliberately allows normal cleanup such as deleting `dist/` or `node_modules/`.
 
-The hook is not a sandbox and does not replace Antigravity's permission settings. Invalid or unknown payload shapes fail open with a warning to prevent a runtime-wide lockout after upstream payload changes.
+The hook is not a sandbox and does not replace the IDE's permission settings. Invalid or unknown payload shapes fail open with a warning to prevent a runtime-wide lockout after upstream payload changes.
 
 ## MCP setup
 
@@ -65,24 +65,24 @@ The helper never overwrites an existing server with the same name unless `--forc
 
 ## Orchestration
 
-AG Kit uses the existing Antigravity-native workflows:
+Agent Kit uses the existing runtime-native workflows:
 
 - `/coordinate` for parallel read/research and synthesis;
 - `/orchestrate` for plan approval followed by specialist implementation;
 - `.agents/agent/*.md` as role definitions;
 - `coordinator-mode`, `parallel-agents`, `intelligent-routing`, and `verify-changes` as orchestration skills.
 
-Antigravity's `/agents` and `/tasks` views remain the runtime source of truth for active work. AG Kit does not create a second scheduler.
+the IDE's `/agents` and `/tasks` views remain the runtime source of truth for active work. Agent Kit does not create a second scheduler.
 
 ## Build a plugin bundle
 
 ```bash
 node .agents/hooks/build-plugin.mjs
 # or
-npm run build:antigravity-plugin
+npm run build:agent-kit-plugin
 ```
 
-The generated `dist/antigravity-plugin/` contains:
+The generated `dist/agent-kit-plugin/` contains:
 
 - a `gemini-extension.json` compatible manifest used by Antigravity CLI's plugin importer;
 - packaged skills and specialist definitions;
@@ -93,7 +93,7 @@ The generated `dist/antigravity-plugin/` contains:
 Install the local build after reviewing it:
 
 ```bash
-agy plugin install ./dist/antigravity-plugin
+agy plugin install ./dist/agent-kit-plugin
 agy plugin list
 ```
 
@@ -103,12 +103,12 @@ agy plugin list
 - Placeholder credentials block MCP application.
 - The plugin builder does not include secrets from environment variables or home-directory configuration.
 - The hook only reads one tool payload from stdin and performs no network calls.
-- AG Kit does not weaken Antigravity permission prompts or workspace trust controls.
+- Agent Kit does not weaken Antigravity permission prompts or workspace trust controls.
 
 ## Release and operations
 
 - [Root README](../../README.md) — installation and production quick start.
-- [Migration guide](../../MIGRATION.md) — upgrade and rollback from earlier AG Kit versions.
+- [Migration guide](../../MIGRATION.md) — upgrade and rollback from earlier Agent Kit versions.
 - [Production checklist](../../PRODUCTION_CHECKLIST.md) — automated and hands-on release gates.
 - [Security policy](../../SECURITY.md) — threat model, incident handling, and hook recovery.
 

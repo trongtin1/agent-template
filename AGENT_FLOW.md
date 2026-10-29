@@ -1,17 +1,17 @@
 # 🔄 Agent Flow Architecture
 
-> **AG Kit 2026.8.31** — Antigravity-native production workflow, multi-agent orchestration, and phase-gate architecture.
+> **Agent Kit 2026.8.31** — runtime-native production workflow, multi-agent orchestration, and phase-gate architecture.
 
 ---
 
-## 🏛️ Antigravity Runtime Boundary
+## 🏛️ Runtime Boundary
 
-AG Kit defines project behavior in `.agents/`; **Google Antigravity IDE** is the production runtime that discovers, binds, and executes it.
+Agent Kit defines project behavior in `.agents/`; your IDE (Claude Code, Cursor, Codex, VS Code Copilot, Antigravity) is the runtime that discovers, binds, and executes it.
 
 ```text
 User Request
     ↓
-Antigravity Workspace Discovery
+IDE Workspace Discovery
     ├── .agents/rules/       Persistent constraints (Tier 0 & Tier 1)
     ├── .agents/skills/      Progressive domain context (54 skills)
     ├── .agents/workflows/   Slash-command procedures (15 workflows)
@@ -31,7 +31,7 @@ Code Intelligence & Quality Gates
     └── Zero-Diagnostics Gate (LSP/ESLint feedback loop)
     ↓
 Tool & Safety Boundary
-    ├── Antigravity permissions and workspace trust
+    ├── IDE permissions and workspace trust
     ├── .agents/hooks.json → PreToolUse safety gate (blocks root/disk destruction)
     └── User Approval Gate → Mandatory explicit approval for git commit & push
     ↓
@@ -50,8 +50,8 @@ Execution, Verification & Memory
 | **2. MCP** | Validate workspace Model Context Protocol servers | `.agents/mcp_config.json` |
 | **3. Hooks** | Gate high-confidence destructive command patterns | `.agents/hooks.json` & `.agents/hooks/validate-tool-call.mjs` |
 | **4. Orchestration** | Coordinate specialist agents, parallel workers, and `/party` mode | Workflows, agent definitions, `coordinator-mode`, `parallel-agents` |
-| **5. Plugin** | Package reviewed components for optional Antigravity plugin export | `.agents/hooks/build-plugin.mjs` |
-| **6. Validation** | Prove structure, compatibility, security, and integrity | `npm run check:agents`, `npm run check:antigravity`, `npm run test:antigravity` |
+| **5. Plugin** | Package reviewed components for optional Agent Kit plugin export | `.agents/hooks/build-plugin.mjs` |
+| **6. Validation** | Prove structure, compatibility, security, and integrity | `npm run check:agents`, `npm run check:runtime`, `npm run test:runtime` |
 
 ---
 

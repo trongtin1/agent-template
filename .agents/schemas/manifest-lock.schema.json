@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ag-kit.local/schemas/manifest-lock.schema.json",
-  "title": "AG Kit Component Lock",
+  "$id": "https://agent-kit.local/schemas/manifest-lock.schema.json",
+  "title": "Agent Kit Component Lock",
   "type": "object",
   "required": ["schemaVersion", "kitVersion", "manifestSha256", "components"],
   "properties": {

@@ -8,7 +8,7 @@ version: 1.0.0
 
 # Plan Writing
 
-> AG Kit Planning Engine — Structured task planning with 100% requirement fidelity, clear breakdowns, and verification criteria.
+> Agent Kit Planning Engine — Structured task planning with 100% requirement fidelity, clear breakdowns, and verification criteria.
 
 ## Requirements Intake & Registry (MANDATORY)
 

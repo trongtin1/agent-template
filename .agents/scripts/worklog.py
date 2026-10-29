@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Daily Worklog Manager - AG Kit
+Daily Worklog Manager - Agent Kit
 =================================
 Automates and maintains daily session logs in docs/worklog/YYYY-MM-DD.md
 within the target project workspace.

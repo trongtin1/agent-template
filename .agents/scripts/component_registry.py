@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build deterministic AG Kit component and runtime metadata."""
+"""Build deterministic Agent Kit component and runtime metadata."""
 from __future__ import annotations
 
 import hashlib
@@ -90,14 +90,14 @@ def _relative(root: Path, path: Path) -> str:
 
 
 def _runtime_manifest(root: Path) -> dict[str, Any]:
-    path = root / "antigravity.json"
+    path = root / "agent-kit.json"
     if not path.is_file():
-        raise ValueError("Missing Antigravity runtime contract: antigravity.json")
+        raise ValueError("Missing Agent Kit runtime contract: agent-kit.json")
     data = json.loads(path.read_text("utf-8"))
-    if data.get("runtime") != "antigravity":
-        raise ValueError("antigravity.json runtime must be 'antigravity'")
+    if data.get("runtime") != "agent-kit":
+        raise ValueError("agent-kit.json runtime must be 'agent-kit'")
     return {
-        "path": "antigravity.json",
+        "path": "agent-kit.json",
         "schemaVersion": data.get("schemaVersion"),
         "requiredCliCommands": data.get("requiredCliCommands", []),
         "phases": data.get("phases", {}),
@@ -163,19 +163,19 @@ def build_manifest(root: Path) -> dict[str, Any]:
         "schemaVersion": "1.0.0",
         "kitVersion": kit_version,
         "contracts": {
-            "antigravityRuntime": "1.0.0",
+            "runtimeContract": "1.0.0",
             "componentApi": "1.0.0",
             "memorySchema": "1.0.0",
             "rulesApi": "1.0.0",
             "workflowApi": "1.0.0",
         },
         "support": {
-            "primary": "Google Antigravity",
-            "official": ["Google Antigravity"],
+            "primary": "Agent Kit",
+            "official": ["Claude Code", "Cursor", "Codex", "VS Code Copilot", "Google Antigravity"],
             "bestEffort": ["Gemini CLI", "other Markdown-compatible agent tools"],
             "portableFormat": True,
         },
-        "runtimes": {"antigravity": _runtime_manifest(root)},
+        "runtimes": {"agent-kit": _runtime_manifest(root)},
         "agents": agents,
         "skills": skills,
         "workflows": workflows,
@@ -196,7 +196,7 @@ def component_files(root: Path) -> list[Path]:
         "README.md",
         "ARCHITECTURE.md",
         "CHANGELOG.md",
-        "antigravity.json",
+        "agent-kit.json",
         "hooks.json",
         "mcp_config.json",
     ):
