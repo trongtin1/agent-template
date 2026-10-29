@@ -54,7 +54,7 @@ function firstString(...values) {
 }
 
 export function extractCommand(payload) {
-  const args = payload?.tool_args ?? payload?.toolArgs ?? payload?.arguments ?? {};
+  const args = payload?.tool_args ?? payload?.toolArgs ?? payload?.arguments ?? payload?.tool_input ?? {};
   return firstString(
     args.CommandLine,
     args.commandLine,
@@ -100,7 +100,8 @@ async function main() {
   const result = evaluateCommand(command);
   if (!result.allowed) {
     console.error(`BLOCKED by AG Kit (${result.rule}): ${result.reason}.`);
-    return 1;
+    // Claude Code treats only exit code 2 as a blocking hook error; Antigravity uses 1.
+    return payload?.tool_input ? 2 : 1;
   }
 
   console.log('APPROVED by AG Kit: command passed the destructive-operation gate.');

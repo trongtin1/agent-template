@@ -1,7 +1,7 @@
 {
   "name": "@trongtin1/agent-template",
   "version": "2026.8.31",
-  "description": "Autonomous multi-agent and skills template for Google Antigravity IDE and Gemini CLI",
+  "description": "Autonomous multi-agent and skills template for Google Antigravity IDE, Gemini CLI and Claude Code",
   "type": "module",
   "bin": {
     "agent-template": "./bin/cli.mjs",
@@ -22,11 +22,13 @@
     "audit:ux": "python .agents/skills/frontend-design/scripts/ux_audit.py",
     "code:outline": "python .agents/scripts/code_outline.py",
     "lint:tailwind": "node .agents/skills/lint-and-validate/scripts/tailwind_lint.mjs",
+    "sync:claude": "node .agents/scripts/sync_claude.mjs",
     "sync:manifest": "python .agents/scripts/generate_manifest.py && python .agents/scripts/dependency_graph.py"
   },
   "keywords": [
     "antigravity",
     "gemini",
+    "claude-code",
     "agents",
     "skills",
     "ai-coding"

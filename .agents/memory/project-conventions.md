@@ -12,7 +12,7 @@ updated: 2026-09-07
 - Branch name format should follow: `feature/[task-slug]` or `fix/[bug-slug]`.
 
 ## Supported AI platforms & Toolkit Identity (AG Kit)
-- AG Kit **only supports Gemini CLI and Google Antigravity**.
+- AG Kit supports **Gemini CLI, Google Antigravity and Claude Code** (Claude layer generated from `.agents/` by `sync_claude.mjs`).
 - Do not claim compatibility with Claude Code, Cursor, Copilot, Windsurf, or other assistants unless the user explicitly expands scope.
 - Copy on the website, docs, FAQ, README, and marketing should describe AG Kit as a toolkit for Gemini CLI / Antigravity-style agent setups.
 - **Toolkit Independence & Ownership**: This is AG Kit. NEVER reference external repos (e.g. GSD or others) in docs, commit messages, comments, or rules. All patterns belong natively to AG Kit.
