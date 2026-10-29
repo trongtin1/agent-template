@@ -1,12 +1,12 @@
-# AG Kit Architecture
+# Agent Kit Architecture
 
-> Antigravity-native AI Agent Capability Toolkit — 2026.7.26
+> runtime-native AI Agent Capability Toolkit — 2026.7.26
 
 ---
 
 ## 📋 Overview
 
-AG Kit is a modular Antigravity workspace system consisting of:
+Agent Kit is a modular multi-IDE workspace system consisting of:
 
 - **24 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect, Business Analyst, and UI/UX Designer);
 - **55 Skills** — domain knowledge modules with progressive conditional loading (including `ba-diagrams`, `userguide`, `find-skills`, `git-master`, `advanced-elicitation`);
@@ -14,17 +14,17 @@ AG Kit is a modular Antigravity workspace system consisting of:
 - **5 Phase Gate Checklists** — deterministic quality gates between requirements, architecture, design, code, and QA;
 - **6 Rules** — workspace routing, coding, design, safety, and quick-reference constraints;
 - **2 Output Styles** — curated Vietnamese and English concise communication styles;
-- **Antigravity runtime layer** — contract, native hook, MCP helper, plugin builder, Doctor, schemas, and tests.
+- **Agent Kit runtime layer** — contract, native hook, MCP helper, plugin builder, Doctor, schemas, and tests.
 
 ---
 
 ## 🔐 Managed Component Registry (2026.7.26)
 
-AG Kit uses dual-track versioning:
+Agent Kit uses dual-track versioning:
 
 - Toolkit releases use **CalVer** in `VERSION` (`YYYY.M.D`).
 - Agents, skills, workflows, and rules use strict **SemVer** in frontmatter.
-- `manifest.json` records component paths, versions, tools, dependencies, and the Antigravity runtime contract.
+- `manifest.json` records component paths, versions, tools, dependencies, and the Agent Kit runtime contract.
 - `manifest.lock.json` records deterministic SHA-256 hashes for managed components and runtime tooling.
 - `DEPENDENCY_GRAPH.md` is generated from the registry and must not be edited manually.
 
@@ -36,7 +36,7 @@ python .agents/scripts/dependency_graph.py --check
 python .agents/scripts/validate_kit.py
 ```
 
-Any managed change without registry regeneration fails validation and CI. Google Antigravity is the primary production runtime; other Markdown-compatible tools are best-effort consumers.
+Any managed change without registry regeneration fails validation and CI. Agent Kit is runtime-neutral and targets multiple IDEs; other Markdown-compatible tools are best-effort consumers.
 
 ---
 
@@ -47,8 +47,8 @@ Any managed change without registry regeneration fails validation and CI. Google
 ├── README.md                 # Toolkit operating guide
 ├── ARCHITECTURE.md           # Capability inventory and design
 ├── VERSION                   # Toolkit CalVer
-├── antigravity.json          # Runtime contract and six integration phases
-├── hooks.json                # Native Antigravity hook registration
+├── agent-kit.json          # Runtime contract and six integration phases
+├── hooks.json                # Native hook registration
 ├── mcp_config.json           # Workspace MCP example/source
 ├── manifest.json             # Generated component registry
 ├── manifest.lock.json        # Generated integrity lock
@@ -59,7 +59,7 @@ Any managed change without registry regeneration fails validation and CI. Google
 ├── rules/                    # 6 workspace constraints
 ├── memory/                   # Persistent project context
 ├── checklists/               # 5 phase gate quality criteria
-├── hooks/                    # Antigravity Doctor, policy, MCP, plugin, schemas, tests
+├── hooks/                    # Agent Kit Doctor, policy, MCP, plugin, schemas, tests
 ├── schemas/                  # Managed component and memory schemas
 └── scripts/                  # Registry, validator, and project verification tools
 ```
@@ -67,16 +67,16 @@ Any managed change without registry regeneration fails validation and CI. Google
 ---
 
 
-## Antigravity runtime architecture
+## Agent Kit runtime architecture
 
 ```text
-.antigravity.json contract
+.agent-kit.json contract
         ↓
 workspace discovery ── rules + skills + workflows + agent roles
         ↓
 routing/orchestration ── direct role | /coordinate | /orchestrate
         ↓
-Antigravity permissions + .agents/hooks.json PreToolUse gate
+IDE permissions + .agents/hooks.json PreToolUse gate
         ↓
 tool execution, project validation, evidence, memory update
         ↓
@@ -88,11 +88,11 @@ optional plugin packaging and production release gates
 | Discovery | `rules/`, `skills/`, `workflows/` | Frontmatter and required paths validated |
 | MCP | `mcp_config.json`, `hooks/sync-mcp.mjs` | No implicit home-directory write; placeholder and conflict protection |
 | Hooks | `hooks.json`, `hooks/validate-tool-call.mjs` | Narrow destructive-command gate; native permissions retained |
-| Orchestration | workflows, agents, routing skills | Antigravity `/agents` and `/tasks` remain runtime state |
+| Orchestration | workflows, agents, routing skills | the IDE `/agents` and `/tasks` remain runtime state |
 | Plugin | `hooks/build-plugin.mjs`, `hooks/plugin/` | Reviewable local bundle with SHA-256 inventory |
 | Validation | Doctor, tests, CI, production checklist | Automated checks plus mandatory hands-on smoke test |
 
-The Antigravity runtime files are included in the managed integrity lock beginning with `2026.7.26`.
+The Agent Kit runtime files are included in the managed integrity lock beginning with `2026.7.26`.
 
 ---
 
@@ -316,7 +316,7 @@ allowed-tools: Read, Grep, Glob
 
 ## 🛠️ Runtime Scripts
 
-AG Kit includes **7 user-facing top-level utilities**, **2 internal registry/runner modules**, **4 Antigravity runtime utilities**, and **19 skill-level scripts**.
+Agent Kit includes **7 user-facing top-level utilities**, **2 internal registry/runner modules**, **4 Agent Kit runtime utilities**, and **19 skill-level scripts**.
 
 ### Toolkit utilities
 
@@ -332,14 +332,14 @@ AG Kit includes **7 user-facing top-level utilities**, **2 internal registry/run
 | `scripts/validation_runner.py` | Shared process runner used by checklist/verify | Internal module |
 | `scripts/component_registry.py` | Registry parser, SemVer resolver, runtime metadata, and hasher | Internal module |
 
-### Antigravity runtime utilities
+### Agent Kit runtime utilities
 
 | Script | Purpose |
 |---|---|
-| `hooks/antigravity-doctor.mjs` | Read-only six-phase compatibility and release diagnostics |
+| `hooks/doctor.mjs` | Read-only six-phase compatibility and release diagnostics |
 | `hooks/validate-tool-call.mjs` | Native destructive-command safety gate |
 | `hooks/sync-mcp.mjs` | Review and explicitly synchronize MCP configuration |
-| `hooks/build-plugin.mjs` | Build a reviewable Antigravity plugin bundle |
+| `hooks/build-plugin.mjs` | Build a reviewable Agent Kit plugin bundle |
 
 ### Usage
 
@@ -348,10 +348,10 @@ AG Kit includes **7 user-facing top-level utilities**, **2 internal registry/run
 python .agents/scripts/generate_manifest.py
 python .agents/scripts/dependency_graph.py
 
-# Validate toolkit and Antigravity integration
+# Validate toolkit and runtime integration
 npm run check:agents
-npm run check:antigravity
-npm run test:antigravity
+npm run check:runtime
+npm run test:runtime
 
 # Fast project checks
 python .agents/scripts/checklist.py .
@@ -365,7 +365,7 @@ python .agents/scripts/verify_all.py . \
 ### Verification coverage
 
 - Component SemVer, registry, lock, dependency graph, memory, links, and references
-- Antigravity discovery, MCP shape/placeholders, native hook registration, orchestration inputs, plugin inputs, and version synchronization
+- Runtime discovery, MCP shape/placeholders, native hook registration, orchestration inputs, plugin inputs, and version synchronization
 - Security and secret scanning with blocking exit codes
 - Offline dependency/lock-file hygiene
 - Linting, type coverage, schema validation, and tests
@@ -385,7 +385,7 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 | **Total Skills**    | 55                                |
 | **Total Workflows** | 16 (+4 new)                       |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |
-| **Antigravity Utilities** | 4 runtime utilities              |
+| **Runtime Utilities** | 4 runtime utilities              |
 | **Total Skill Scripts** | 19                              |
 | **Coverage**        | Web, API, mobile, security, quality, runtime, orchestration |
 | **Token Efficiency**| Reduced via conditional skill loading |

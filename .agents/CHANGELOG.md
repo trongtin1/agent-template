@@ -1,4 +1,12 @@
-# AG Kit Toolkit Changelog
+# Agent Kit Toolkit Changelog
+
+## Unreleased
+
+### Changed
+- Renamed **AG Kit** to **Agent Kit** and removed Antigravity-specific naming: `antigravity.json` → `agent-kit.json`, `.ag-kit/` → `.agent-kit/`, `antigravity-doctor.mjs` → `doctor.mjs`, schemas/tests renamed, `check:antigravity`/`test:antigravity` → `check:runtime`/`test:runtime`, runtime id `antigravity` → `agent-kit`.
+
+### Added
+- Multi-IDE targets: `init|sync --target claude,cursor,codex,vscode,antigravity|all` generates the matching files from `.agents/` via `scripts/sync_targets.mjs`. Existing user files are never overwritten; stale generated files are cleaned up per target.
 
 ## 2026.9.5 (Optimized Kit Release)
 
@@ -56,7 +64,7 @@
 - Toolkit version advanced from `2026.7.18` to `2026.7.26`.
 - Google Antigravity is the primary production runtime; other Markdown-compatible tools are best-effort consumers.
 - Component manifest now records Antigravity runtime metadata.
-- Integrity lock now covers `antigravity.json`, `hooks.json`, and the complete `hooks/` runtime-tooling tree.
+- Integrity lock now covers `agent-kit.json`, `hooks.json`, and the complete `hooks/` runtime-tooling tree.
 - Self-validation and Antigravity Doctor enforce synchronized root, CLI, web, and toolkit versions.
 
 ### Security

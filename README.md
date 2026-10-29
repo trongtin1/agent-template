@@ -1,8 +1,23 @@
 # Agent Template
 
-Starter repository pre-configured with an autonomous multi-agent and skills framework for **Google Antigravity IDE**, **Gemini CLI** and **Claude Code**.
+Starter repository pre-configured with an autonomous multi-agent and skills framework for **Claude Code**, **Cursor**, **Codex**, **VS Code (Copilot)**, **Google Antigravity** and **Gemini CLI**.
 
-> **Claude Code:** `.agents/` is the single source of truth. Run `npm run sync:claude` to (re)generate `CLAUDE.md`, `.claude/{agents,skills,commands,settings.json}` and `.mcp.json`. `npx @trongtin1/agent-template init|update` does this automatically.
+> **One kit, many IDEs.** `.agents/` is the single source of truth. Pick your IDE(s) and Agent Kit generates the matching files:
+>
+> | `--target` | IDE | Generated files |
+> | --- | --- | --- |
+> | `claude` | Claude Code | `CLAUDE.md`, `.claude/{agents,skills,commands,settings.json}`, `.mcp.json` |
+> | `cursor` | Cursor | `.cursor/rules/*.mdc`, `.cursor/commands/`, `.cursor/mcp.json` |
+> | `codex` | Codex | `AGENTS.md` |
+> | `vscode` | VS Code (GitHub Copilot) | `.github/{copilot-instructions.md,prompts,agents}`, `.vscode/mcp.json` |
+> | `antigravity` | Google Antigravity / Gemini CLI | nothing extra — `.agents/` is native |
+>
+> ```bash
+> npx @trongtin1/agent-template init --target claude,cursor   # or --target all; omit for an interactive menu
+> npx @trongtin1/agent-template sync --target vscode          # add another IDE later
+> ```
+>
+> Generated files are never hand-edited: change `.agents/`, then run `npm run sync:targets` (or `update`, which re-syncs your chosen IDEs). Existing files that Agent Kit did not generate are never overwritten.
 
 ---
 
@@ -81,7 +96,7 @@ git clone https://github.com/trongtin1/agent-template my-new-project
 cd my-new-project
 ```
 
-Open `my-new-project/` in Antigravity IDE — the `.agents/` directory is discovered automatically.
+Open `my-new-project/` in your IDE and run `npx /agent-template init --target <ide>`.
 
 ---
 
@@ -107,11 +122,11 @@ After setup, confirm everything is working:
 
 ```bash
 npm run check:agents       # Validate .agents structure
-npm run check:antigravity  # Antigravity integration check (read-only)
-npm run test:antigravity   # Run regression tests
+npm run check:runtime  # Runtime integration check (read-only)
+npm run test:runtime   # Run regression tests
 ```
 
-Then open the project in Antigravity IDE and confirm:
+Then open the project in your IDE and confirm:
 
 1. Slash commands like `/plan`, `/commit`, `/orchestrate` are discovered.
 2. Skills are loaded from `.agents/skills/`.
@@ -130,7 +145,7 @@ The command must exit non-zero and print `BLOCKED`.
 
 ## ⚠️ Important: Do Not Gitignore `.agents/`
 
-Do **not** add `.agents/` to your project's `.gitignore`. Antigravity needs to index rules, skills, and workflows from this directory.
+Do **not** add `.agents/` to your project's `.gitignore`. Your IDE needs to index rules, skills, and workflows from this directory.
 
 If you want to keep `.agents/` local without disabling discovery, add it to `.git/info/exclude` instead:
 
@@ -142,7 +157,7 @@ echo ".agents/" >> .git/info/exclude
 
 ## 🔌 External Integrations & MCP Guide
 
-AG Kit is engineered to work **100% out of the box with ZERO required external tools or MCPs**. All MCPs and integrations are strictly optional:
+Agent Kit is engineered to work **100% out of the box with ZERO required external tools or MCPs**. All MCPs and integrations are strictly optional:
 
 - **Built-in Core Tools (Zero pip/npm install)**: `code_outline.py` (structural AST outline), `worklog.py` (daily session tracking).
 - **Optional MCPs**:

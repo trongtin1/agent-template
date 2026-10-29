@@ -5,7 +5,7 @@ priority: P0
 trigger: always_on
 ---
 
-# Core Protocol - AG Kit
+# Core Protocol - Agent Kit
 
 > The highest-priority workspace rules. How the AI loads agents/skills and what it must do before any implementation.
 
@@ -100,7 +100,7 @@ Agent activated → Check frontmatter "skills:" → Read SKILL.md (INDEX) → Re
      * *QA / Sprints / Matrix*: Recommend `docs/04-qa/` (`roadmap-and-phases.md`, `verification-matrix.md`).
      * *Daily Execution / Bugfix*: Automatically route to `docs/worklog/YYYY-MM-DD.md`.
    - **Phase 3: Exit Guidance (Next Slash Command Navigation)**:
-     At the conclusion of every response, agents **MUST** utilize Google Antigravity's proactive slash command recommendation pattern (`👉 Next Recommended Step`), suggesting 1–2 actionable next workflows (e.g. `/plan`, `/party`, `/verify`, `/worklog`, `/commit`).
+     At the conclusion of every response, agents **MUST** utilize the proactive slash command recommendation pattern (`👉 Next Recommended Step`), suggesting 1–2 actionable next workflows (e.g. `/plan`, `/party`, `/verify`, `/worklog`, `/commit`).
 
 ---
 

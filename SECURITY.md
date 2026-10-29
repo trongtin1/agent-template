@@ -1,17 +1,17 @@
 # 🛡️ Security Policy & Threat Model
 
-> Antigravity-first safety guarantees, execution boundaries, and vulnerability disclosure for AG Kit.
+> runtime-native safety guarantees, execution boundaries, and vulnerability disclosure for Agent Kit.
 
 ---
 
 ## 🔒 Security Architecture & Guarantees
 
-AG Kit operates under a **defense-in-depth model** combining Antigravity IDE host permissions, safety hooks, and strict operational protocols:
+Agent Kit operates under a **defense-in-depth model** combining IDE host permissions, safety hooks, and strict operational protocols:
 
 ```text
 Host / OS Boundary (Windows / Linux / macOS)
-  └── Antigravity IDE Permissions & Workspace Trust
-        └── AG Kit PreToolUse Hook (validate-tool-call.mjs)
+  └── IDE Permissions & Workspace Trust
+        └── Agent Kit PreToolUse Hook (validate-tool-call.mjs)
               └── User Approval Gate (Git State Mutation)
                     └── Agent Execution Context
 ```
@@ -20,7 +20,7 @@ Host / OS Boundary (Windows / Linux / macOS)
 
 ## 🛑 Native Safety Hooks (`PreToolUse`)
 
-AG Kit includes a native hook configured in `.agents/hooks.json` that intercepts `run_command` before execution:
+Agent Kit includes a native hook configured in `.agents/hooks.json` that intercepts `run_command` before execution:
 
 - **Destructive File System Deletions**: Blocks patterns such as `rm -rf /`, `rm -rf /*`, `rm -rf /etc`, `rm -rf /usr`, and Windows `rmdir /s /q C:\`.
 - **Drive Formatting**: Blocks `format C:`, `mkfs.ext4`, `mkfs.*`, `fdisk`, and raw block device overwrites (`dd if=/dev/zero of=/dev/sd*`).
@@ -55,7 +55,7 @@ The agent **MUST** present the file list, proposed diff, and drafted Conventiona
 
 ## 🐛 Reporting a Vulnerability
 
-If you discover a security issue or bypass in AG Kit's hooks or agent boundaries:
+If you discover a security issue or bypass in Agent Kit's hooks or agent boundaries:
 1. Do **NOT** open a public GitHub issue.
 2. Review the repository security advisory page or contact maintainers privately.
 3. Include reproducible steps and tool call payloads.

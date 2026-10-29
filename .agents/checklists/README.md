@@ -1,4 +1,4 @@
-# Phase Gate Quality System — AG Kit
+# Phase Gate Quality System — Agent Kit
 
 > Deterministic transition criteria between development phases. No phase may transition to the next without satisfying its gate criteria.
 

@@ -6,7 +6,7 @@ trigger: glob
 globs: "**/*.{tsx,jsx,vue,svelte,css,scss},**/components/**,**/app/**/page.tsx"
 ---
 
-# Design Rules (TIER 2) - AG Kit
+# Design Rules (TIER 2) - Agent Kit
 
 > Loaded when touching UI files. Design rules live in the specialist agents, NOT here.
 

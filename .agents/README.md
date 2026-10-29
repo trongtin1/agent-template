@@ -1,10 +1,10 @@
-# AG Kit toolkit operator guide
+# Agent Kit toolkit operator guide
 
-AG Kit is a modular `.agents/` toolkit for Google Antigravity. It routes software-engineering work to specialist roles, progressively loads focused skills, preserves durable project context, and verifies changes with executable checks.
+Agent Kit is a modular `.agents/` toolkit for AI coding IDEs (Claude Code, Cursor, Codex, VS Code Copilot, Antigravity). It routes software-engineering work to specialist roles, progressively loads focused skills, preserves durable project context, and verifies changes with executable checks.
 
 ## Runtime contract
 
-Antigravity is the primary production runtime. The machine-readable contract is `.agents/antigravity.json` and covers six phases:
+The machine-readable contract is `.agents/agent-kit.json` and covers six phases:
 
 1. rules, skills, and workflow discovery;
 2. MCP configuration and explicit synchronization;
@@ -21,11 +21,11 @@ From the project root:
 
 ```bash
 npm run check:agents
-npm run check:antigravity
-npm run test:antigravity
+npm run check:runtime
+npm run test:runtime
 ```
 
-Open the repository as a trusted Antigravity workspace. The runtime should discover:
+Open the repository as a trusted workspace. The runtime should discover:
 
 - `rules/*.md` as workspace constraints;
 - `skills/*/SKILL.md` as progressively loaded domain context;
@@ -35,11 +35,11 @@ Open the repository as a trusted Antigravity workspace. The runtime should disco
 - `output-styles/*.md` as persona communication styles;
 - `memory/` as durable project context.
 
-Use `/coordinate` for separable parallel research/review work and `/orchestrate` for plan approval followed by specialist implementation. Antigravity `/agents` and `/tasks` remain the runtime source of truth.
+Use `/coordinate` for separable parallel research/review work and `/orchestrate` for plan approval followed by specialist implementation. the IDE `/agents` and `/tasks` remain the runtime source of truth.
 
 ## Native safety hook
 
-`.agents/hooks.json` registers a `PreToolUse` gate for `run_command`. The policy blocks only high-confidence root/disk destructive patterns. It does not replace Antigravity permissions, workspace trust, sandboxing, or user approval.
+`.agents/hooks.json` registers a `PreToolUse` gate for `run_command`. The policy blocks only high-confidence root/disk destructive patterns. It does not replace IDE permissions, workspace trust, sandboxing, or user approval.
 
 Test with mocked stdin only:
 
@@ -64,10 +64,10 @@ No home-directory file is changed without `--apply`. Existing server names are p
 ## Plugin bundle
 
 ```bash
-npm run build:antigravity-plugin
+npm run build:agent-kit-plugin
 ```
 
-Review `dist/antigravity-plugin/` and its `PLUGIN_CONTENTS.json` inventory before optional local installation. The repository `.agents/` directory remains the source of truth.
+Review `dist/agent-kit-plugin/` and its `PLUGIN_CONTENTS.json` inventory before optional local installation. The repository `.agents/` directory remains the source of truth.
 
 ## Core concepts
 
@@ -94,19 +94,19 @@ Run full project verification when a preview URL exists:
 python .agents/scripts/verify_all.py . --url http://localhost:3000
 ```
 
-Verify AG Kit itself after editing agents, skills, rules, workflows, memory, runtime tooling, schemas, scripts, or links:
+Verify Agent Kit itself after editing agents, skills, rules, workflows, memory, runtime tooling, schemas, scripts, or links:
 
 ```bash
 npm run generate:agents
 npm run check:agents
-npm run check:antigravity
-npm run test:antigravity
+npm run check:runtime
+npm run test:runtime
 ```
 
 ## Documentation
 
 - [Architecture and inventory](ARCHITECTURE.md)
-- [Antigravity integration](hooks/README.md)
+- [Runtime integration](hooks/README.md)
 - [Dependency graph](DEPENDENCY_GRAPH.md)
 - [Runtime scripts](scripts/README.md)
 - [Root migration guide](../MIGRATION.md)

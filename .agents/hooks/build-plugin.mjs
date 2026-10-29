@@ -13,7 +13,7 @@ function parseArgs(argv) {
     else if (argv[i] === '--output') options.output = path.resolve(argv[++i]);
     else throw new Error(`Unknown argument: ${argv[i]}`);
   }
-  options.output ??= path.join(options.root, 'dist', 'antigravity-plugin');
+  options.output ??= path.join(options.root, 'dist', 'agent-kit-plugin');
   return options;
 }
 
@@ -50,13 +50,13 @@ function tomlMultiline(value) {
 
 function convertWorkflows(root, output) {
   const source = path.join(root, '.agents', 'workflows');
-  const destination = path.join(output, 'commands', 'ag-kit');
+  const destination = path.join(output, 'commands', 'agent-kit');
   fs.mkdirSync(destination, {recursive: true});
   let count = 0;
   for (const name of fs.readdirSync(source).filter(item => item.endsWith('.md')).sort()) {
     const text = fs.readFileSync(path.join(source, name), 'utf8');
     const commandName = name.replace(/\.md$/, '');
-    const description = frontmatterDescription(text) || `Run AG Kit workflow ${commandName}`;
+    const description = frontmatterDescription(text) || `Run Agent Kit workflow ${commandName}`;
     const prompt = `${text}\n\nUser arguments: {{args}}`;
     fs.writeFileSync(
       path.join(destination, `${commandName}.toml`),
@@ -108,9 +108,9 @@ export function buildPlugin(root, output) {
   fs.copyFileSync(path.join(root, '.agents', 'mcp_config.json'), path.join(output, 'mcp_config.example.json'));
 
   const manifest = {
-    name: 'ag-kit',
+    name: 'agent-kit',
     version,
-    runtime: 'antigravity',
+    runtime: 'agent-kit',
     counts,
     files: inventory(output)
   };
@@ -122,7 +122,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   try {
     const options = parseArgs(process.argv.slice(2));
     const manifest = buildPlugin(options.root, options.output);
-    console.log(`Built Antigravity plugin: ${options.output}`);
+    console.log(`Built Agent Kit plugin: ${options.output}`);
     console.log(JSON.stringify(manifest.counts));
   } catch (error) {
     console.error(`Plugin build failed: ${error.message}`);

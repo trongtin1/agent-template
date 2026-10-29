@@ -89,7 +89,7 @@ def run_test(url: str, screenshot: bool, accessibility_only: bool, timeout_ms: i
                 }
 
             if screenshot:
-                screenshot_dir = Path(tempfile.gettempdir()) / "agkit_screenshots"
+                screenshot_dir = Path(tempfile.gettempdir()) / "agentkit_screenshots"
                 screenshot_dir.mkdir(parents=True, exist_ok=True)
                 screenshot_path = screenshot_dir / f"screenshot_{datetime.now().strftime('%Y%m%d_%H%M%S_%f')}.png"
                 page.screenshot(path=str(screenshot_path), full_page=True)

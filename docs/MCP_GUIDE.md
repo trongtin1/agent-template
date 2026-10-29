@@ -1,4 +1,4 @@
-# 🔌 External Integrations & MCP Guide (AG Kit)
+# 🔌 External Integrations & MCP Guide (Agent Kit)
 
 > **Zero-Friction Philosophy**: This template is designed to work **100% out of the box with ZERO required external tools or MCPs**. All third-party tools and MCP servers are strictly optional.
 
@@ -39,7 +39,7 @@
        }
      }
      ```
-  3. Apply the configuration to your Antigravity / Gemini IDE environment:
+  3. Apply the configuration to your IDE environment (Claude, Cursor, Codex, VS Code, Antigravity, Gemini):
      ```bash
      node .agents/hooks/sync-mcp.mjs --apply
      ```

@@ -9,7 +9,7 @@ effort: medium
 
 # Safe Parallel Agents
 
-> Antigravity-first patterns for bounded delegation, isolation, and evidence-based synthesis.
+> runtime-native patterns for bounded delegation, isolation, and evidence-based synthesis.
 
 ## Use parallel agents only when work is independent
 
@@ -30,7 +30,7 @@ Do not parallelize:
 
 ## Runtime-neutral capability discovery
 
-Google Antigravity is the primary production runtime. Use its native agent/task views and controls when available. Do not assume Claude-specific model names, built-in agents, or hidden tools.
+Agent Kit is runtime-neutral and targets multiple IDEs. Use its native agent/task views and controls when available. Do not assume Claude-specific model names, built-in agents, or hidden tools.
 
 Before delegation, confirm support for:
 
@@ -145,7 +145,7 @@ The penetration tester is used only for explicitly authorized targets and scope.
 
 ## Monitoring and no-progress detection
 
-Use Antigravity `/agents` and `/tasks` as the status source of truth. The coordinator should stop or redirect a worker when:
+Use the IDE `/agents` and `/tasks` as the status source of truth. The coordinator should stop or redirect a worker when:
 
 - it repeats the same failing action;
 - it requests broader access without evidence;

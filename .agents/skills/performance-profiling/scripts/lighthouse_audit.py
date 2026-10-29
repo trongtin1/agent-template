@@ -26,7 +26,7 @@ def run_lighthouse(url: str, timeout: int = 180) -> dict:
 
     output_path: Path | None = None
     try:
-        fd, raw_path = tempfile.mkstemp(prefix="agkit-lighthouse-", suffix=".json")
+        fd, raw_path = tempfile.mkstemp(prefix="agentkit-lighthouse-", suffix=".json")
         os.close(fd)
         output_path = Path(raw_path)
         proc = subprocess.run(
