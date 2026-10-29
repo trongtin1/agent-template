@@ -1,6 +1,8 @@
 # Agent Template
 
-Starter repository pre-configured with an autonomous multi-agent and skills framework for **Google Antigravity IDE** and **Gemini CLI**.
+Starter repository pre-configured with an autonomous multi-agent and skills framework for **Google Antigravity IDE**, **Gemini CLI** and **Claude Code**.
+
+> **Claude Code:** `.agents/` is the single source of truth. Run `npm run sync:claude` to (re)generate `CLAUDE.md`, `.claude/{agents,skills,commands,settings.json}` and `.mcp.json`. `npx @trongtin1/agent-template init|update` does this automatically.
 
 ---
 

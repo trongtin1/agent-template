@@ -63,6 +63,14 @@ function getGitModifiedFiles() {
   }
 }
 
+function syncClaude(dest) {
+  try {
+    execSync(`node "${path.join(dest, 'scripts', 'sync_claude.mjs')}" --root "${path.dirname(dest)}"`, { stdio: 'inherit' });
+  } catch {
+    warn('Could not generate the Claude Code layer. Run: node .agents/scripts/sync_claude.mjs');
+  }
+}
+
 function log(msg) { console.log(msg); }
 function ok(msg)  { console.log(`\x1b[32m✅ ${msg}\x1b[0m`); }
 function warn(msg){ console.log(`\x1b[33m⚠️  ${msg}\x1b[0m`); }
@@ -92,10 +100,11 @@ function cmdInit() {
   copyDir(AGENTS_SRC, destAgents);
 
   log('');
-  ok('.agents/ installed successfully!');
+  syncClaude(destAgents);
+  ok('.agents/ installed successfully (Antigravity + Claude Code)!');
   log('');
   info('Next steps:');
-  log('  1. Open this folder in Antigravity IDE as a trusted workspace.');
+  log('  1. Open this folder in Antigravity IDE or Claude Code (CLAUDE.md + .claude/ were generated).');
   log('  2. Slash commands like /plan, /commit, /orchestrate are now available.');
   log('  3. Run: npm run check:agents  (if you copied package.json scripts too)');
   log('');
@@ -160,6 +169,7 @@ function cmdUpdate() {
     info(`Dry run complete. ${stats.updated} file(s) would be updated, ${stats.conflicted} conflict(s).`);
     info('Remove --dry-run to apply changes.');
   } else {
+    syncClaude(destAgents);
     ok(`Update complete.`);
     log(`  Updated:    ${stats.updated}`);
     log(`  Conflicts:  ${stats.conflicted}  (saved as .incoming — review and merge manually)`);
