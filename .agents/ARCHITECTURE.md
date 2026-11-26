@@ -9,7 +9,7 @@
 Agent Kit is a modular multi-IDE workspace system consisting of:
 
 - **24 Specialist Agents** — role-based AI personas and orchestration roles (including System Architect, Business Analyst, and UI/UX Designer);
-- **55 Skills** — domain knowledge modules with progressive conditional loading (including `ba-diagrams`, `userguide`, `find-skills`, `git-master`, `advanced-elicitation`);
+- **56 Skills** — domain knowledge modules with progressive conditional loading (including `ba-diagrams`, `userguide`, `find-skills`, `git-master`, `advanced-elicitation`, `ui-ux-pro-max`);
 - **16 Workflows** — slash-command procedures (including `/commit`, `/party`, and `/worklog`);
 - **5 Phase Gate Checklists** — deterministic quality gates between requirements, architecture, design, code, and QA;
 - **6 Rules** — workspace routing, coding, design, safety, and quick-reference constraints;
@@ -316,7 +316,7 @@ allowed-tools: Read, Grep, Glob
 
 ## 🛠️ Runtime Scripts
 
-Agent Kit includes **7 user-facing top-level utilities**, **2 internal registry/runner modules**, **4 Agent Kit runtime utilities**, and **19 skill-level scripts**.
+Agent Kit includes **7 user-facing top-level utilities**, **2 internal registry/runner modules**, **4 Agent Kit runtime utilities**, and **25 skill-level scripts**.
 
 ### Toolkit utilities
 
@@ -382,11 +382,11 @@ For command details and prerequisites, see [scripts/README.md](scripts/README.md
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
 | **Total Agents**    | 24 (+1 plan-checker)              |
-| **Total Skills**    | 55                                |
+| **Total Skills**    | 56                                |
 | **Total Workflows** | 16 (+4 new)                       |
 | **Toolkit Utilities** | 7 user-facing + 2 internal modules |
 | **Runtime Utilities** | 4 runtime utilities              |
-| **Total Skill Scripts** | 19                              |
+| **Total Skill Scripts** | 25                              |
 | **Coverage**        | Web, API, mobile, security, quality, runtime, orchestration |
 | **Token Efficiency**| Reduced via conditional skill loading |
 

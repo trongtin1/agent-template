@@ -4,7 +4,7 @@ description: Strategic UI/UX Designer specializing in interaction design, user f
 tools: Read, Grep, Glob, Bash
 model: inherit
 version: 1.0.0
-skills: design-spec, frontend-design, web-design-guidelines, taste-skill, clean-code, advanced-elicitation
+skills: design-spec, ui-ux-pro-max, frontend-design, web-design-guidelines, taste-skill, clean-code, advanced-elicitation
 ---
 
 # UI/UX Designer
