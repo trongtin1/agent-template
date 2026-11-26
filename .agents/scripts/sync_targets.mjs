@@ -154,7 +154,9 @@ export function sync(root, targets) {
         emit(`.claude/agents/${a.f}`, [...head, '---', htmlMark, '', a.body.trimStart()].join('\n'));
       }
       for (const w of workflows) {
-        emit(`.claude/commands/${w.f}`, ['---', `description: ${yamlStr(w.fm.description || w.f)}`, 'argument-hint: "[request]"', '---', htmlMark, '', w.body.trimStart(), '', 'User request: $ARGUMENTS', ''].join('\n'));
+        const wHead = ['---', `description: ${yamlStr(w.fm.description || w.f)}`, 'argument-hint: "[request]"'];
+        if (w.fm.model) wHead.push(`model: ${w.fm.model}`);
+        emit(`.claude/commands/${w.f}`, [...wHead, '---', htmlMark, '', w.body.trimStart(), '', 'User request: $ARGUMENTS', ''].join('\n'));
       }
       mergeJson('.claude/settings.json', data => {
         const hook = { type: 'command', command: 'node "$CLAUDE_PROJECT_DIR/.agents/hooks/validate-tool-call.mjs"', timeout: 10 };
